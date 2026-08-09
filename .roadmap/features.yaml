@@ -236,7 +236,7 @@ features:
   - id: motion-design-system
     title: 可复用 Motion Design System
     area: 共享基础设施
-    status: todo
+    status: doing
     priority: low
     note: v0.6 方向;将已验证的 duration/easing/stagger/编排/中断/reduced-motion 决策沉淀到 motion-tokens 与 motion-kit,第二消费者出现后再稳定契约。
   - id: ai-assisted-animation-pipeline
