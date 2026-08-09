@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/card";
 
 const modes = [
-  { id: "signal", label: "Signal", value: "92% confidence" },
-  { id: "cohort", label: "Cohort", value: "+18% activation" },
-  { id: "action", label: "Action", value: "Scale path" },
+  { id: "signal", label: "信号", value: "92% 置信度" },
+  { id: "cohort", label: "分群", value: "激活率 +18%" },
+  { id: "action", label: "行动", value: "扩大引导路径" },
 ] as const;
 
 export function MotionInteractionProbe() {
@@ -24,17 +24,16 @@ export function MotionInteractionProbe() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>React interaction probe</CardTitle>
+        <CardTitle>React 交互探针</CardTitle>
         <CardDescription>
-          Change state to exercise gesture feedback, shared layout, and
-          interruptible enter/exit animation.
+          切换状态以验证手势反馈、共享布局，以及可中断的进入/退出动画。
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.8fr)]">
         <div
           className="grid gap-2 sm:grid-cols-3"
           role="tablist"
-          aria-label="Insight mode"
+          aria-label="洞察模式"
         >
           {modes.map((mode) => {
             const active = activeMode.id === mode.id;
@@ -75,7 +74,7 @@ export function MotionInteractionProbe() {
               transition={{ type: "spring", stiffness: 340, damping: 28 }}
             >
               <p className="font-mono text-[0.68rem] tracking-wider text-primary uppercase">
-                {activeMode.label} resolved
+                {activeMode.label}已解析
               </p>
               <p className="mt-2 text-lg font-semibold">{activeMode.value}</p>
             </motion.div>

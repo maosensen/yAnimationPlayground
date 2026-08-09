@@ -129,9 +129,9 @@ export function CssSvgBenchmark() {
     <InteractionHarness
       runtime={{
         name: "CSS + SVG",
-        model: "Declarative keyframes",
-        payload: "0 kB runtime",
-        accent: "Native baseline",
+        model: "声明式关键帧",
+        payload: "0 kB 运行时",
+        accent: "原生基线",
       }}
       controller={{
         duration,

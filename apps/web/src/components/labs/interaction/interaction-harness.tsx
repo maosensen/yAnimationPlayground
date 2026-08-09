@@ -28,10 +28,10 @@ const viewportClasses: Record<ViewportPreset, string> = {
 };
 
 const statusLabels = {
-  preparing: "Preparing",
-  playing: "Playing",
-  paused: "Paused",
-  complete: "Complete",
+  preparing: "准备中",
+  playing: "播放中",
+  paused: "已暂停",
+  complete: "已完成",
 } as const;
 
 type InteractionHarnessProps = {
@@ -63,7 +63,7 @@ export function InteractionHarness({
               <Badge variant="secondary">{runtime.payload}</Badge>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
-              One 7.2 second product story · identical scene contract
+              同一个 7.2 秒产品叙事 · 完全一致的场景契约
             </p>
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -91,7 +91,7 @@ export function InteractionHarness({
                   : controller.play
               }
               disabled={!controller.ready}
-              aria-label={controller.state === "playing" ? "Pause" : "Play"}
+              aria-label={controller.state === "playing" ? "暂停" : "播放"}
             >
               <span
                 className={
@@ -108,7 +108,7 @@ export function InteractionHarness({
               variant="outline"
               onClick={controller.restart}
               disabled={!controller.ready}
-              aria-label="Restart animation"
+              aria-label="重新播放动画"
             >
               <span
                 className="icon-[solar--restart-bold-duotone] size-4"
@@ -121,7 +121,7 @@ export function InteractionHarness({
               variant="outline"
               onClick={controller.reverse}
               disabled={!controller.ready || reducedMotion}
-              aria-label="Reverse animation"
+              aria-label="反向播放动画"
             >
               <span
                 className="icon-[solar--rewind-back-bold-duotone] size-4"
@@ -141,7 +141,7 @@ export function InteractionHarness({
               step={1}
               onValueChange={([value]) => controller.seek((value ?? 0) / 100)}
               disabled={!controller.ready || reducedMotion}
-              aria-label="Animation progress"
+              aria-label="动画进度"
             />
             <span className="hidden font-mono text-[0.68rem] text-muted-foreground tabular-nums sm:inline">
               {(controller.progress * controller.duration).toFixed(1)}s /
@@ -153,16 +153,13 @@ export function InteractionHarness({
             value={viewport}
             onValueChange={(value) => setViewport(value as ViewportPreset)}
           >
-            <SelectTrigger
-              className="w-full xl:w-36"
-              aria-label="Stage viewport"
-            >
+            <SelectTrigger className="w-full xl:w-36" aria-label="舞台视口">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="wide">Wide · 16:9</SelectItem>
-              <SelectItem value="square">Square · 1:1</SelectItem>
-              <SelectItem value="portrait">Portrait · 9:16</SelectItem>
+              <SelectItem value="wide">横向 · 16:9</SelectItem>
+              <SelectItem value="square">方形 · 1:1</SelectItem>
+              <SelectItem value="portrait">竖向 · 9:16</SelectItem>
             </SelectContent>
           </Select>
 
@@ -170,13 +167,13 @@ export function InteractionHarness({
             htmlFor="reduced-motion-switch"
             className="flex cursor-pointer items-center justify-between gap-3 rounded-lg border border-border px-2.5 py-1.5 text-xs xl:border-transparent xl:px-0"
           >
-            Reduced motion
+            减弱动态效果
             <Switch
               id="reduced-motion-switch"
               size="sm"
               checked={reducedMotion}
               onCheckedChange={onReducedMotionChange}
-              aria-label="Use reduced motion"
+              aria-label="启用减弱动态效果"
             />
           </label>
         </div>

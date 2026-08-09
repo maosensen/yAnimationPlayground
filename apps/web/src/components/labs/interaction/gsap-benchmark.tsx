@@ -198,9 +198,9 @@ export function GsapBenchmark() {
     <InteractionHarness
       runtime={{
         name: "GSAP",
-        model: "Labeled timeline",
-        payload: "≈27 kB gzip lazy",
-        accent: "Choreography upgrade",
+        model: "标签化时间轴",
+        payload: "懒加载约 27 kB gzip",
+        accent: "编排升级方案",
       }}
       controller={{
         duration,

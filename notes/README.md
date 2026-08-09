@@ -1,41 +1,39 @@
-# Lab notes
+# 实验记录
 
-Each completed experiment leaves a note under `notes/<version>/<slug>.md`.
-Notes describe evidence; reusable code belongs in `packages/` only after a
-second real consumer proves the contract.
+每个完成的实验都在 `notes/<version>/<slug>.md` 留下一份记录。实验记录面向
+playground 的实际使用者，因此功能说明、测量结果、原理分析和结论统一使用
+简体中文。只有在第二个真实消费者证明契约后，可复用代码才进入 `packages/`。
 
-Use this structure:
+使用以下结构：
 
 ```markdown
-# Experiment title
+# 实验标题
 
-## Question
+## 核心问题
 
-What decision should this experiment make?
+这个实验需要回答什么决策问题？
 
-## Compared implementations
+## 对比实现
 
-Keep the visual and behavioral contract constant when comparing runtimes.
+对比运行时时，保持视觉和行为契约一致。
 
-## Measurements
+## 测量数据
 
-Record bundle impact, frame behavior, authoring effort, and relevant output
-properties on named reference environments.
+在明确命名的参考环境中记录包体影响、帧表现、创作成本与相关输出属性。
 
-## Visual and interaction findings
+## 视觉与交互发现
 
-Document responsive behavior, reduced motion, interruption, and accessibility.
+记录响应式、减弱动态效果、中断处理与可访问性表现。
 
-## Failure modes
+## 失败模式
 
-Capture the approaches that failed and why.
+记录失败的方案及其原因。
 
-## Decision
+## 技术结论
 
-State the default choice, escalation path, and anti-use-cases.
+明确默认选择、升级路径与反例。
 
-## Reusable candidates
+## 可复用候选
 
-Name possible tokens, primitives, or assets, but extract them only after a
-second consumer appears.
+列出可能的 token、primitive 或资源，但只有第二个消费者出现后才进行抽取。
 ```

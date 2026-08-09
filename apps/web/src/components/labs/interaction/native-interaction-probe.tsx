@@ -10,14 +10,14 @@ export function NativeInteractionProbe() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Native interaction probe</CardTitle>
+        <CardTitle>原生交互探针</CardTitle>
         <CardDescription>
-          Hover or focus the cards. CSS owns state feedback while SVG supplies
-          vector geometry and masking without a client runtime.
+          悬停或聚焦卡片即可观察效果。CSS 负责状态反馈，SVG
+          提供矢量几何和遮罩，全程不需要客户端动画运行时。
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-3 sm:grid-cols-3">
-        {["Transition", "Path", "Mask"].map((label, index) => (
+        {["过渡", "路径", "遮罩"].map((label, index) => (
           <button
             type="button"
             key={label}
@@ -28,7 +28,7 @@ export function NativeInteractionProbe() {
               viewBox="0 0 100 100"
               aria-hidden
             >
-              <title>Decorative masked circle</title>
+              <title>装饰性遮罩圆形</title>
               <defs>
                 <mask id={`native-probe-mask-${index}`}>
                   <rect width="100" height="100" fill="white" />
@@ -45,7 +45,7 @@ export function NativeInteractionProbe() {
             </svg>
             <span className="font-medium">{label}</span>
             <span className="mt-1 block text-xs text-muted-foreground">
-              Browser-native feedback
+              浏览器原生反馈
             </span>
           </button>
         ))}

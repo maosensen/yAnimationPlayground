@@ -13,49 +13,48 @@ import {
 } from "@/components/ui/card";
 import type { LabDefinition } from "@/lib/labs";
 
-type InteractionLabPageProps = {
+type VisualLabPageProps = {
   lab: LabDefinition;
-  benchmark: ReactNode;
-  recommendation: string;
-  useWhen: string[];
-  avoidWhen: string[];
+  stage: ReactNode;
   capabilities: Array<{ title: string; detail: string; icon: string }>;
-  probe?: ReactNode;
+  conclusion: string;
+  responsibilities: string[];
+  boundaries: string[];
 };
 
-export function InteractionLabPage({
+export function VisualLabPage({
   lab,
-  benchmark,
-  recommendation,
-  useWhen,
-  avoidWhen,
+  stage,
   capabilities,
-  probe,
-}: InteractionLabPageProps) {
+  conclusion,
+  responsibilities,
+  boundaries,
+}: VisualLabPageProps) {
   return (
     <>
       <PageHeader
         icon={<PageHeaderIcon icon={lab.icon} />}
         title={lab.name}
-        titleSuffix={<Badge>v0.3 参考实现</Badge>}
+        titleSuffix={<Badge>v0.4 参考实现</Badge>}
         description={lab.description}
         actions={
-          <Button asChild variant="outline">
-            <Link href="/labs/compare">
-              对比运行时
-              <span
-                className="icon-[solar--arrow-right-up-bold-duotone]"
-                data-icon="inline-end"
-                aria-hidden
-              />
-            </Link>
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild variant="outline">
+              <Link href="/labs/living-data-story">查看旗舰作品</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/labs/visual-guide">查看技术选型</Link>
+            </Button>
+          </div>
         }
       />
       <PageContainer className="space-y-6">
-        {benchmark}
+        {stage}
 
-        <section className="grid gap-4 md:grid-cols-3" aria-label="能力说明">
+        <section
+          className="grid gap-4 md:grid-cols-3"
+          aria-label="运行时能力说明"
+        >
           {capabilities.map((capability) => (
             <Card key={capability.title}>
               <CardHeader>
@@ -70,29 +69,27 @@ export function InteractionLabPage({
           ))}
         </section>
 
-        {probe}
-
         <section className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)]">
           <Card>
             <CardHeader>
               <CardTitle>实验结论</CardTitle>
               <CardDescription>
-                结论来自实际实现，而不是对 API 熟悉程度的主观判断。
+                结论来自当前参考实现、构建产物与浏览器验证。
               </CardDescription>
             </CardHeader>
             <CardContent className="text-sm leading-6">
-              {recommendation}
+              {conclusion}
             </CardContent>
           </Card>
-          <DecisionList title="适合使用" items={useWhen} positive />
-          <DecisionList title="不适合使用" items={avoidWhen} />
+          <BoundaryList title="应该负责" items={responsibilities} positive />
+          <BoundaryList title="不应该负责" items={boundaries} />
         </section>
       </PageContainer>
     </>
   );
 }
 
-function DecisionList({
+function BoundaryList({
   title,
   items,
   positive = false,

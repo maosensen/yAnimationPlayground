@@ -11,65 +11,58 @@ export const labs = {
   "css-svg": {
     slug: "css-svg",
     name: "CSS + SVG",
-    description:
-      "Establish the native browser baseline for vector motion and visual timing.",
-    focus: ["CSS keyframes", "SVG paths", "Masks and gradients"],
+    description: "建立浏览器原生矢量动效与视觉节奏的能力基线。",
+    focus: ["CSS 关键帧", "SVG 路径", "遮罩与渐变"],
     icon: "icon-[solar--pen-new-square-bold-duotone]",
     status: "reference",
   },
   gsap: {
     slug: "gsap",
     name: "GSAP",
-    description:
-      "Study timeline choreography, precise seeking, easing, and SVG motion.",
-    focus: ["Timelines", "Stagger and easing", "Motion paths"],
+    description: "研究时间轴编排、精确定位、缓动与 SVG 动效。",
+    focus: ["时间轴", "交错与缓动", "运动路径"],
     icon: "icon-[solar--clapperboard-play-bold-duotone]",
     status: "reference",
   },
   motion: {
     slug: "motion",
     name: "Motion",
-    description:
-      "Explore React-first interaction, gestures, layout transitions, and springs.",
-    focus: ["Layout animation", "Gestures", "Spring dynamics"],
+    description: "探索以 React 为中心的交互、手势、布局过渡与弹簧动画。",
+    focus: ["布局动画", "手势", "弹簧动力学"],
     icon: "icon-[solar--cursor-square-bold-duotone]",
     status: "reference",
   },
   d3: {
     slug: "d3",
     name: "D3",
-    description:
-      "Turn data into bespoke geometry before handing motion to the right runtime.",
-    focus: ["Scales", "Shapes and layouts", "Data transitions"],
+    description: "先把数据转换为定制几何，再交给合适的运行时驱动动画。",
+    focus: ["比例尺", "形状与布局", "数据过渡"],
     icon: "icon-[solar--chart-square-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
   lottie: {
     slug: "lottie",
     name: "Lottie",
-    description:
-      "Evaluate vector animation delivery, playback control, and runtime limits.",
-    focus: ["JSON playback", "Segments", "Asset performance"],
+    description: "评估矢量动画交付、播放控制与运行时边界。",
+    focus: ["JSON 播放", "片段控制", "资源性能"],
     icon: "icon-[solar--video-frame-play-horizontal-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
   rive: {
     slug: "rive",
     name: "Rive",
-    description:
-      "Build interactive vector graphics driven by state machines and runtime data.",
-    focus: ["State machines", "Data binding", "Canvas and WebGL runtimes"],
+    description: "构建由状态机和运行时数据驱动的交互式矢量图形。",
+    focus: ["状态机", "数据绑定", "Canvas 与 WebGL 运行时"],
     icon: "icon-[solar--gamepad-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
   canvas: {
     slug: "canvas",
     name: "Canvas",
-    description:
-      "Study immediate-mode drawing, dense scenes, particles, and frame budgets.",
-    focus: ["Render loops", "Particles", "Performance profiling"],
+    description: "研究即时模式绘制、高密度场景、粒子与帧预算。",
+    focus: ["渲染循环", "粒子", "性能分析"],
     icon: "icon-[solar--layers-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
 } satisfies Record<string, LabDefinition>;
 

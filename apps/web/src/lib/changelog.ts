@@ -35,31 +35,60 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
-    version: "0.3.0",
+    version: "0.4.0",
     date: "2026-08-09",
-    title: "One story, three motion models",
+    title: "每个图层都有明确的运行时",
     summary:
-      "Native CSS + SVG, Motion, and GSAP now share one polished reference story and one testing protocol, turning runtime choice into an evidence-backed engineering decision.",
+      "D3、Lottie、Rive 与 Canvas 现在拥有可操作的参考实验，并在 Living Data Story 中与 Motion 按职责组合，让视觉技术选型不再是一场库名混战。",
     changes: [
       {
         kind: "new",
-        title: "Comparative motion suite",
-        text: "Replay, pause, reverse, seek, resize, and reduce the same 7.2-second narrative across three isolated implementations.",
+        title: "四类视觉运行时实验",
+        text: "分别验证数据几何、线性矢量资产、交互状态机与高密度即时绘制，并记录各自的资产、性能、可访问性和生命周期边界。",
       },
       {
         kind: "new",
-        title: "React interaction probe",
-        text: "Motion demonstrates gesture feedback, shared layout, springs, and interruptible enter/exit behavior driven by component state.",
+        title: "Living Data Story",
+        text: "通过时间范围、用户分群和叙事重点切换，展示 D3、Motion、Canvas 与 Lottie 如何在同一作品中分层协作。",
       },
       {
         kind: "new",
-        title: "Labeled GSAP timeline",
-        text: "Named Collect, Resolve, and Decide phases coordinate staggered DOM and SVG cues from a lazy route-only runtime.",
+        title: "视觉运行时选型指南",
+        text: "用状态所有权、资产流程、语义需求和图元密度定位 CSS、Motion、GSAP、D3、Lottie、Rive、Canvas 与视频工程。",
+      },
+      {
+        kind: "improved",
+        title: "中文操作与解释",
+        text: "实验控制、功能说明、参数含义、原理解析和结论统一使用简体中文，动画内部叙事仍可保留英文。",
+      },
+    ],
+  },
+  {
+    version: "0.3.0",
+    date: "2026-08-09",
+    title: "同一个故事，三种动效模型",
+    summary:
+      "原生 CSS + SVG、Motion 和 GSAP 现在共用同一个完整参考作品与测试协议，让运行时选择从主观偏好变成有实验依据的工程决策。",
+    changes: [
+      {
+        kind: "new",
+        title: "动效对比实验套件",
+        text: "在三套隔离实现中，对同一个 7.2 秒叙事进行重播、暂停、反向、定位、视口切换和减弱动态效果测试。",
       },
       {
         kind: "new",
-        title: "Runtime decision guide",
-        text: "A practical matrix now explains when native motion is enough, when React interaction calls for Motion, and when choreography justifies GSAP.",
+        title: "React 交互探针",
+        text: "通过 Motion 验证由组件状态驱动的手势反馈、共享布局、弹簧和可中断进入/退出行为。",
+      },
+      {
+        kind: "new",
+        title: "标签化 GSAP 时间轴",
+        text: "通过按路由懒加载的运行时，以 Collect、Resolve、Decide 三个命名阶段协调 DOM 与 SVG 的交错提示。",
+      },
+      {
+        kind: "new",
+        title: "运行时选型指南",
+        text: "通过实际对比矩阵判断何时原生动效已经足够、何时 React 交互需要 Motion，以及何时复杂编排值得引入 GSAP。",
       },
     ],
   },

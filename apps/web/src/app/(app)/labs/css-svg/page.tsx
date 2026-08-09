@@ -10,33 +10,30 @@ export default function CssSvgLabPage() {
       benchmark={<CssSvgBenchmark />}
       capabilities={[
         {
-          title: "Zero-runtime baseline",
-          detail:
-            "Transitions and keyframes stay in the browser animation stack.",
+          title: "零运行时基线",
+          detail: "过渡与关键帧直接运行在浏览器原生动画栈中。",
           icon: "icon-[solar--leaf-bold-duotone]",
         },
         {
-          title: "Vector-native",
-          detail:
-            "Path drawing, gradients, masks, and transforms share one SVG scene.",
+          title: "原生矢量能力",
+          detail: "路径绘制、渐变、遮罩和变换共用同一个 SVG 场景。",
           icon: "icon-[solar--pen-bold-duotone]",
         },
         {
-          title: "State by attributes",
-          detail:
-            "DOM state and media preferences can drive small compositions.",
+          title: "属性驱动状态",
+          detail: "DOM 状态和媒体偏好可以驱动小型动画编排。",
           icon: "icon-[solar--settings-minimalistic-bold-duotone]",
         },
       ]}
       probe={<NativeInteractionProbe />}
-      recommendation="Start here for durable UI feedback and short, state-driven sequences. The flagship remains compact, but imperative playback requires the Web Animations API and exposes the point where CSS alone stops being the simplest control model."
+      recommendation="持久的 UI 状态反馈和短小的状态驱动序列应优先从这里开始。这个旗舰案例本身仍然紧凑，但一旦需要命令式播放控制，就必须借助 Web Animations API；这也清楚标出了单靠 CSS 不再是最简单控制模型的临界点。"
       useWhen={[
-        "The animation has a small number of states and a clear end state.",
-        "Bundle cost, progressive enhancement, and long-term durability dominate.",
+        "动画状态数量较少，而且最终状态明确。",
+        "包体成本、渐进增强和长期稳定性是首要考虑。",
       ]}
       avoidWhen={[
-        "Editorial timing changes often across many overlapping phases.",
-        "A React component needs interruption-aware layout or presence semantics.",
+        "大量重叠阶段需要频繁调整编排节奏。",
+        "React 组件需要理解中断的布局动画或挂载/卸载语义。",
       ]}
     />
   );

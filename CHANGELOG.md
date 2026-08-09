@@ -9,6 +9,34 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-09
+
+### Added
+
+- **D3 data-geometry reference** — use focused D3 modules for scales, ticks,
+  line and area geometry while React owns SVG elements and Motion owns state
+  transitions.
+- **Lottie delivery reference** — inspect route-scoped Lottie Light loading,
+  segment playback, progress control, asset size, cleanup, and authored-theme
+  boundaries through a local vector asset.
+- **Rive state-machine reference** — drive an official interactive `.riv`
+  asset through a named Trigger input, Canvas Lite runtime, playback controls,
+  reduced motion, and an explicit network fallback.
+- **Canvas frame-budget reference** — compare 120, 360, and 720 deterministic
+  particles with pointer response, DPR capping, resize handling, low-frequency
+  telemetry, and complete rAF cleanup.
+- **Living Data Story** — combine D3 geometry, Motion transitions, Canvas
+  atmosphere, and a Lottie cue under one React-owned filter and emphasis model.
+- **Visual runtime decision guide** — map CSS/SVG, Motion, GSAP, D3, Lottie,
+  Rive, Canvas, Remotion, and HyperFrames by state ownership, asset workflow,
+  accessibility, performance, and product fit.
+
+### Changed
+
+- **Chinese operator guidance** — user-facing controls, parameter descriptions,
+  technical explanations, summaries, and experiment notes now use Simplified
+  Chinese while animation-internal narrative copy may remain English.
+
 ## [0.3.0] - 2026-08-09
 
 ### Added
@@ -151,7 +179,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.4.0
 [0.3.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.3.0
 [0.2.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.2.0
 [0.1.4]: https://github.com/maosensen/yTemplate/compare/v0.1.3...v0.1.4

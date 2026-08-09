@@ -10,33 +10,30 @@ export default function GsapLabPage() {
       benchmark={<GsapBenchmark />}
       capabilities={[
         {
-          title: "Master timeline",
-          detail:
-            "Labels, offsets, and nested timing expose the whole composition.",
+          title: "主时间轴",
+          detail: "标签、偏移与嵌套时序让整套编排保持可见、可定位。",
           icon: "icon-[solar--clapperboard-play-bold-duotone]",
         },
         {
-          title: "Precise transport",
-          detail:
-            "Seek, pause, reverse, replay, and speed are first-class controls.",
+          title: "精确播放控制",
+          detail: "定位、暂停、反向、重播和速度都是一等控制能力。",
           icon: "icon-[solar--rewind-back-bold-duotone]",
         },
         {
-          title: "DOM + SVG orchestration",
-          detail:
-            "One timeline coordinates text, cards, and vector signal geometry.",
+          title: "DOM + SVG 协同编排",
+          detail: "一条时间轴协调文本、卡片与矢量信号几何。",
           icon: "icon-[solar--routing-bold-duotone]",
         },
       ]}
       probe={<GsapTimelineProbe />}
-      recommendation="Escalate to GSAP when the animation is an authored composition whose timeline is the product. Its labels and deterministic transport make dense, revised choreography easier to reason about; the dependency remains isolated to this route."
+      recommendation="当动画是精心创作的编排，而且时间轴本身就是作品核心时，再升级到 GSAP。标签和确定性的播放控制让高密度、反复修改的编排更容易理解；对应依赖仍然隔离在当前路由。"
       useWhen={[
-        "Many overlapping phases need named cues, scrubbing, reversing, or editorial revision.",
-        "DOM, SVG, and future canvas layers must follow one explicit clock.",
+        "大量重叠阶段需要命名提示点、拖动定位、反向播放或反复编辑。",
+        "DOM、SVG 以及未来的 Canvas 图层必须服从同一个明确时钟。",
       ]}
       avoidWhen={[
-        "The motion is mostly a direct response to React layout or component presence.",
-        "A handful of native transitions can express the same relationship.",
+        "动画主要是对 React 布局或组件挂载状态的直接响应。",
+        "少量浏览器原生过渡已经能表达相同关系。",
       ]}
     />
   );

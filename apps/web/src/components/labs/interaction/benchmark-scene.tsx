@@ -10,7 +10,7 @@ export function BenchmarkScene() {
   return (
     <article
       className={`${styles.scene} rounded-xl p-5 ring-1 ring-border sm:p-7`}
-      aria-label="Signal intelligence product story"
+      aria-label="信号洞察产品叙事动画"
     >
       <div
         className={`${styles.orb} -top-20 -right-16`}
@@ -73,7 +73,7 @@ export function BenchmarkScene() {
               className="mt-2 h-24 w-full overflow-visible"
               viewBox="0 0 520 110"
               role="img"
-              aria-label="Rising confidence signal"
+              aria-label="持续上升的信号置信度"
             >
               <defs>
                 <linearGradient id="signal-fill" x1="0" y1="0" x2="0" y2="1">
@@ -130,7 +130,7 @@ export function BenchmarkScene() {
           </div>
         </div>
 
-        <ol className="mt-5 grid grid-cols-3 gap-2" aria-label="Story phases">
+        <ol className="mt-5 grid grid-cols-3 gap-2" aria-label="叙事阶段">
           {[
             ["01", "Collect"],
             ["02", "Resolve"],
