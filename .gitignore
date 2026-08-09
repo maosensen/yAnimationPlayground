@@ -30,6 +30,8 @@ apps/hyperframes/vendor/
 apps/hyperframes/projects/*/assets/
 apps/hyperframes/projects/*/vendor/
 apps/hyperframes/projects/*/src/
+apps/hyperframes/projects/*/.thumbnails/
+apps/hyperframes/projects/*/.waveform-cache/
 work/
 
 # misc
