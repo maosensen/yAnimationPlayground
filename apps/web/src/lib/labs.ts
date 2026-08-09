@@ -32,6 +32,15 @@ export const labs = {
     icon: "icon-[solar--cursor-square-bold-duotone]",
     status: "reference",
   },
+  "motion-system": {
+    slug: "motion-system",
+    name: "Motion Design System",
+    description:
+      "把已验证的时间、缓动、弹簧、编排与减少动效策略沉淀为共享契约。",
+    focus: ["语义 token", "组合原语", "跨运行时适配"],
+    icon: "icon-[solar--widget-add-bold-duotone]",
+    status: "reference",
+  },
   d3: {
     slug: "d3",
     name: "D3",

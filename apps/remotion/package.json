@@ -20,6 +20,7 @@
     "@remotion/cli": "4.0.507",
     "@remotion/google-fonts": "4.0.507",
     "@remotion/media": "4.0.507",
+    "@yanimation/motion-tokens": "workspace:*",
     "@yanimation/video-contract": "workspace:*",
     "react": "19.2.4",
     "react-dom": "19.2.4",

@@ -236,9 +236,10 @@ features:
   - id: motion-design-system
     title: 可复用 Motion Design System
     area: 共享基础设施
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: low
-    note: v0.6 方向;将已验证的 duration/easing/stagger/编排/中断/reduced-motion 决策沉淀到 motion-tokens 与 motion-kit,第二消费者出现后再稳定契约。
+    note: v0.6;已将 duration/easing/spring/stagger/distance/编排/reduced-motion 沉淀到 motion-tokens 与 motion-kit,由 Motion 工作台、既有 Motion 探针、Remotion 与 CSS 多消费者验证,并加入运行时与编译契约测试。
   - id: ai-assisted-animation-pipeline
     title: AI 辅助动画生产管线
     area: AI 工作流

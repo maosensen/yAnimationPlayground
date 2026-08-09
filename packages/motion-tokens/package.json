@@ -1,6 +1,22 @@
 {
   "name": "@yanimation/motion-tokens",
-  "description": "Shared motion timing and easing tokens for yAnimationPlayground.",
-  "version": "0.0.0",
-  "private": true
+  "description": "Runtime-neutral motion timing, easing, spring, choreography, and accessibility contracts.",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "test": "node --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  }
 }

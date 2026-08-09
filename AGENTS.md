@@ -29,8 +29,9 @@ pnpm install
 pnpm dev              # Turbopack dev server (port 4394)
 pnpm build            # Production build for the web workspace
 pnpm start            # Run production build (port 4394)
-pnpm check            # root Biome check + every workspace typecheck
+pnpm check            # Biome + every workspace typecheck + shared contract tests
 pnpm check-types      # run each workspace's supported typecheck
+pnpm test:contracts   # motion token runtime tests + motion-kit consumer contract
 pnpm lint             # repository-wide Biome lint + format check
 pnpm lint:fix         # biome check --write
 pnpm format           # biome format --write
@@ -52,7 +53,8 @@ pnpm dlx shadcn@latest add <component-name> -c apps/web
 
 ### Tests
 
-There is currently no test runner configured in this repository, so there is no supported single-test command yet.
+Shared motion contracts use Node's built-in test runner plus a TypeScript
+consumer-contract compilation. Run both with `pnpm test:contracts`.
 
 ## Architecture overview
 

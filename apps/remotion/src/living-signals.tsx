@@ -1,5 +1,10 @@
 import { loadFont } from "@remotion/google-fonts/Inter";
 import { Audio } from "@remotion/media";
+import {
+  duration,
+  easing,
+  millisecondsToFrames,
+} from "@yanimation/motion-tokens";
 import story from "@yanimation/video-contract/product-story.json";
 import contract from "@yanimation/video-contract/production-contract.json";
 import type { CSSProperties, ReactNode } from "react";
@@ -27,8 +32,11 @@ const { fontFamily } = loadFont("normal", {
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-const fadeForFrame = (frame: number, durationInFrames: number) => {
-  const fadeFrames = Math.min(24, Math.floor(durationInFrames / 4));
+const fadeForFrame = (frame: number, durationInFrames: number, fps: number) => {
+  const fadeFrames = Math.min(
+    millisecondsToFrames(duration.narrative, fps),
+    Math.floor(durationInFrames / 4),
+  );
   return Math.min(
     interpolate(frame, [0, fadeFrames], [0, 1], clamp),
     interpolate(
@@ -359,16 +367,22 @@ const Scene = ({
   children: ReactNode;
 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames, width, height } = useVideoConfig();
+  const { durationInFrames, fps, width, height } = useVideoConfig();
   const portrait = height > width;
-  const opacity = fadeForFrame(frame, durationInFrames);
+  const opacity = fadeForFrame(frame, durationInFrames, fps);
   const rise = interpolate(
     frame,
-    [0, Math.min(32, durationInFrames / 3)],
+    [
+      0,
+      Math.min(
+        millisecondsToFrames(duration.narrative, fps),
+        durationInFrames / 3,
+      ),
+    ],
     [54, 0],
     {
       ...clamp,
-      easing: Easing.out(Easing.cubic),
+      easing: Easing.bezier(...easing.enter),
     },
   );
   const format = portrait
