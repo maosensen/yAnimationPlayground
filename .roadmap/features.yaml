@@ -346,7 +346,7 @@ features:
     status: done
     completedAt: 2026-06-11
     shippedIn: v0.1.0
-    note: Outfit(默认)/ Public Sans / Inter / DM Sans / Nunito Sans,经 next/font 变量切换。
+    note: Outfit(默认)/ Public Sans / Inter / DM Sans / Nunito Sans,经 next/font 变量切换;所有选项统一衔接简体中文系统字体栈,根文档使用 zh-CN 字形语境。
 
   # —— 演示与组件 ——
   - id: analytics-dashboard

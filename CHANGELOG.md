@@ -9,6 +9,12 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Simplified Chinese typography** — Chinese interface copy now uses an
+  explicit Simplified Chinese font fallback and `zh-CN` document language, so
+  Latin font preferences no longer produce inconsistent Japanese-style glyphs.
+
 ## [0.4.0] - 2026-08-09
 
 ### Added

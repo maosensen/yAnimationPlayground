@@ -53,7 +53,10 @@
 }
 
 :root {
-  --font-sans: var(--font-outfit);
+  --font-cjk:
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  --font-sans: var(--font-outfit), var(--font-cjk);
   --font-size-base: 16px;
   /* Neutral family parameterization: every grey-bearing token below derives
      its hue from --neutral-hue and scales its chroma by --neutral-tint
