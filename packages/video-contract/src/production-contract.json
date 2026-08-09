@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "living-signals-product-story",
+  "fps": 30,
+  "durationInSeconds": 36,
+  "durationInFrames": 1080,
+  "formats": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080,
+      "safeArea": {
+        "top": 72,
+        "right": 96,
+        "bottom": 72,
+        "left": 96
+      }
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1920,
+      "safeArea": {
+        "top": 120,
+        "right": 72,
+        "bottom": 144,
+        "left": 72
+      }
+    }
+  },
+  "typography": {
+    "display": "Inter, sans-serif",
+    "body": "Inter, sans-serif"
+  },
+  "palette": {
+    "background": "#07111f",
+    "surface": "#0d1b2d",
+    "surfaceStrong": "#14263d",
+    "foreground": "#f7faff",
+    "muted": "#9eb0c8",
+    "primary": "#2b7eff",
+    "accent": "#76a9ff",
+    "success": "#5ee1b2"
+  },
+  "audio": {
+    "fileName": "living-signals-bed.wav",
+    "sampleRate": 48000,
+    "channels": 1,
+    "volume": 0.22
+  },
+  "outputs": {
+    "landscape": "living-signals-landscape.mp4",
+    "portrait": "living-signals-portrait.mp4"
+  }
+}

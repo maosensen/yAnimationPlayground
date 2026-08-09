@@ -371,7 +371,7 @@ function LottieCue({
         renderer: "svg",
         loop: true,
         autoplay: !staticMode,
-        animationData: signalPulse,
+        animationData: structuredClone(signalPulse),
       });
       animationRef.current = animation;
       if (staticMode) animation.goToAndStop(179, true);

@@ -1,7 +1,7 @@
 {
   "name": "yanimation-playground",
   "description": "A pnpm monorepo for browser animation and code-driven video experiments.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "homepage": "https://github.com/maosensen/yAnimationPlayground#readme",
   "repository": {
@@ -23,7 +23,11 @@
     "check-types": "pnpm --recursive --if-present check-types",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "video:prepare": "pnpm --filter @yanimation/video-contract check && pnpm --filter @yanimation/remotion prepare:assets && pnpm --filter @yanimation/hyperframes prepare:compositions",
+    "video:check": "pnpm video:prepare && pnpm --filter @yanimation/remotion compositions && pnpm --filter @yanimation/hyperframes lint:composition && pnpm --filter @yanimation/hyperframes validate",
+    "video:render": "pnpm --filter @yanimation/remotion render && pnpm --filter @yanimation/hyperframes render",
+    "video:inspect": "node scripts/inspect-video-outputs.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0"

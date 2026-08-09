@@ -28,6 +28,11 @@ export const navData: NavItem[] = [
       { title: "视觉运行时选型", href: "/labs/visual-guide" },
     ],
   },
+  {
+    title: "代码视频",
+    icon: "icon-[solar--video-frame-play-horizontal-bold-duotone]",
+    children: [{ title: "生产与选型", href: "/labs/code-video" }],
+  },
 
   // Dashboards Section
   { label: "Dashboards", isSection: true },

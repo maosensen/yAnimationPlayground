@@ -1,0 +1,15 @@
+{
+  "name": "@yanimation/video-contract",
+  "description": "Shared production contract and source brief for code-driven video experiments.",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./production-contract.json": "./src/production-contract.json",
+    "./product-story.json": "./src/product-story.json"
+  },
+  "scripts": {
+    "check": "node scripts/validate-contract.mjs",
+    "generate:audio": "node scripts/generate-audio.mjs"
+  }
+}

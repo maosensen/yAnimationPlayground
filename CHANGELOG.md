@@ -9,6 +9,32 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-09
+
+### Added
+
+- **Shared video production contract** — one validated 36-second brief now
+  defines formats, frame rate, scene timing, safe areas, typography, captions,
+  deterministic audio, and output names for both renderers.
+- **Remotion render pipeline** — typed frame-driven React compositions provide
+  local Studio preview plus reproducible 1920×1080 and 1080×1920 renders.
+- **HyperFrames render pipeline** — two valid single-root HTML projects use a
+  seekable GSAP timeline, Studio preview, runtime checks, and local MP4 output.
+- **Living Signals reference film** — both renderers produce comparable
+  36-second landscape and portrait films with H.264 video and AAC audio.
+- **Code-video production guide** — a Chinese operator page and detailed
+  documentation explain the workflow, commands, evidence, system boundaries,
+  and the Remotion-versus-HyperFrames decision.
+
+### Fixed
+
+- **Lottie playback is visibly animated** — each player now receives an
+  isolated copy of its animation data, and the sample asset uses complete
+  keyframes with an unmistakable orbit indicator and pulse.
+- **Simplified Chinese typography** — Chinese interface copy now uses an
+  explicit Simplified Chinese font fallback and `zh-CN` document language, so
+  Latin font preferences no longer produce inconsistent Japanese-style glyphs.
+
 ## [0.4.0] - 2026-08-09
 
 ### Added
@@ -179,7 +205,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.5.0
 [0.4.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.4.0
 [0.3.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.3.0
 [0.2.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.2.0

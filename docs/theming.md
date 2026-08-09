@@ -46,7 +46,7 @@ What lands on `<html>`:
 | nav color | `data-nav` | `[data-nav="…"]` blocks |
 | nav layout | `data-layout` + React (`AppShell`) | structural; the FOUC guard hides a shell whose `data-shell` tag disagrees with `data-layout` until hydration (SSR always emits the vertical shell) |
 | radius | inline `--radius` | `@theme inline` radius scale derives from it |
-| font family / size | inline `--font-sans` / `--font-size-base` | `html { font-size: … }` |
+| font family / size | inline `--font-sans` / `--font-size-base` | Latin selection + shared Simplified Chinese fallback; `html { font-size: … }` |
 | light/dark mode | `next-themes` (`class` + localStorage `theme`) | `.dark` blocks — *not* part of the store |
 
 ### Checklist: adding a new setting

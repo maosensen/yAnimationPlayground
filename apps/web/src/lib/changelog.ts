@@ -35,6 +35,40 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.5.0",
+    date: "2026-08-09",
+    title: "同一份 brief，两套代码视频生产管线",
+    summary:
+      "Remotion 与 HyperFrames 现在共享一份 36 秒生产契约，并各自产出经过实机、运行时和媒体参数检查的横竖双版参考成片。",
+    changes: [
+      {
+        kind: "new",
+        title: "Remotion 确定性渲染",
+        text: "用 typed React Composition 建立本地 Studio、横竖响应式构图、帧驱动动画和可重复 MP4 输出。",
+      },
+      {
+        kind: "new",
+        title: "HyperFrames HTML 视频工程",
+        text: "用静态 HTML、data attributes 与可 seek GSAP 时间轴建立两个合法单根工程，并通过运行时与布局检查。",
+      },
+      {
+        kind: "new",
+        title: "Living Signals 参考成片",
+        text: "四条 36 秒成片统一为 30 FPS、H.264 与 AAC，并分别验证 1920×1080 和 1080×1920 输出。",
+      },
+      {
+        kind: "new",
+        title: "代码视频生产与选型指南",
+        text: "用中文解释共享契约、完整命令、渲染模型、工程负担与默认选型结论。",
+      },
+      {
+        kind: "fixed",
+        title: "中文字体与 Lottie 播放",
+        text: "修正简体中文字体回退，并解决 Lottie 时间轴推进但画面冻结的问题。",
+      },
+    ],
+  },
+  {
     version: "0.4.0",
     date: "2026-08-09",
     title: "每个图层都有明确的运行时",

@@ -52,7 +52,7 @@ export function LottieDeliveryLab() {
         renderer: "svg",
         loop: true,
         autoplay: true,
-        animationData: signalPulse,
+        animationData: structuredClone(signalPulse),
         rendererSettings: {
           title: "Signal Pulse 数据处理状态",
           description: "三个脉冲阶段依次表示采集、解析与交付。",
@@ -218,7 +218,7 @@ export function LottieDeliveryLab() {
               label="JSON 体积"
               value={`${(assetBytes / 1024).toFixed(1)} KB`}
             />
-            <Metric label="矢量图层" value="3" />
+            <Metric label="矢量图层" value={`${signalPulse.layers.length}`} />
           </dl>
           <div className="rounded-lg bg-primary/10 p-4 ring-1 ring-primary/20">
             <p className="text-sm font-medium">交付边界</p>

@@ -24,13 +24,16 @@ export type FontFamily =
   | "dm-sans"
   | "nunito";
 
-/** Maps a font key to the CSS variable provided by `next/font` in the root layout. */
+/**
+ * Maps each Latin display font to its `next/font` variable while preserving a
+ * Simplified Chinese system-font fallback for glyphs the Latin font lacks.
+ */
 export const FONT_VAR_MAP: Record<FontFamily, string> = {
-  outfit: "var(--font-outfit)",
-  "public-sans": "var(--font-public-sans)",
-  inter: "var(--font-inter)",
-  "dm-sans": "var(--font-dm-sans)",
-  nunito: "var(--font-nunito)",
+  outfit: "var(--font-outfit), var(--font-cjk)",
+  "public-sans": "var(--font-public-sans), var(--font-cjk)",
+  inter: "var(--font-inter), var(--font-cjk)",
+  "dm-sans": "var(--font-dm-sans), var(--font-cjk)",
+  nunito: "var(--font-nunito), var(--font-cjk)",
 };
 
 export const FONT_OPTIONS: { value: FontFamily; label: string }[] = [

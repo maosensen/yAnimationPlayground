@@ -10,8 +10,8 @@ yAnimationPlayground 是一个通过小型、可比较实验系统学习浏览�
 - **Web 实验室** — CSS + SVG、GSAP、Motion、D3、Lottie、Rive、Canvas 路由
 - **生产级应用壳层** — Next.js 16、React 19、Tailwind CSS v4、shadcn/ui、React Compiler
 - **完整保留主题系统** — 颜色预设、自定义品牌色、中性色族、对比度、阴影、导航、圆角与字体
-- **视频工程隔离** — 为 Remotion 和 HyperFrames 预留独立 workspace
-- **共享基础设施** — design tokens、motion tokens、动画 primitive 与 assets 包
+- **代码视频管线** — 可运行的 Remotion 与 HyperFrames 横竖双版参考工程
+- **共享基础设施** — design tokens、motion tokens、动画 primitive、assets 与视频生产契约
 - **工程门禁** — pnpm workspace、Biome、TypeScript、环境变量校验与 CI
 
 ## 路线图
@@ -47,6 +47,10 @@ pnpm dev
 | `pnpm lint` | 使用 Biome 检查整个 monorepo |
 | `pnpm lint:fix` | 应用 Biome 安全修复 |
 | `pnpm format` | 格式化支持的文件 |
+| `pnpm video:prepare` | 校验并同步共享视频输入 |
+| `pnpm video:check` | 检查两套视频渲染工程 |
+| `pnpm video:render` | 渲染全部横版与竖版参考成片 |
+| `pnpm video:inspect` | 校验尺寸、时长、帧率与音轨 |
 
 ## 仓库结构
 
@@ -60,19 +64,24 @@ apps/
 │       ├── d3/
 │       ├── lottie/
 │       ├── rive/
-│       └── canvas/
+│       ├── canvas/
+│       └── code-video/
 ├── remotion/                  # 独立 React 视频工程
 └── hyperframes/               # 独立 HTML-to-video 工程
 packages/
 ├── design-tokens/             # 色彩、字体、间距、层级
 ├── motion-tokens/             # duration、easing、stagger、节奏
 ├── motion-kit/                # 可复用动画 primitive
-└── assets/                    # 共享源素材与实验 fixture
+├── assets/                    # 共享源素材与实验 fixture
+└── video-contract/            # 共享 brief 与视频生产契约
 notes/                         # 已完成实验的结论
 ```
 
 完整 shadcn 组件库与当前可工作的主题实现仍保留在 `apps/web/src/`。
 共享 package 会刻意从小开始：只有第二个真实消费者验证了契约，才从 Web 应用中提炼。
+
+v0.5 的工作流、运行时比较、命令与成片验收结果详见
+[docs/code-video-production.md](./docs/code-video-production.md)。
 
 ## 添加 UI 组件
 

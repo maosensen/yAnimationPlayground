@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "living-signals",
+  "seed": 4394,
+  "brief": {
+    "title": "Living Signals",
+    "audience": "Product teams building data-rich software",
+    "promise": "Turn moving data into a story people can understand.",
+    "tone": ["precise", "calm", "cinematic", "technical"],
+    "callToAction": "Build motion with intent."
+  },
+  "scenes": [
+    {
+      "id": "signal",
+      "start": 0,
+      "duration": 6,
+      "eyebrow": "01 / SIGNAL",
+      "title": "Every signal is moving.",
+      "body": "Events arrive, patterns emerge, and attention shifts in real time.",
+      "visual": "orbit"
+    },
+    {
+      "id": "meaning",
+      "start": 6,
+      "duration": 7,
+      "eyebrow": "02 / MEANING",
+      "title": "Motion turns data into meaning.",
+      "body": "Hierarchy, rhythm, and continuity reveal what changed — and why it matters.",
+      "visual": "bars"
+    },
+    {
+      "id": "runtimes",
+      "start": 13,
+      "duration": 8,
+      "eyebrow": "03 / SYSTEM",
+      "title": "One brief. Multiple runtimes.",
+      "body": "Shared timing and visual contracts keep every implementation comparable.",
+      "visual": "runtimes"
+    },
+    {
+      "id": "deterministic",
+      "start": 21,
+      "duration": 8,
+      "eyebrow": "04 / OUTPUT",
+      "title": "Deterministic by design.",
+      "body": "The same input produces the same frame — ready for review, automation, and scale.",
+      "visual": "frames"
+    },
+    {
+      "id": "adapt",
+      "start": 29,
+      "duration": 7,
+      "eyebrow": "05 / ADAPT",
+      "title": "Build once. Adapt everywhere.",
+      "body": "Landscape and portrait share one story while composition responds to the canvas.",
+      "visual": "formats"
+    }
+  ],
+  "captions": [
+    { "start": 0.8, "end": 5.3, "text": "Every signal is moving." },
+    { "start": 6.8, "end": 12.3, "text": "Motion turns data into meaning." },
+    { "start": 13.8, "end": 20.3, "text": "One brief. Multiple runtimes." },
+    { "start": 21.8, "end": 28.3, "text": "Deterministic by design." },
+    { "start": 29.8, "end": 35.5, "text": "Build once. Adapt everywhere." }
+  ]
+}
