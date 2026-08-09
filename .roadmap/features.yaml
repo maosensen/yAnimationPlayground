@@ -144,37 +144,43 @@ features:
   - id: d3-data-geometry-lab
     title: D3 数据几何实验
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: normal
     note: v0.4;聚焦 scale、geometry、data join 与插值输入,把运动职责交给合适的 runtime。
   - id: lottie-delivery-lab
     title: Lottie 动画交付实验
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: normal
     note: v0.4;验证 segment、播放控制、响应式、主题限制、资产体积与交付边界。
   - id: rive-state-machine-lab
     title: Rive 状态机交互实验
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: normal
     note: v0.4;验证 state-machine input、交互、响应式 artboard 与运行时所有权。
   - id: canvas-frame-budget-lab
     title: Canvas 帧预算实验
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: normal
     note: v0.4;验证高密度绘制、粒子、指针交互、DPR、resize、cleanup 与帧时间。
   - id: living-data-story
     title: Living Data Story 旗舰作品
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: normal
     note: v0.4;以时间范围、筛选与强调切换构建交互叙事,按图层职责组合 D3、矢量 runtime 与 Canvas。
   - id: visual-runtime-decision-guide
     title: 数据与视觉运行时选型指南
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: normal
     note: v0.4;沉淀可访问性 fallback、创作流程、资产所有权、性能与产品适配矩阵。
 

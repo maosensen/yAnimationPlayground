@@ -35,6 +35,35 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.4.0",
+    date: "2026-08-09",
+    title: "每个图层都有明确的运行时",
+    summary:
+      "D3、Lottie、Rive 与 Canvas 现在拥有可操作的参考实验，并在 Living Data Story 中与 Motion 按职责组合，让视觉技术选型不再是一场库名混战。",
+    changes: [
+      {
+        kind: "new",
+        title: "四类视觉运行时实验",
+        text: "分别验证数据几何、线性矢量资产、交互状态机与高密度即时绘制，并记录各自的资产、性能、可访问性和生命周期边界。",
+      },
+      {
+        kind: "new",
+        title: "Living Data Story",
+        text: "通过时间范围、用户分群和叙事重点切换，展示 D3、Motion、Canvas 与 Lottie 如何在同一作品中分层协作。",
+      },
+      {
+        kind: "new",
+        title: "视觉运行时选型指南",
+        text: "用状态所有权、资产流程、语义需求和图元密度定位 CSS、Motion、GSAP、D3、Lottie、Rive、Canvas 与视频工程。",
+      },
+      {
+        kind: "improved",
+        title: "中文操作与解释",
+        text: "实验控制、功能说明、参数含义、原理解析和结论统一使用简体中文，动画内部叙事仍可保留英文。",
+      },
+    ],
+  },
+  {
     version: "0.3.0",
     date: "2026-08-09",
     title: "同一个故事，三种动效模型",

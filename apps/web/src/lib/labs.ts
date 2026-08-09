@@ -38,7 +38,7 @@ export const labs = {
     description: "先把数据转换为定制几何，再交给合适的运行时驱动动画。",
     focus: ["比例尺", "形状与布局", "数据过渡"],
     icon: "icon-[solar--chart-square-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
   lottie: {
     slug: "lottie",
@@ -46,7 +46,7 @@ export const labs = {
     description: "评估矢量动画交付、播放控制与运行时边界。",
     focus: ["JSON 播放", "片段控制", "资源性能"],
     icon: "icon-[solar--video-frame-play-horizontal-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
   rive: {
     slug: "rive",
@@ -54,7 +54,7 @@ export const labs = {
     description: "构建由状态机和运行时数据驱动的交互式矢量图形。",
     focus: ["状态机", "数据绑定", "Canvas 与 WebGL 运行时"],
     icon: "icon-[solar--gamepad-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
   canvas: {
     slug: "canvas",
@@ -62,7 +62,7 @@ export const labs = {
     description: "研究即时模式绘制、高密度场景、粒子与帧预算。",
     focus: ["渲染循环", "粒子", "性能分析"],
     icon: "icon-[solar--layers-bold-duotone]",
-    status: "planned",
+    status: "reference",
   },
 } satisfies Record<string, LabDefinition>;
 

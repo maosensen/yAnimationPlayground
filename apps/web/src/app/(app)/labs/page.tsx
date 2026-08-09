@@ -27,19 +27,19 @@ export default function LabsPage() {
           <CardHeader className="gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-2xl">
               <Badge className="bg-primary-foreground/14 text-primary-foreground ring-1 ring-primary-foreground/20">
-                v0.3 参考实验套件
+                v0.4 视觉运行时套件
               </Badge>
               <CardTitle className="mt-3 text-2xl">
-                同一个故事，三种动效模型，一套有依据的默认策略。
+                从数据几何到交互资产，建立分层组合的运行时策略。
               </CardTitle>
               <CardDescription className="mt-2 text-primary-foreground/75">
-                在相同舞台、播放控制、视口预设和减弱动态效果规范下，对比原生
-                CSS/SVG、Motion 与 GSAP。
+                用 D3、Lottie、Rive 与 Canvas
+                验证各自的责任边界，并在旗舰作品中与 Motion 组合。
               </CardDescription>
             </div>
             <Button asChild variant="secondary" size="lg">
-              <Link href="/labs/compare">
-                查看技术选型指南
+              <Link href="/labs/living-data-story">
+                查看旗舰作品
                 <span
                   className="icon-[solar--arrow-right-up-bold-duotone]"
                   data-icon="inline-end"
