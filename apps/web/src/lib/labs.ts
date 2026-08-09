@@ -4,6 +4,7 @@ export type LabDefinition = {
   description: string;
   focus: string[];
   icon: string;
+  status: "reference" | "planned";
 };
 
 export const labs = {
@@ -14,6 +15,7 @@ export const labs = {
       "Establish the native browser baseline for vector motion and visual timing.",
     focus: ["CSS keyframes", "SVG paths", "Masks and gradients"],
     icon: "icon-[solar--pen-new-square-bold-duotone]",
+    status: "reference",
   },
   gsap: {
     slug: "gsap",
@@ -22,6 +24,7 @@ export const labs = {
       "Study timeline choreography, precise seeking, easing, and SVG motion.",
     focus: ["Timelines", "Stagger and easing", "Motion paths"],
     icon: "icon-[solar--clapperboard-play-bold-duotone]",
+    status: "reference",
   },
   motion: {
     slug: "motion",
@@ -30,6 +33,7 @@ export const labs = {
       "Explore React-first interaction, gestures, layout transitions, and springs.",
     focus: ["Layout animation", "Gestures", "Spring dynamics"],
     icon: "icon-[solar--cursor-square-bold-duotone]",
+    status: "reference",
   },
   d3: {
     slug: "d3",
@@ -38,6 +42,7 @@ export const labs = {
       "Turn data into bespoke geometry before handing motion to the right runtime.",
     focus: ["Scales", "Shapes and layouts", "Data transitions"],
     icon: "icon-[solar--chart-square-bold-duotone]",
+    status: "planned",
   },
   lottie: {
     slug: "lottie",
@@ -46,6 +51,7 @@ export const labs = {
       "Evaluate vector animation delivery, playback control, and runtime limits.",
     focus: ["JSON playback", "Segments", "Asset performance"],
     icon: "icon-[solar--video-frame-play-horizontal-bold-duotone]",
+    status: "planned",
   },
   rive: {
     slug: "rive",
@@ -54,6 +60,7 @@ export const labs = {
       "Build interactive vector graphics driven by state machines and runtime data.",
     focus: ["State machines", "Data binding", "Canvas and WebGL runtimes"],
     icon: "icon-[solar--gamepad-bold-duotone]",
+    status: "planned",
   },
   canvas: {
     slug: "canvas",
@@ -62,6 +69,7 @@ export const labs = {
       "Study immediate-mode drawing, dense scenes, particles, and frame budgets.",
     focus: ["Render loops", "Particles", "Performance profiling"],
     icon: "icon-[solar--layers-bold-duotone]",
+    status: "planned",
   },
 } satisfies Record<string, LabDefinition>;
 

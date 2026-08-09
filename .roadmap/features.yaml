@@ -96,37 +96,43 @@ features:
   - id: comparative-lab-harness
     title: 统一动画实验与测量协议
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: high
     note: v0.3;统一 stage、控制器、视口预设、reduced-motion 开关、轻量诊断与实验记录格式,保证跨 runtime 对比公平。
   - id: native-css-svg-baseline
     title: CSS + SVG 原生动效基线
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: high
     note: v0.3;覆盖 transition、keyframes、transform、stroke/path、mask 与状态驱动组合,明确零运行时依赖的能力边界。
   - id: motion-interaction-lab
     title: Motion 交互与布局动画实验
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: high
     note: v0.3;验证 gesture、enter/exit、layout、shared element、中断恢复与 React 状态协作。
   - id: gsap-choreography-lab
     title: GSAP 时间轴编排实验
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: high
     note: v0.3;验证 timeline、label、stagger、seek、reverse 与 SVG 多阶段编排。
   - id: interaction-choreography-benchmark
     title: 三运行时交互动效旗舰作品
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: high
     note: v0.3;同一套多阶段产品叙事分别以 CSS/SVG、Motion、GSAP 实现,统一视觉与交互契约后比较实现代价。
   - id: interaction-runtime-decision-guide
     title: Web 交互动效技术选型指南
     area: 动画实验
-    status: doing
+    status: done
+    completedAt: 2026-08-09
     priority: high
     note: v0.3;基于实验给出默认方案、升级路径、反例及 bundle/可访问性/调试/编排能力矩阵。
   - id: d3-data-geometry-lab
