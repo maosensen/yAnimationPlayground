@@ -1,7 +1,7 @@
 # 设计语言确认清单(Design Standards Checklist)
 
 > **这是什么**:把 trust-system / 项目矩阵开发中沉淀的设计决策,逐项过审、成文、落 demo,
-> 最终形成「用 yTemplate 启动任意 SaaS 都有同一套设计语言」的完整标准。
+> 最终形成「y 系列项目共享同一套设计语言」的完整标准。
 >
 > **每一项的完成定义(DoD)**——缺一不可:
 > 1. **确认**:你对该项的标准拍板(本清单打勾,争议点写在条目下);
@@ -174,7 +174,7 @@
 
 ## F. 组件补齐清单
 
-> 原则:能用 shadcn 生态现成的(`pnpm dlx shadcn add`)不自研;自研的放 `src/components/ui/` 同级风格。
+> 原则:能用 shadcn 生态现成的(`pnpm dlx shadcn add -c apps/web`)不自研;自研的放 `apps/web/src/components/ui/` 同级风格。
 
 - [ ] **F1 · DatePicker / DateRangePicker** ⬜:calendar ✅ 已有,缺 Popover+Input 封装;
   确认:展示格式(I2)、快捷区间(今天/近7天/近30天/本月)、与表单 Field 的接线、时区策略。
@@ -311,7 +311,7 @@
 - [ ] **N3 · zustand 约定** 🟡:persist key 命名(`ytpl:*`?)、每 store 一文件已成文 ✅、
   版本迁移(settings 已有先例 → 提炼为通用模式)。
 - [ ] **N4 · Demo 数据源** ⬜(需要决策)
-  demo 页数据从哪来:静态 fixtures 模块(`src/lib/fixtures/`)+ 人工延迟/失败开关
+  demo 页数据从哪来:静态 fixtures 模块(`apps/web/src/lib/fixtures/`)+ 人工延迟/失败开关
   (让 B 的四态可演示)—— 建议此方案,不引 faker/msw,待确认。
 - [ ] **N5 · API 客户端约定** ⬜:fetch 封装(baseURL、错误归一化为统一 shape、zod 校验响应)
   —— 模板只放骨架 + 约定,不绑定具体后端。

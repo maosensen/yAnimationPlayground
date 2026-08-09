@@ -2,7 +2,7 @@
 
 Reference for the theme/settings system. The **rules** new code must follow
 live in [AGENTS.md](../AGENTS.md); this document explains the machinery behind
-them. Single CSS source: `src/app/globals.css`.
+them. Single CSS source: `apps/web/src/app/globals.css`.
 
 ## Token pipeline (three layers)
 
@@ -18,14 +18,14 @@ a few lines of CSS instead of component logic.
 
 ## Settings system
 
-State lives in a zustand store (`src/lib/stores/settings-store.ts`), persisted
+State lives in a zustand store (`apps/web/src/lib/stores/settings-store.ts`), persisted
 to localStorage under `ytemplate-settings` (versioned, with `migrate`).
 Two consumers reflect it onto `<html>`:
 
 | Reflector | File | When |
 |---|---|---|
-| `SettingsScript` | `src/components/settings/settings-script.tsx` | Blocking inline script, **before first paint** (FOUC prevention) |
-| `SettingsEffect` | `src/components/settings/settings-effect.tsx` | React effect, keeps `<html>` in sync after hydration |
+| `SettingsScript` | `apps/web/src/components/settings/settings-script.tsx` | Blocking inline script, **before first paint** (FOUC prevention) |
+| `SettingsEffect` | `apps/web/src/components/settings/settings-effect.tsx` | React effect, keeps `<html>` in sync after hydration |
 
 **These two must stay mirrored.** Any new setting applied in the effect but
 not the script will flash the default on every load; any migration added to
@@ -49,7 +49,7 @@ What lands on `<html>`:
 
 ### Checklist: adding a new setting
 
-1. `src/lib/settings/config.ts` — type, options constant, `DEFAULT_SETTINGS` entry
+1. `apps/web/src/lib/settings/config.ts` — type, options constant, `DEFAULT_SETTINGS` entry
 2. `settings-store.ts` — setter (+ version bump & `migrate` only if changing the *meaning* of an existing persisted value; new keys merge in via defaults)
 3. `settings-effect.tsx` — reflect onto `<html>`
 4. `settings-script.tsx` — mirror the reflection (and any migration) in the inline script
@@ -66,7 +66,7 @@ chart ladder. The ladder walks **fixed lightness steps at the preset's hue**
 charts stay harmonized across presets.
 
 The **custom** preset derives the same shape at runtime:
-`src/lib/settings/color.ts` converts the picked hex to OKLCH and builds the 9
+`apps/web/src/lib/settings/color.ts` converts the picked hex to OKLCH and builds the 9
 brand vars. They are **precomputed at pick time and persisted verbatim** so
 the FOUC script can replay them without color math. Because they're applied
 as inline styles (which beat any stylesheet block), `SettingsEffect` must
@@ -139,7 +139,8 @@ hardcode `text-foreground` — that's how the logo and header icons adapt.
 
 - **Turbopack stale CSS (Next 16.2.x):** `globals.css` edits are sometimes
   served stale even across reloads and `lint`-clean builds. Verify via
-  computed styles / CSSOM, and fix with: stop dev server → `rm -rf .next/dev`
+  computed styles / CSSOM, and fix with: stop dev server → remove
+  `apps/web/.next/dev`
   → restart.
 - **Don't test dark mode by toggling the `dark` class manually** —
   `next-themes` fights the mutation; use the Mode control (or

@@ -1,10 +1,11 @@
-# Release card — yTemplate
+# Release card — yAnimationPlayground
 
 <!-- 由 release skill 生成于 2026-07-10;发版流程见 user 级 release skill,本卡只记录项目特异性事实。 -->
 
 ## 版本文件(bump 时全部同步)
 
 - `package.json`
+- `apps/web/package.json`
 
 ## 门禁
 
@@ -14,7 +15,7 @@
 ## CHANGELOG
 
 - `CHANGELOG.md`,Keep a Changelog,英文
-- 应用内 changelog:`src/lib/changelog.ts`(单语英文;release 带 title/summary,change 带 kind/title/text,text 不以标题开头)
+- 应用内 changelog:`apps/web/src/lib/changelog.ts`(单语英文;release 带 title/summary,change 带 kind/title/text,text 不以标题开头)
 
 ## 发布渠道
 

@@ -1,70 +1,79 @@
-# yTemplate
+# yAnimationPlayground
 
 [English](./README.md) | 简体中文
 
-一个个人 Next.js 起步模板，内置一套有明确取舍的技术栈和开箱即用的 Dashboard 壳层，让新项目跳过繁琐配置、直接开始写业务功能。
+一个通过小型、可比较实验系统学习浏览器动画与代码视频的 pnpm monorepo。
+仓库保留一套生产质量的 Next.js + shadcn/ui 交互实验壳层，同时隔离视频渲染器和未来的共享 Motion 基础设施。
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black) ![React](https://img.shields.io/badge/React-19-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8) ![Biome](https://img.shields.io/badge/Biome-2.x-60a5fa) ![pnpm](https://img.shields.io/badge/pnpm-10-f69220)
+## 已包含内容
 
-## 特性
-
-- **Next.js 16** — App Router、TypeScript、Turbopack、React Compiler
-- **Tailwind CSS v4 + shadcn/ui** — 全套组件随仓库分发（`src/components/ui/`），通过 CSS 变量定制主题
-- **Dashboard 壳层** — 侧边栏 + 顶栏布局（`shadcn-space/dashboard-shell-01`），数据驱动导航、明暗主题切换、附带分析面板和图表示例页
-- **品牌主题** — 蓝色 `#2b7eff` 主色 + 同色相派生的 5 档图表色阶，支持明暗双模式
-- **Biome** — lint 和格式化一个工具搞定（不用 ESLint/Prettier）
-- **常用库齐备** — `pino`（日志）、`zustand`（客户端状态）、`@tanstack/react-query`（服务端状态）、`react-hook-form` + `zod`（表单）、`date-fns`、`motion`、`next-themes`、`recharts`
+- **Web 实验室** — CSS + SVG、GSAP、Motion、D3、Lottie、Rive、Canvas 路由
+- **生产级应用壳层** — Next.js 16、React 19、Tailwind CSS v4、shadcn/ui、React Compiler
+- **完整保留主题系统** — 颜色预设、自定义品牌色、中性色族、对比度、阴影、导航、圆角与字体
+- **视频工程隔离** — 为 Remotion 和 HyperFrames 预留独立 workspace
+- **共享基础设施** — design tokens、motion tokens、动画 primitive 与 assets 包
+- **工程门禁** — pnpm workspace、Biome、TypeScript、环境变量校验与 CI
 
 ## 快速开始
 
-需要 **Node.js >= 20** 和 **pnpm 10.x**。
+需要 **Node.js >= 22** 和 **pnpm 10.x**。
 
 ```sh
 pnpm install
 pnpm dev
 ```
 
-打开 [http://localhost:3005](http://localhost:3005) —— 开发服务器与 `pnpm start`
-默认端口都是 **3005**。
+打开 [http://localhost:3005](http://localhost:3005)。
 
 ## 常用命令
 
 | 命令 | 说明 |
 |---|---|
-| `pnpm dev` | Turbopack 开发服务器 |
-| `pnpm build` | 生产构建 |
-| `pnpm start` | 运行生产构建 |
-| `pnpm check-types` | TypeScript 类型检查（`tsc --noEmit`） |
-| `pnpm lint` | Biome lint + 格式检查 |
-| `pnpm lint:fix` | 应用 Biome 自动修复 |
-| `pnpm format` | 仅格式化 |
+| `pnpm dev` | 使用 Turbopack 启动 Next.js Web workspace |
+| `pnpm build` | 构建 Web workspace 的生产版本 |
+| `pnpm start` | 运行 Web 生产构建 |
+| `pnpm check` | 执行仓库级 lint 与类型门禁 |
+| `pnpm check-types` | 执行所有支持类型检查的 workspace |
+| `pnpm lint` | 使用 Biome 检查整个 monorepo |
+| `pnpm lint:fix` | 应用 Biome 安全修复 |
+| `pnpm format` | 格式化支持的文件 |
 
-## 项目结构
+## 仓库结构
 
+```text
+apps/
+├── web/                       # Next.js + shadcn 交互实验平台
+│   └── src/app/(app)/labs/
+│       ├── css-svg/
+│       ├── gsap/
+│       ├── motion/
+│       ├── d3/
+│       ├── lottie/
+│       ├── rive/
+│       └── canvas/
+├── remotion/                  # 独立 React 视频工程
+└── hyperframes/               # 独立 HTML-to-video 工程
+packages/
+├── design-tokens/             # 色彩、字体、间距、层级
+├── motion-tokens/             # duration、easing、stagger、节奏
+├── motion-kit/                # 可复用动画 primitive
+└── assets/                    # 共享源素材与实验 fixture
+notes/                         # 已完成实验的结论
 ```
-src/
-├── app/
-│   ├── (app)/                # 被 Dashboard 壳层包裹的路由
-│   │   ├── page.tsx          # / — 分析面板
-│   │   └── charts/           # /charts/line、/charts/bar
-│   ├── layout.tsx            # 根布局（字体、providers）
-│   └── globals.css           # Tailwind v4 + 主题 token
-├── components/
-│   ├── ui/                   # shadcn 组件（归本仓库所有，可自由修改）
-│   ├── shadcn-space/blocks/  # Dashboard 区块（侧边栏、顶栏、图表）
-│   ├── providers.tsx         # QueryClient → Theme provider 栈
-│   └── theme-toggle.tsx      # 明暗切换按钮
-└── lib/                      # logger、query client、zustand stores、utils
-```
 
-## 添加组件
+完整 shadcn 组件库与当前可工作的主题实现仍保留在 `apps/web/src/`。
+共享 package 会刻意从小开始：只有第二个真实消费者验证了契约，才从 Web 应用中提炼。
+
+## 添加 UI 组件
 
 ```sh
-pnpm dlx shadcn@latest add <component-name>
+pnpm dlx shadcn@latest add <component-name> -c apps/web
 ```
 
-生成的组件位于 `src/components/ui/`，可自由编辑。`components.json` 中已预配置 `@shadcn-space` registry，用于安装 dashboard 区块。
+生成的组件位于 `apps/web/src/components/ui/`，归本仓库所有并可自由修改。
+`@shadcn-space` registry 继续配置在 `apps/web/components.json`。
 
-## 约定
+## 开发约定
 
-所有编码约定、库选型以及面向 AI 编码助手的规则统一记录在 **[AGENTS.md](./AGENTS.md)** —— 本仓库的唯一权威来源。
+所有编码约定、库选型、workspace 边界和 AI 编码助手规则统一记录在
+[AGENTS.md](./AGENTS.md)，它是本仓库的唯一权威来源。

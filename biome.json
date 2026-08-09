@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/.next",
+      "!**/dist",
+      "!**/build",
+      "!**/output"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -36,7 +43,7 @@
   },
   "overrides": [
     {
-      "includes": ["src/components/ui/**"],
+      "includes": ["apps/web/src/components/ui/**"],
       "linter": {
         "rules": {
           "a11y": {

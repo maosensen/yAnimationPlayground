@@ -4,7 +4,7 @@ This file is the **single source of truth** for AI coding assistants (Claude Cod
 
 ## Prerequisites
 
-- Node.js >= 20
+- Node.js >= 22 (the shared floor for Next.js and the future HyperFrames workspace)
 - pnpm 10.x (pinned via `packageManager` in `package.json`)
 
 ## Core commands
@@ -12,11 +12,11 @@ This file is the **single source of truth** for AI coding assistants (Claude Cod
 ```sh
 pnpm install
 pnpm dev              # Turbopack dev server (port 3005)
-pnpm build            # Production build
+pnpm build            # Production build for the web workspace
 pnpm start            # Run production build (port 3005)
-pnpm check            # biome check + tsc --noEmit (aggregate gate)
-pnpm check-types      # tsc --noEmit
-pnpm lint             # biome check (lint + format check)
+pnpm check            # root Biome check + every workspace typecheck
+pnpm check-types      # run each workspace's supported typecheck
+pnpm lint             # repository-wide Biome lint + format check
 pnpm lint:fix         # biome check --write
 pnpm format           # biome format --write
 ```
@@ -24,12 +24,12 @@ pnpm format           # biome format --write
 ### UI component workflow
 
 ```sh
-pnpm dlx shadcn@latest add <component-name>
+pnpm dlx shadcn@latest add <component-name> -c apps/web
 ```
 
-- Components land in `src/components/ui/` and are **owned by this repo** — edit them freely.
-- The `@shadcn-space` registry is configured in `components.json` for dashboard blocks.
-- For new themes / token changes, prefer `pnpm dlx shadcn@latest init --preset <id>` over manual CSS variable edits.
+- Components land in `apps/web/src/components/ui/` and are **owned by this repo** — edit them freely.
+- The `@shadcn-space` registry is configured in `apps/web/components.json` for dashboard blocks.
+- For new themes / token changes, prefer `pnpm dlx shadcn@latest init --preset <id> -c apps/web` over manual CSS variable edits.
 
 ### Tests
 
@@ -37,40 +37,36 @@ There is currently no test runner configured in this repository, so there is no 
 
 ## Architecture overview
 
-This is a **single Next.js 16 app** (App Router + TypeScript + React Compiler), intended as a personal template/starter.
+This is a **pnpm monorepo** for browser animation labs and isolated video-rendering experiments. The existing Next.js 16 template lives intact in `apps/web`; video tools and reusable contracts stay outside its runtime boundary.
 
 ```
-src/
-├── app/
-│   ├── (app)/                # Route group wrapped by the dashboard shell
-│   │   ├── layout.tsx        # Mounts <AppSidebar> (sidebar + header shell)
-│   │   ├── page.tsx          # / — analytics dashboard
-│   │   └── charts/           # /charts/line, /charts/bar
-│   ├── layout.tsx            # Root layout (fonts, <Providers>)
-│   └── globals.css           # Tailwind v4 + theme tokens (single CSS source)
-├── assets/logo/              # Logo component (theme-token driven)
-├── components/
-│   ├── ui/                   # shadcn components — edit freely
-│   ├── shadcn-space/blocks/  # Dashboard blocks (sidebar, header, charts, tables)
-│   ├── providers.tsx         # Root provider stack (QueryClient → Theme)
-│   ├── theme-provider.tsx
-│   ├── theme-toggle.tsx      # Light/dark toggle (next-themes)
-│   ├── language-switcher.tsx # Header locale panel — placeholder, no i18n yet
-│   └── social-links.tsx      # GitHub / X glyphs for the header
-└── lib/
-    ├── logger.ts             # pino logger
-    ├── get-query-client.ts   # react-query QueryClient factory
-    ├── stores/               # zustand stores, one file per store
-    ├── site.ts               # External profile links (non-copy site facts)
-    └── utils.ts              # shadcn-generated cn()
+apps/
+├── web/                      # Next.js 16 + shadcn playground shell
+│   └── src/app/(app)/labs/   # CSS/SVG, GSAP, Motion, D3, Lottie, Rive, Canvas
+├── remotion/                 # isolated frame-driven React video workspace
+└── hyperframes/              # isolated HTML-to-video workspace
+packages/
+├── design-tokens/            # future cross-runtime visual contracts
+├── motion-tokens/            # duration, easing, stagger, rhythm
+├── motion-kit/               # reusable animation primitives
+└── assets/                   # shared source assets and fixtures
+notes/                        # evidence and conclusions from each lab
 ```
+
+The complete shadcn component set, dashboard shell, changelog, runtime theme
+settings, and token source remain under `apps/web/src/`. The working theme is
+not duplicated into `packages/design-tokens`; extract a token only after a
+second real consumer proves its API.
 
 ### Cross-cutting wiring
 
 - Routes that need the sidebar/header shell go inside the `(app)` group; marketing/auth pages can live outside it to opt out.
-- Sidebar navigation is data-driven via `navData` in `src/components/shadcn-space/blocks/dashboard-shell-01/app-sidebar.tsx`; nav items use `next/link` and highlight by `usePathname()`.
-- `@/*` alias maps to `src/*`.
-- Remote images are served via `next/image`; allowed hosts live in `images.remotePatterns` in `next.config.ts`.
+- Sidebar navigation is data-driven via `navData` in `apps/web/src/components/shadcn-space/blocks/dashboard-shell-01/app-sidebar.tsx`; nav items use `next/link` and highlight by `usePathname()`.
+- Within `apps/web`, the `@/*` alias maps to that workspace's `src/*`.
+- Remote images are served via `next/image`; allowed hosts live in `images.remotePatterns` in `apps/web/next.config.ts`.
+- Do not install Remotion or HyperFrames in `apps/web`. Each renderer owns its dependencies and generated output inside its dedicated workspace.
+- Heavy browser runtimes belong to their lab route and must be loaded only when that lab is active; never register them in the root layout or provider stack.
+- Shared packages expose granular subpaths. Do not create a barrel that pulls every animation runtime into consumers.
 
 ## Stack
 
@@ -87,7 +83,7 @@ Use these for their respective domains. Do not introduce alternatives without ex
 | Domain | Library |
 |---|---|
 | Logging | `pino` (+ `pino-pretty` in dev) — import from `@/lib/logger` |
-| Client state | `zustand` — stores under `src/lib/stores/` |
+| Client state | `zustand` — stores under `apps/web/src/lib/stores/` |
 | IDs | `nanoid` |
 | Animation | `motion` (the package formerly known as framer-motion) |
 | Date / time | `date-fns` |
@@ -108,14 +104,14 @@ Use these for their respective domains. Do not introduce alternatives without ex
 
 This repo uses **Next.js 16**. Assumptions from training data or older articles may differ from the actual APIs, conventions, and recommended directory structure. **Before writing framework-related code**, read the docs bundled with the installed package and follow deprecation warnings:
 
-- `node_modules/next/dist/docs/`
-- Verify the resolved version with `pnpm why next` or `package.json` if in doubt.
+- `apps/web/node_modules/next/dist/docs/`
+- Verify the resolved version with `pnpm --filter @yanimation/web why next` or `apps/web/package.json` if in doubt.
 
 ## UI and styling constraints
 
 ### Theme & colors
 
-The brand color is **`#2b7eff`** (`oklch(0.617 0.208 259.473)`). All theme tokens live in `src/app/globals.css` (`:root` + `.dark`); the chart scale `--chart-1` … `--chart-5` is derived from the same hue.
+The brand color is **`#2b7eff`** (`oklch(0.617 0.208 259.473)`). All theme tokens live in `apps/web/src/app/globals.css` (`:root` + `.dark`); the chart scale `--chart-1` … `--chart-5` is derived from the same hue.
 
 Color usage priority:
 
@@ -176,21 +172,21 @@ header controls must follow all four rules:
 
 ### Environment variables
 
-- All env vars are declared in the zod schema in `src/lib/env.ts` and read via
+- All env vars are declared in the zod schema in `apps/web/src/lib/env.ts` and read via
   `import { env } from "@/lib/env"` — never read `process.env` directly in app
-  code (the only exceptions are `env.ts` itself and `next.config.ts`).
+  code (the only exceptions are `env.ts` itself and `apps/web/next.config.ts`).
 - Adding a variable = schema (server / client / shared) + `runtimeEnv` map +
-  `.env.example` entry. Client-exposed vars must use the `NEXT_PUBLIC_` prefix.
-- Validation runs at build/dev startup (imported by `next.config.ts`), so a
+  `apps/web/.env.example` entry. Client-exposed vars must use the `NEXT_PUBLIC_` prefix.
+- Validation runs at build/dev startup (imported by `apps/web/next.config.ts`), so a
   missing or malformed variable fails fast instead of at runtime.
 
 ### Error & status pages
 
 - Full-page 4xx/5xx states use `<StatusPage>` (`@/components/status-page`) so
   they stay visually consistent; don't hand-roll centered error markup.
-- Conventions already wired: global 404 (`src/app/not-found.tsx`), in-shell 404
+- Conventions already wired: global 404 (`apps/web/src/app/not-found.tsx`), in-shell 404
   (`(app)/not-found.tsx`), in-shell error boundary (`(app)/error.tsx`),
-  root-crash fallback (`src/app/global-error.tsx`), and a group-level loading
+  root-crash fallback (`apps/web/src/app/global-error.tsx`), and a group-level loading
   skeleton (`(app)/loading.tsx` — override per page when the shape matters).
 - Next 16.2 error boundaries receive `unstable_retry` (re-fetch + re-render);
   prefer it over the legacy `reset`.
@@ -204,7 +200,7 @@ header controls must follow all four rules:
 ### State
 
 - **Client-only ephemeral state:** `useState` / `useReducer`
-- **Cross-component client state:** zustand store under `src/lib/stores/`
+- **Cross-component client state:** zustand store under `apps/web/src/lib/stores/`
 - **Server data:** `@tanstack/react-query` — never put server response data into zustand
 
 ### Forms
@@ -225,7 +221,7 @@ New files use kebab-case.
 
 ## Known issues
 
-- **Turbopack dev CSS cache (Next 16.2.x):** edits to `src/app/globals.css` theme variables are sometimes served stale by the dev server even after recompile. If colors don't update after a hard refresh: stop the dev server → `rm -rf .next/dev` → `pnpm dev`.
+- **Turbopack dev CSS cache (Next 16.2.x):** edits to `apps/web/src/app/globals.css` theme variables are sometimes served stale by the dev server even after recompile. If colors don't update after a hard refresh: stop the dev server → remove `apps/web/.next/dev` → `pnpm dev`.
 
 ## Git commit messages
 
@@ -242,14 +238,15 @@ Biome handles both linting and formatting (no ESLint or Prettier). Key settings 
 - 2-space indent, double quotes, semicolons, trailing commas (Biome defaults)
 - `organizeImports` is enforced as an assist action
 - Next + React recommended rule domains are enabled
-- shadcn components under `src/components/ui/**` have relaxed rules (a11y, `noArrayIndexKey`, `noDangerouslySetInnerHtml`, etc.) because they are upstream-managed — do not "fix" upstream patterns there, and do not extend these relaxations to app code
+- shadcn components under `apps/web/src/components/ui/**` have relaxed rules (a11y, `noArrayIndexKey`, `noDangerouslySetInnerHtml`, etc.) because they are upstream-managed — do not "fix" upstream patterns there, and do not extend these relaxations to app code
 
 ## Before committing
 
 1. `pnpm lint` passes
-2. `pnpm build` passes (catches type errors that dev mode tolerates)
-3. No `console.log` in committed code
-4. No new top-level dependencies introduced without justification
+2. `pnpm check-types` passes
+3. `pnpm build` passes (catches type errors that dev mode tolerates)
+4. No `console.log` in committed code
+5. No new top-level dependencies introduced without justification
 
 ## Feature ledger
 

@@ -4,10 +4,10 @@
 #
 # 初稿由功能考古生成(2026-07-28;modules 自 readiness DB 迁移,原样保留),待人批改。
 
-project: maosensen/yTemplate
+project: maosensen/yAnimationPlayground
 track: oss
 launchedAt: null
-areas: [脚手架, 应用外壳, 主题与设置, 演示与组件, 工程化, 文档与发布]
+areas: [脚手架, 动画实验, 应用外壳, 主题与设置, 演示与组件, 工程化, 文档与发布]
 
 modules:
   - id: readme-hero
@@ -84,6 +84,12 @@ modules:
 
 features:
   # —— 脚手架 ——
+  - id: animation-monorepo-foundation
+    title: 动画实验 Monorepo 基座
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    note: 现有 Next + shadcn 模板完整迁入 apps/web;建立 7 个 Web Lab 路由、Remotion/HyperFrames 独立工程边界、4 个共享 package 与 notes 目录,重型动画依赖按实验延迟安装。
   - id: nextjs-16-scaffold
     title: Next.js 16 基线脚手架
     area: 脚手架
@@ -264,7 +270,7 @@ features:
     status: done
     completedAt: 2026-07-10
     shippedIn: v0.1.0
-    note: /changelog 时间线渲染精编发布说明,数据源为类型化的 src/lib/changelog.ts。
+    note: /changelog 时间线渲染精编发布说明,数据源为类型化的 apps/web/src/lib/changelog.ts。
   - id: feature-ledger
     title: 功能台账
     area: 文档与发布

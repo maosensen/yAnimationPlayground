@@ -1,10 +1,20 @@
 # Changelog
 
-All notable changes to yTemplate are documented here. The format is based on
+All notable changes to yAnimationPlayground are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/); this project uses
 [semantic versioning](https://semver.org/).
 
+Versions 0.1.0 through 0.1.4 record the inherited yTemplate baseline that the
+playground keeps as its UI and engineering foundation.
+
 ## [Unreleased]
+
+### Changed
+
+- **Animation monorepo foundation** — moved the complete Next.js + shadcn
+  template into `apps/web`, added isolated Remotion and HyperFrames workspace
+  boundaries, created shared token/motion/assets package shells, and exposed
+  seven dependency-free browser lab routes.
 
 ## [0.1.4] - 2026-08-06
 
@@ -71,7 +81,7 @@ All notable changes to yTemplate are documented here. The format is based on
 
 ### Added
 
-- **Validated environment variables** — a zod schema in `src/lib/env.ts` is now
+- **Validated environment variables** — a zod schema in `apps/web/src/lib/env.ts` is now
   the single source for env vars (server / client / shared split, fail-fast at
   build and dev startup, guard against reading server-only vars on the client),
   with a tracked `.env.example`.
@@ -105,7 +115,7 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yTemplate/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/commits/main
 [0.1.4]: https://github.com/maosensen/yTemplate/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/maosensen/yTemplate/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/maosensen/yTemplate/compare/v0.1.1...v0.1.2
