@@ -67,7 +67,7 @@ const AppSidebar = () => {
           <SidebarMenuItem>
             <Link
               href="/"
-              aria-label="yAnimation Playground home"
+              aria-label="yAnimationPlayground home"
               className="flex justify-start group-data-[collapsible=icon]:justify-center"
             >
               {/* Full logo when expanded */}

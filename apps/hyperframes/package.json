@@ -1,5 +1,6 @@
 {
   "name": "@yanimation/hyperframes",
+  "description": "HyperFrames video experiments for yAnimationPlayground.",
   "version": "0.0.0",
   "private": true,
   "engines": {

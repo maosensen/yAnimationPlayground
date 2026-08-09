@@ -34,8 +34,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
-  title: "yAnimation Playground",
-  description: "A practical lab for browser animation and code-driven video",
+  title: "yAnimationPlayground",
+  description:
+    "yAnimationPlayground is a practical lab for browser animation and code-driven video.",
 };
 
 export default function RootLayout({

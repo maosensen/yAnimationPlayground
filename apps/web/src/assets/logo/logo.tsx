@@ -8,7 +8,7 @@ const Logo = () => {
           `dangerouslyAllowSVG` in next.config). */}
       <Image
         src="/logo.svg"
-        alt="yAnimation Playground"
+        alt="yAnimationPlayground"
         width={40}
         height={40}
         priority
@@ -17,8 +17,8 @@ const Logo = () => {
       />
       {/* Inherits color so the wordmark adapts to its surface (e.g. light
           text on the dark "apparent" sidebar). */}
-      <span className="text-2xl font-bold tracking-tight">
-        yAnimation<span className="text-primary">.</span>
+      <span className="text-base font-bold tracking-tight">
+        yAnimation<span className="text-primary">Playground</span>
       </span>
     </div>
   );

@@ -19,7 +19,9 @@ a few lines of CSS instead of component logic.
 ## Settings system
 
 State lives in a zustand store (`apps/web/src/lib/stores/settings-store.ts`), persisted
-to localStorage under `ytemplate-settings` (versioned, with `migrate`).
+to localStorage under `yanimation-playground-settings` (versioned, with
+`migrate`). The pre-paint script moves the legacy `ytemplate-settings` payload
+to the canonical key before zustand hydrates, preserving existing preferences.
 Two consumers reflect it onto `<html>`:
 
 | Reflector | File | When |

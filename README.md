@@ -2,8 +2,8 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-A pnpm monorepo for learning browser animation and code-driven video through
-small, comparable experiments. It keeps a production-quality Next.js +
+yAnimationPlayground is a pnpm monorepo for learning browser animation and
+code-driven video through small, comparable experiments. It keeps a production-quality Next.js +
 shadcn/ui shell for interactive labs while isolating video renderers and future
 shared motion packages.
 

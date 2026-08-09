@@ -2,6 +2,7 @@
 import {
   DEFAULT_SETTINGS,
   FONT_VAR_MAP,
+  LEGACY_SETTINGS_STORAGE_KEYS,
   SETTINGS_STORAGE_KEY,
 } from "@/lib/settings/config";
 
@@ -19,7 +20,10 @@ var d=document.documentElement;
 var def=${JSON.stringify(DEFAULT_SETTINGS)};
 var fonts=${JSON.stringify(FONT_VAR_MAP)};
 var s=def;
-var raw=localStorage.getItem(${JSON.stringify(SETTINGS_STORAGE_KEY)});
+var key=${JSON.stringify(SETTINGS_STORAGE_KEY)};
+var legacyKeys=${JSON.stringify(LEGACY_SETTINGS_STORAGE_KEYS)};
+var raw=localStorage.getItem(key);
+if(!raw){for(var i=0;i<legacyKeys.length;i++){var legacyKey=legacyKeys[i];raw=localStorage.getItem(legacyKey);if(raw){localStorage.setItem(key,raw);localStorage.removeItem(legacyKey);break;}}}
 if(raw){var p=JSON.parse(raw);if(p&&p.state){s=Object.assign({},def,p.state);
 var v=p.version||0;
 if(v<1&&s.fontFamily==="public-sans"){s.fontFamily="outfit";}

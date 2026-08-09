@@ -1,5 +1,6 @@
 {
   "name": "@yanimation/motion-tokens",
+  "description": "Shared motion timing and easing tokens for yAnimationPlayground.",
   "version": "0.0.0",
   "private": true
 }

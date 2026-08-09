@@ -129,4 +129,7 @@ export const DEFAULT_SETTINGS: SettingsValues = {
 };
 
 /** localStorage key shared between the zustand store and the FOUC-blocking script. */
-export const SETTINGS_STORAGE_KEY = "ytemplate-settings";
+export const SETTINGS_STORAGE_KEY = "yanimation-playground-settings";
+
+/** Previous project keys migrated once by the FOUC-blocking script. */
+export const LEGACY_SETTINGS_STORAGE_KEYS = ["ytemplate-settings"] as const;

@@ -2,7 +2,7 @@
 
 [English](./README.md) | 简体中文
 
-一个通过小型、可比较实验系统学习浏览器动画与代码视频的 pnpm monorepo。
+yAnimationPlayground 是一个通过小型、可比较实验系统学习浏览器动画与代码视频的 pnpm monorepo。
 仓库保留一套生产质量的 Next.js + shadcn/ui 交互实验壳层，同时隔离视频渲染器和未来的共享 Motion 基础设施。
 
 ## 已包含内容

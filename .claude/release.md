@@ -25,4 +25,4 @@
 ## 本项目特有注意事项
 
 - **分支策略**:日常开发在 `dev`,发版时 merge 进 `main`(默认分支,沿用 "Merge branch 'dev': <summary>" 风格),tag 打在 main 上;发完回到 dev。
-- 用户常驻 `next dev`(端口 3005):Next 16 拒绝同项目第二个 dev 实例,验证页面直接 curl 3005 的 SSR 产物即可。
+- 用户常驻 `next dev`(端口 4394):Next 16 拒绝同项目第二个 dev 实例,验证页面直接 curl 4394 的 SSR 产物即可。

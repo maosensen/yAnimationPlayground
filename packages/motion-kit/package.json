@@ -1,5 +1,6 @@
 {
   "name": "@yanimation/motion-kit",
+  "description": "Reusable animation primitives for yAnimationPlayground.",
   "version": "0.0.0",
   "private": true
 }

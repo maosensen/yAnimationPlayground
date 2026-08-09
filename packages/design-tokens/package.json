@@ -1,5 +1,6 @@
 {
   "name": "@yanimation/design-tokens",
+  "description": "Shared design tokens for yAnimationPlayground.",
   "version": "0.0.0",
   "private": true,
   "sideEffects": [

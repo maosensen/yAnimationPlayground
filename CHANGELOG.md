@@ -17,6 +17,9 @@ playground keeps as its UI and engineering foundation.
   seven dependency-free browser lab routes.
 - **Default port 4394** — `pnpm dev` and `pnpm start` now bind to port 4394,
   with the local site URL default and setup documentation aligned.
+- **Canonical project identity** — standardized the visible
+  `yAnimationPlayground` wordmark, package descriptions, persisted-settings
+  namespace, repository metadata, and contributor documentation.
 
 ## [0.1.4] - 2026-08-06
 
