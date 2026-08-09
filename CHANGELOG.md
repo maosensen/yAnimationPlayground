@@ -9,12 +9,22 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
-### Changed
+## [0.2.0] - 2026-08-09
+
+### Added
 
 - **Animation monorepo foundation** — moved the complete Next.js + shadcn
-  template into `apps/web`, added isolated Remotion and HyperFrames workspace
-  boundaries, created shared token/motion/assets package shells, and exposed
-  seven dependency-free browser lab routes.
+  application into `apps/web` and established a pnpm workspace that can grow
+  without forcing every animation runtime into one browser bundle.
+- **Seven browser labs** — added dedicated routes for CSS + SVG, GSAP, Motion,
+  D3, Lottie, Rive, and Canvas, with a shared overview for comparing their
+  intended roles before installing heavier dependencies.
+- **Purpose-built workspace boundaries** — reserved isolated Remotion and
+  HyperFrames applications, plus shared packages for design tokens, motion
+  tokens, reusable motion primitives, and source assets.
+
+### Changed
+
 - **Default port 4394** — `pnpm dev` and `pnpm start` now bind to port 4394,
   with the local site URL default and setup documentation aligned.
 - **Canonical project identity** — standardized the visible
@@ -120,7 +130,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/commits/main
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.2.0
 [0.1.4]: https://github.com/maosensen/yTemplate/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/maosensen/yTemplate/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/maosensen/yTemplate/compare/v0.1.1...v0.1.2

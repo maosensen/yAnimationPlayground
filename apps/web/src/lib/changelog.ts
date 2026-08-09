@@ -35,6 +35,35 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.2.0",
+    date: "2026-08-09",
+    title: "A playground with room to grow",
+    summary:
+      "yAnimationPlayground is now a focused monorepo: browser techniques stay easy to compare, while video renderers and reusable motion foundations get clean boundaries of their own.",
+    changes: [
+      {
+        kind: "new",
+        title: "Animation lab catalog",
+        text: "Seven focused browser labs map out CSS + SVG, GSAP, Motion, D3, Lottie, Rive, and Canvas without loading every runtime up front.",
+      },
+      {
+        kind: "new",
+        title: "Purpose-built workspaces",
+        text: "Remotion and HyperFrames have isolated application boundaries, alongside shared packages for tokens, motion primitives, and source assets.",
+      },
+      {
+        kind: "improved",
+        title: "Project identity",
+        text: "The product name, wordmark, package metadata, repository details, and persisted settings namespace now consistently use yAnimationPlayground.",
+      },
+      {
+        kind: "improved",
+        title: "Local development",
+        text: "Development and production preview servers now use port 4394 by default.",
+      },
+    ],
+  },
+  {
     version: "0.1.4",
     date: "2026-08-06",
     title: "A quick tune-up",
