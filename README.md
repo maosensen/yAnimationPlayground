@@ -12,8 +12,8 @@ shared motion packages.
 - **Web labs** — routes for CSS + SVG, GSAP, Motion, D3, Lottie, Rive, and Canvas
 - **Production-ready shell** — Next.js 16, React 19, Tailwind CSS v4, shadcn/ui, and React Compiler
 - **Theme system preserved** — runtime presets, custom brand color, neutral families, contrast, elevation, navigation, radius, and fonts
-- **Renderer boundaries** — dedicated workspaces reserved for Remotion and HyperFrames
-- **Shared foundations** — explicit packages for design tokens, motion tokens, motion primitives, and assets
+- **Code-video pipelines** — runnable Remotion and HyperFrames workspaces with landscape and portrait reference films
+- **Shared foundations** — explicit packages for design tokens, motion tokens, motion primitives, assets, and video production contracts
 - **Engineering gates** — pnpm workspaces, Biome, TypeScript, environment validation, and CI
 
 ## Roadmap
@@ -50,6 +50,10 @@ Open [http://localhost:4394](http://localhost:4394).
 | `pnpm lint` | Run Biome across the monorepo |
 | `pnpm lint:fix` | Apply safe Biome fixes |
 | `pnpm format` | Format supported files |
+| `pnpm video:prepare` | Validate and synchronize shared video inputs |
+| `pnpm video:check` | Check both renderer workspaces |
+| `pnpm video:render` | Render all landscape and portrait reference outputs |
+| `pnpm video:inspect` | Verify output dimensions, duration, frame rate, and audio |
 
 ## Repository structure
 
@@ -63,20 +67,25 @@ apps/
 │       ├── d3/
 │       ├── lottie/
 │       ├── rive/
-│       └── canvas/
+│       ├── canvas/
+│       └── code-video/
 ├── remotion/                  # isolated React video workspace
 └── hyperframes/               # isolated HTML-to-video workspace
 packages/
 ├── design-tokens/             # color, typography, spacing, elevation
 ├── motion-tokens/             # duration, easing, stagger, rhythm
 ├── motion-kit/                # reusable animation primitives
-└── assets/                    # shared source assets and fixtures
+├── assets/                    # shared source assets and fixtures
+└── video-contract/            # shared brief and render production contract
 notes/                         # findings from completed experiments
 ```
 
 The full shadcn component set and the working theme implementation remain in
 `apps/web/src/`. Shared packages start deliberately small: a contract is
 extracted only after a second real consumer proves it.
+
+See [docs/code-video-production.md](./docs/code-video-production.md) for the
+v0.5 workflow, renderer comparison, commands, and verified output contract.
 
 ## Adding UI components
 

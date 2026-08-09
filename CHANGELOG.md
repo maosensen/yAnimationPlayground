@@ -9,11 +9,20 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
-### In progress
+### Added
 
-- **Code-driven video production milestone** — Remotion and HyperFrames now
-  share one production contract and one product-story brief while their
-  preview, rendering, and operational boundaries are evaluated independently.
+- **Shared video production contract** — one validated 36-second brief now
+  defines formats, frame rate, scene timing, safe areas, typography, captions,
+  deterministic audio, and output names for both renderers.
+- **Remotion render pipeline** — typed frame-driven React compositions provide
+  local Studio preview plus reproducible 1920×1080 and 1080×1920 renders.
+- **HyperFrames render pipeline** — two valid single-root HTML projects use a
+  seekable GSAP timeline, Studio preview, runtime checks, and local MP4 output.
+- **Living Signals reference film** — both renderers produce comparable
+  36-second landscape and portrait films with H.264 video and AAC audio.
+- **Code-video production guide** — a Chinese operator page and detailed
+  documentation explain the workflow, commands, evidence, system boundaries,
+  and the Remotion-versus-HyperFrames decision.
 
 ### Fixed
 

@@ -34,6 +34,10 @@ pnpm check-types      # run each workspace's supported typecheck
 pnpm lint             # repository-wide Biome lint + format check
 pnpm lint:fix         # biome check --write
 pnpm format           # biome format --write
+pnpm video:prepare    # validate and sync shared video inputs
+pnpm video:check      # check both renderer workspaces
+pnpm video:render     # render all landscape and portrait outputs
+pnpm video:inspect    # verify media dimensions, duration, fps, and audio
 ```
 
 ### UI component workflow
@@ -57,14 +61,15 @@ This is a **pnpm monorepo** for browser animation labs and isolated video-render
 ```
 apps/
 ├── web/                      # Next.js 16 + shadcn playground shell
-│   └── src/app/(app)/labs/   # CSS/SVG, GSAP, Motion, D3, Lottie, Rive, Canvas
+│   └── src/app/(app)/labs/   # browser labs plus the code-video operator guide
 ├── remotion/                 # isolated frame-driven React video workspace
 └── hyperframes/              # isolated HTML-to-video workspace
 packages/
 ├── design-tokens/            # future cross-runtime visual contracts
 ├── motion-tokens/            # duration, easing, stagger, rhythm
 ├── motion-kit/               # reusable animation primitives
-└── assets/                   # shared source assets and fixtures
+├── assets/                   # shared source assets and fixtures
+└── video-contract/           # shared brief, formats, timing, audio, and outputs
 notes/                        # evidence and conclusions from each lab
 ```
 
@@ -80,6 +85,7 @@ second real consumer proves its API.
 - Within `apps/web`, the `@/*` alias maps to that workspace's `src/*`.
 - Remote images are served via `next/image`; allowed hosts live in `images.remotePatterns` in `apps/web/next.config.ts`.
 - Do not install Remotion or HyperFrames in `apps/web`. Each renderer owns its dependencies and generated output inside its dedicated workspace.
+- `packages/video-contract` owns shared data inputs only. Renderer components stay inside their workspaces so the contract does not collapse to the lowest common denominator.
 - Heavy browser runtimes belong to their lab route and must be loaded only when that lab is active; never register them in the root layout or provider stack.
 - Shared packages expose granular subpaths. Do not create a barrel that pulls every animation runtime into consumers.
 

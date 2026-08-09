@@ -3,7 +3,32 @@
   "description": "Remotion video experiments for yAnimationPlayground.",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=22"
+  },
+  "scripts": {
+    "prepare:assets": "node scripts/sync-assets.mjs",
+    "dev": "pnpm prepare:assets && remotion studio src/index.ts --port=4405",
+    "compositions": "pnpm prepare:assets && remotion compositions src/index.ts",
+    "render": "pnpm render:landscape && pnpm render:portrait",
+    "render:landscape": "pnpm prepare:assets && remotion render src/index.ts LivingSignalsLandscape output/living-signals-landscape.mp4 --codec=h264 --crf=18 --log=warn",
+    "render:portrait": "pnpm prepare:assets && remotion render src/index.ts LivingSignalsPortrait output/living-signals-portrait.mp4 --codec=h264 --crf=18 --log=warn",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.507",
+    "@remotion/google-fonts": "4.0.507",
+    "@remotion/media": "4.0.507",
+    "@yanimation/video-contract": "workspace:*",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.507"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
   }
 }

@@ -3,7 +3,23 @@
   "description": "HyperFrames video experiments for yAnimationPlayground.",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=22"
+  },
+  "scripts": {
+    "prepare:compositions": "node scripts/build-compositions.mjs",
+    "dev": "pnpm prepare:compositions && cd projects/landscape && hyperframes preview --port 4406 --no-open",
+    "dev:portrait": "pnpm prepare:compositions && cd projects/portrait && hyperframes preview --port 4407 --no-open",
+    "lint:composition": "pnpm prepare:compositions && cd projects/landscape && hyperframes lint && cd ../portrait && hyperframes lint",
+    "validate": "pnpm prepare:compositions && cd projects/landscape && hyperframes check && cd ../portrait && hyperframes check",
+    "render": "pnpm render:landscape && pnpm render:portrait",
+    "render:landscape": "pnpm prepare:compositions && cd projects/landscape && hyperframes render --quality high --fps 30 --output ../../output/living-signals-landscape.mp4",
+    "render:portrait": "pnpm prepare:compositions && cd projects/portrait && hyperframes render --quality high --fps 30 --output ../../output/living-signals-portrait.mp4"
+  },
+  "dependencies": {
+    "@yanimation/video-contract": "workspace:*",
+    "gsap": "3.15.0",
+    "hyperframes": "0.7.102"
   }
 }

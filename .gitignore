@@ -20,6 +20,17 @@ coverage/
 # production
 **/build/
 **/dist/
+**/output/
+
+# generated video production assets
+packages/video-contract/generated/
+apps/remotion/public/*.wav
+apps/hyperframes/assets/
+apps/hyperframes/vendor/
+apps/hyperframes/projects/*/assets/
+apps/hyperframes/projects/*/vendor/
+apps/hyperframes/projects/*/src/
+work/
 
 # misc
 .DS_Store
