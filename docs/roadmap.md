@@ -4,9 +4,9 @@ yAnimationPlayground is an R&D platform for proving animation techniques before
 they become production tools. Versions are organized around capabilities and
 evidence, not around installing libraries.
 
-The current release is **v0.2.0**, which established the monorepo, application
-boundaries, and dependency-free lab routes. The next active milestone is
-**v0.3.0**.
+The current release is **v0.3.0**, which established the interaction-motion
+comparison protocol and reference suite. The next active milestone is
+**v0.4.0**.
 
 ## Planning model
 
@@ -33,8 +33,8 @@ moves into `packages/` only after a second real consumer proves the contract.
 | Version | Status | Capability outcome |
 |---|---|---|
 | v0.2.0 | Shipped | Monorepo foundation and isolated experiment boundaries |
-| v0.3.0 | Next | Interaction motion foundations across native CSS/SVG, Motion, and GSAP |
-| v0.4.0 | Planned | Data, vector-runtime, and immediate-mode visual animation |
+| v0.3.0 | Shipped | Interaction motion foundations across native CSS/SVG, Motion, and GSAP |
+| v0.4.0 | Next | Data, vector-runtime, and immediate-mode visual animation |
 | v0.5.0 | Planned | Repeatable code-driven video pipelines with Remotion and HyperFrames |
 | v0.6.0 | Direction | A reusable motion design system with stable tokens and primitives |
 | v0.7.0 | Direction | An AI-assisted brief-to-animation production workflow |

@@ -35,6 +35,35 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.3.0",
+    date: "2026-08-09",
+    title: "One story, three motion models",
+    summary:
+      "Native CSS + SVG, Motion, and GSAP now share one polished reference story and one testing protocol, turning runtime choice into an evidence-backed engineering decision.",
+    changes: [
+      {
+        kind: "new",
+        title: "Comparative motion suite",
+        text: "Replay, pause, reverse, seek, resize, and reduce the same 7.2-second narrative across three isolated implementations.",
+      },
+      {
+        kind: "new",
+        title: "React interaction probe",
+        text: "Motion demonstrates gesture feedback, shared layout, springs, and interruptible enter/exit behavior driven by component state.",
+      },
+      {
+        kind: "new",
+        title: "Labeled GSAP timeline",
+        text: "Named Collect, Resolve, and Decide phases coordinate staggered DOM and SVG cues from a lazy route-only runtime.",
+      },
+      {
+        kind: "new",
+        title: "Runtime decision guide",
+        text: "A practical matrix now explains when native motion is enough, when React interaction calls for Motion, and when choreography justifies GSAP.",
+      },
+    ],
+  },
+  {
     version: "0.2.0",
     date: "2026-08-09",
     title: "A playground with room to grow",
