@@ -9,6 +9,31 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-08-09
+
+### Added
+
+- **Runtime-neutral motion language** — shared duration, easing, spring,
+  stagger, distance, choreography, and reduced-motion contracts now serve CSS,
+  Motion for React, and frame-based video without importing a runtime.
+- **Composition-first Motion Kit** — granular policy, transition, reveal,
+  stagger, and press-feedback exports provide semantic variants while keeping
+  React and Motion as peer dependencies.
+- **Motion system workbench** — a Chinese operator page exposes token scales,
+  preference simulation, entrance replay, interruption stress testing, and the
+  rules that determine what belongs in the system.
+- **Motion contract gate** — runtime invariant tests and a compiled public
+  consumer fixture now run inside the repository's aggregate check.
+
+### Changed
+
+- **Proven multi-runtime consumption** — the existing Motion interaction probe,
+  Remotion compositions, and global CSS now consume the shared contracts, with
+  the Motion runtime remaining isolated from routes that do not use it.
+- **Remotion timing adapter** — scene fades and entrance easing now convert the
+  same millisecond and bezier tokens used by browser animation into deterministic
+  frame behavior.
+
 ## [0.5.0] - 2026-08-09
 
 ### Added
@@ -205,7 +230,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.6.0
 [0.5.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.5.0
 [0.4.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.4.0
 [0.3.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.3.0

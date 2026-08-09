@@ -19,6 +19,7 @@ export const navData: NavItem[] = [
       { title: "CSS + SVG", href: "/labs/css-svg" },
       { title: "GSAP", href: "/labs/gsap" },
       { title: "Motion", href: "/labs/motion" },
+      { title: "Motion System", href: "/labs/motion-system" },
       { title: "交互技术选型", href: "/labs/compare" },
       { title: "D3", href: "/labs/d3" },
       { title: "Lottie", href: "/labs/lottie" },

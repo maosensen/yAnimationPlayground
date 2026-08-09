@@ -1,0 +1,17 @@
+:root {
+  --motion-duration-instant: 0ms;
+  --motion-duration-feedback: 120ms;
+  --motion-duration-fast: 180ms;
+  --motion-duration-standard: 280ms;
+  --motion-duration-deliberate: 420ms;
+  --motion-duration-expressive: 640ms;
+  --motion-duration-narrative: 900ms;
+  --motion-ease-linear: cubic-bezier(0, 0, 1, 1);
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-stagger-compact: 40ms;
+  --motion-stagger-standard: 70ms;
+  --motion-stagger-spacious: 110ms;
+}

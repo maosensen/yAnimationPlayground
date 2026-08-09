@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "@yanimation/motion-tokens/styles.css";
 
 /* Iconify icons as CSS masks (build-time, tree-shaken by Tailwind scanning).
    Usage: <span className="icon-[solar--widget-bold-duotone] size-5" /> */

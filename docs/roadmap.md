@@ -4,8 +4,8 @@ yAnimationPlayground is an R&D platform for proving animation techniques before
 they become production tools. Versions are organized around capabilities and
 evidence, not around installing libraries.
 
-The current release is **v0.5.0**, which established repeatable code-driven
-video production pipelines. The next active milestone is **v0.6.0**.
+The current release is **v0.6.0**, which established reusable motion tokens and
+composition-first primitives. The next milestone is **v0.7.0**.
 
 ## Planning model
 
@@ -35,8 +35,8 @@ moves into `packages/` only after a second real consumer proves the contract.
 | v0.3.0 | Shipped | Interaction motion foundations across native CSS/SVG, Motion, and GSAP |
 | v0.4.0 | Shipped | Data, vector-runtime, and immediate-mode visual animation |
 | v0.5.0 | Shipped | Repeatable code-driven video pipelines with Remotion and HyperFrames |
-| v0.6.0 | Next | A reusable motion design system with stable tokens and primitives |
-| v0.7.0 | Direction | An AI-assisted brief-to-animation production workflow |
+| v0.6.0 | Shipped | A reusable motion design system with stable tokens and primitives |
+| v0.7.0 | Next | An AI-assisted brief-to-animation production workflow |
 | v0.8.0 | Direction | Versioned packages and cross-repository consumption |
 | v1.0.0 | Direction | A validated animation R&D platform ready to feed dedicated studios |
 
@@ -167,14 +167,51 @@ the resulting comparison remains meaningful.
 Cloud render orchestration, collaborative editing, a nonlinear timeline UI,
 and production asset management belong to future dedicated studio repositories.
 
-## v0.6.0–v1.0.0 — Directional milestones
+## v0.6.0 — Motion design system
 
-### v0.6.0 — Motion design system
+### Core question
 
-Promote proven duration, easing, stagger, choreography, interruption, and
-reduced-motion decisions into `motion-tokens` and `motion-kit`. The milestone
-ends with stable consumer APIs, examples, and contract tests rather than a
-large catalogue of speculative abstractions.
+Which motion decisions are stable enough to share across interactive React UI
+and deterministic video, without hiding runtime-specific strengths behind a
+large abstraction layer?
+
+### Capabilities
+
+- Runtime-neutral duration, easing, spring, stagger, distance, choreography,
+  and reduced-motion contracts in `motion-tokens`.
+- Granular Motion for React adapters for route-local policy, named
+  transitions, reveal, stagger, and press feedback in `motion-kit`.
+- A Chinese operator workbench for replaying primitives, simulating motion
+  preference, and repeatedly interrupting layout and presence transitions.
+- Real consumers in the existing Motion interaction lab and Remotion video
+  workspace before the package APIs are declared stable.
+- Runtime assertions for token invariants plus a compiled public consumer
+  contract for the React adapter.
+
+### Flagship work
+
+Build a motion-system workbench that exposes the vocabulary and its behavioral
+rules rather than merely displaying component examples. The same values must
+drive an existing interaction and a frame-based renderer.
+
+### Exit criteria
+
+- Public APIs use semantic intents and explicit variants rather than copied
+  numeric values or boolean-prop combinations.
+- Reduced motion preserves information and final state while removing
+  non-essential travel, layout movement, autoplay, and decorative loops.
+- The package boundary adds no Motion runtime to routes that do not import the
+  kit, and runtime-specific adapters remain separate from neutral tokens.
+- Contract tests, production build, desktop/mobile browser checks, and an
+  interruption stress pass all succeed.
+
+### Out of scope
+
+A full animated component catalogue, a visual timeline editor, published npm
+packages, and cross-repository compatibility policy remain outside this
+milestone. Cross-repository distribution begins in v0.8.
+
+## v0.7.0–v1.0.0 — Directional milestones
 
 ### v0.7.0 — AI-assisted production pipeline
 

@@ -27,19 +27,19 @@ export default function LabsPage() {
           <CardHeader className="gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-2xl">
               <Badge className="bg-primary-foreground/14 text-primary-foreground ring-1 ring-primary-foreground/20">
-                v0.4 视觉运行时套件
+                v0.6 Motion Design System
               </Badge>
               <CardTitle className="mt-3 text-2xl">
-                从数据几何到交互资产，建立分层组合的运行时策略。
+                从单点实验走向可复用、可验证的动作语言。
               </CardTitle>
               <CardDescription className="mt-2 text-primary-foreground/75">
-                用 D3、Lottie、Rive 与 Canvas
-                验证各自的责任边界，并在旗舰作品中与 Motion 组合。
+                把 duration、easing、spring、stagger 与 reduced-motion
+                决策沉淀为跨浏览器与视频运行时的稳定契约。
               </CardDescription>
             </div>
             <Button asChild variant="secondary" size="lg">
-              <Link href="/labs/living-data-story">
-                查看旗舰作品
+              <Link href="/labs/motion-system">
+                打开系统实验
                 <span
                   className="icon-[solar--arrow-right-up-bold-duotone]"
                   data-icon="inline-end"
