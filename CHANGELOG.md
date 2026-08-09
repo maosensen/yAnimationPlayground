@@ -11,6 +11,9 @@ playground keeps as its UI and engineering foundation.
 
 ### Fixed
 
+- **Lottie playback is visibly animated** — each player now receives an
+  isolated copy of its animation data, and the sample asset uses complete
+  keyframes with an unmistakable orbit indicator and pulse.
 - **Simplified Chinese typography** — Chinese interface copy now uses an
   explicit Simplified Chinese font fallback and `zh-CN` document language, so
   Latin font preferences no longer produce inconsistent Japanese-style glyphs.

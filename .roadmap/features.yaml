@@ -156,7 +156,7 @@ features:
     completedAt: 2026-08-09
     shippedIn: v0.4.0
     priority: normal
-    note: v0.4;验证 segment、播放控制、响应式、主题限制、资产体积与交付边界。
+    note: v0.4;验证 segment、播放控制、响应式、主题限制、资产体积与交付边界;修复实例间共享可变 animationData 与不完整关键帧导致的视觉冻结。
   - id: rive-state-machine-lab
     title: Rive 状态机交互实验
     area: 动画实验
