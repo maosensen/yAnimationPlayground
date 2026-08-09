@@ -1,0 +1,57 @@
+/* Surface + drag/resize chrome for <GridBoard>, scoped under .grid-board.
+   Widgets are expected to be <Card>s, so grid-stack-item-content is chrome-less:
+   the Card owns ring/shadow/radius; the content box only provides the drag
+   surface and lets the card fill the cell. Handle chrome (hover-reveal + corner
+   grip) is shared from gridstack-base.css. A page using <GridBoard> imports
+   none of this — the component pulls it in. */
+
+.grid-board .grid-stack-item-content {
+  display: flex;
+  /* Whole-card drag affordance. */
+  cursor: grab;
+}
+
+/* GridStack's stock CSS sets overflow-x:hidden/overflow-y:auto on the content
+   box with selector specificity (0,3,0); the Card fills that box exactly, so
+   its elevation shadow renders just OUTSIDE it and gets clipped. Match that
+   specificity (the container carries both .grid-board and .grid-stack) and win
+   on cascade order so the shadow shows. The Card keeps its own overflow-hidden
+   for rounded-corner clipping, and inner scroll regions handle their own
+   overflow — so nothing else is affected. */
+.grid-board.grid-stack > .grid-stack-item > .grid-stack-item-content {
+  overflow: visible;
+}
+
+/* The Card fills its cell so h-full inside resolves to the fixed cellHeight box. */
+.grid-board .grid-stack-item-content > * {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-board .grid-stack-item.ui-draggable-dragging > .grid-stack-item-content {
+  cursor: grabbing;
+}
+
+/* Interactive controls keep a normal cursor, not grab. */
+.grid-board .grid-stack-item-content
+  :is(a, button, input, [role="button"], [role="menuitem"], .recharts-wrapper) {
+  cursor: auto;
+}
+
+/* Lift the Card while dragging / resizing (token-driven elevation). */
+.grid-board .grid-stack-item.ui-draggable-dragging
+  > .grid-stack-item-content
+  > *,
+.grid-board
+  .grid-stack-item.ui-resizable-resizing
+  > .grid-stack-item-content
+  > * {
+  box-shadow: var(--shadow-overlay, 0 20px 45px -12px rgb(0 0 0 / 0.35));
+}
+
+/* Drop placeholder. */
+.grid-board .grid-stack-placeholder > .placeholder-content {
+  border: 2px dashed color-mix(in oklab, var(--primary) 45%, transparent);
+  border-radius: var(--radius-2xl);
+  background: color-mix(in oklab, var(--primary) 7%, transparent);
+}
