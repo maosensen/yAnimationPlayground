@@ -9,6 +9,8 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-09
+
 ### Added
 
 - **Shared video production contract** — one validated 36-second brief now
@@ -203,7 +205,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.5.0
 [0.4.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.4.0
 [0.3.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.3.0
 [0.2.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.2.0
