@@ -9,6 +9,12 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+### In progress
+
+- **Code-driven video production milestone** — Remotion and HyperFrames now
+  share one production contract and one product-story brief while their
+  preview, rendering, and operational boundaries are evaluated independently.
+
 ### Fixed
 
 - **Lottie playback is visibly animated** — each player now receives an
