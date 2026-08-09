@@ -9,6 +9,8 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-09
+
 ### Added
 
 - **D3 data-geometry reference** — use focused D3 modules for scales, ticks,
@@ -177,7 +179,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.4.0
 [0.3.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.3.0
 [0.2.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.2.0
 [0.1.4]: https://github.com/maosensen/yTemplate/compare/v0.1.3...v0.1.4

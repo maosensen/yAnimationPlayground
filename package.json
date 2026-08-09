@@ -1,7 +1,7 @@
 {
   "name": "yanimation-playground",
   "description": "A pnpm monorepo for browser animation and code-driven video experiments.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "homepage": "https://github.com/maosensen/yAnimationPlayground#readme",
   "repository": {
