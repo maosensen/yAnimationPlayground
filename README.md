@@ -16,6 +16,17 @@ shared motion packages.
 - **Shared foundations** — explicit packages for design tokens, motion tokens, motion primitives, and assets
 - **Engineering gates** — pnpm workspaces, Biome, TypeScript, environment validation, and CI
 
+## Roadmap
+
+Development is organized around capability outcomes rather than a checklist of
+libraries. v0.3 focuses on comparable interaction-motion experiments, v0.4 on
+data and visual runtimes, and v0.5 on repeatable code-driven video pipelines.
+Later milestones turn proven results into shared packages and AI-assisted
+workflows without turning this repository into a productized studio.
+
+See [docs/roadmap.md](./docs/roadmap.md) for version scope, flagship work, exit
+criteria, and the boundary between this playground and future studio repositories.
+
 ## Getting started
 
 Requires **Node.js >= 22** and **pnpm 10.x**.

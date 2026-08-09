@@ -261,3 +261,23 @@ one entry = one capability you could put in What's New; implementation details
 go in the host entry's `note`, not into new entries. `id` values are permanent —
 never rename or reuse them. Releases reconcile the ledger as a gate step
 (`shippedIn` backfill happens there).
+
+## Roadmap and experiment evidence
+
+Planning has three distinct sources, and they must not duplicate each other's
+job:
+
+- `docs/roadmap.md` defines version themes, flagship work, exit criteria, and
+  project boundaries. Milestone versions declared there take precedence over a
+  generic semver bump calculation.
+- `.roadmap/features.yaml` tracks announceable capability status. Starting work
+  changes the selected entry to `doing`; finishing it records `done` and
+  `completedAt` in the same commit.
+- `notes/<version>/<slug>.md` records experiment evidence using the template in
+  `notes/README.md`. A library demo without measurements and a decision is not
+  a completed experiment.
+
+Keep `v0.3` through `v0.5` concrete. Treat `v0.6` through `v1.0` as directional
+until earlier evidence justifies finer scope. Productized studios remain in
+separate repositories; this playground exports only contracts proven by a
+second real consumer.

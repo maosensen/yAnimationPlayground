@@ -9,6 +9,13 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+### Added
+
+- **Versioned product roadmap** — defined capability-driven milestones from
+  v0.3 through v1.0, with concrete flagship work and exit criteria for the
+  interaction-motion, visual-runtime, and code-video phases, plus a shared
+  evidence template for completed experiments.
+
 ## [0.2.0] - 2026-08-09
 
 ### Added
