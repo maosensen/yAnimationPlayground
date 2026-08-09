@@ -9,6 +9,27 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-09
+
+### Added
+
+- **Comparative interaction-motion suite** — run one polished 7.2-second
+  product story through native CSS + SVG, Motion, and GSAP with the same
+  playback controls, viewports, and reduced-motion behavior.
+- **Native CSS + SVG reference** — study transitions, keyframes, path drawing,
+  gradients, masks, and state feedback with no animation runtime dependency.
+- **Motion interaction reference** — explore React-owned gestures, shared
+  layout, presence, springs, interruption, and scoped sequencing.
+- **GSAP choreography reference** — inspect labeled timeline phases, stagger,
+  precise seeking, reversing, and coordinated DOM + SVG animation from a
+  route-scoped lazy chunk.
+- **Interaction runtime decision guide** — follow a practical escalation path
+  from native browser motion to Motion or GSAP, backed by a capability and
+  route-output comparison matrix.
+- **Versioned product roadmap** — defined capability-driven milestones from
+  v0.3 through v1.0, with flagship work, exit criteria, and an evidence format
+  for completed experiments.
+
 ## [0.2.0] - 2026-08-09
 
 ### Added
@@ -130,7 +151,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.3.0
 [0.2.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.2.0
 [0.1.4]: https://github.com/maosensen/yTemplate/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/maosensen/yTemplate/compare/v0.1.2...v0.1.3

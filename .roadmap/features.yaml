@@ -2,12 +2,12 @@
 # 本文件是该项目功能状态的唯一事实源;yPulse 定期采集(schema v1,见 yPulse 仓库 docs/feature-ledger.md)。
 # 约定:完成一个功能 = 同一次提交里更新对应条目(置 done + completedAt)。
 #
-# 初稿由功能考古生成(2026-07-28;modules 自 readiness DB 迁移,原样保留),待人批改。
+# 初稿由功能考古生成(2026-07-28);2026-08-09 起与 docs/roadmap.md 的版本规划同步维护。
 
 project: maosensen/yAnimationPlayground
 track: oss
 launchedAt: 2026-08-09
-areas: [脚手架, 动画实验, 应用外壳, 主题与设置, 演示与组件, 工程化, 文档与发布]
+areas: [脚手架, 动画实验, 代码视频, AI 工作流, 共享基础设施, 应用外壳, 主题与设置, 演示与组件, 工程化, 文档与发布]
 
 modules:
   - id: readme-hero
@@ -64,7 +64,9 @@ modules:
   - id: i18n-readme
     title: 多语言 README
     tier: enhancement
-    status: todo
+    status: done
+    completedAt: 2026-06-04
+    note: README.md 与 README.zh-CN.md 提供英 / 中双语入口。
   - id: ci-badges
     title: CI + 测试徽章
     tier: enhancement
@@ -91,6 +93,148 @@ features:
     completedAt: 2026-08-09
     shippedIn: v0.2.0
     note: 现有 Next + shadcn 模板完整迁入 apps/web;建立 7 个 Web Lab 路由、Remotion/HyperFrames 独立工程边界、4 个共享 package 与 notes 目录,重型动画依赖按实验延迟安装;项目品牌与仓库元数据统一为 yAnimationPlayground,本地开发与生产服务统一使用 4394 端口。
+  - id: comparative-lab-harness
+    title: 统一动画实验与测量协议
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    shippedIn: v0.3.0
+    priority: high
+    note: v0.3;统一 stage、控制器、视口预设、reduced-motion 开关、轻量诊断与实验记录格式,保证跨 runtime 对比公平。
+  - id: native-css-svg-baseline
+    title: CSS + SVG 原生动效基线
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    shippedIn: v0.3.0
+    priority: high
+    note: v0.3;覆盖 transition、keyframes、transform、stroke/path、mask 与状态驱动组合,明确零运行时依赖的能力边界。
+  - id: motion-interaction-lab
+    title: Motion 交互与布局动画实验
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    shippedIn: v0.3.0
+    priority: high
+    note: v0.3;验证 gesture、enter/exit、layout、shared element、中断恢复与 React 状态协作。
+  - id: gsap-choreography-lab
+    title: GSAP 时间轴编排实验
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    shippedIn: v0.3.0
+    priority: high
+    note: v0.3;验证 timeline、label、stagger、seek、reverse 与 SVG 多阶段编排。
+  - id: interaction-choreography-benchmark
+    title: 三运行时交互动效旗舰作品
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    shippedIn: v0.3.0
+    priority: high
+    note: v0.3;同一套多阶段产品叙事分别以 CSS/SVG、Motion、GSAP 实现,统一视觉与交互契约后比较实现代价。
+  - id: interaction-runtime-decision-guide
+    title: Web 交互动效技术选型指南
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-09
+    shippedIn: v0.3.0
+    priority: high
+    note: v0.3;基于实验给出默认方案、升级路径、反例及 bundle/可访问性/调试/编排能力矩阵。
+  - id: d3-data-geometry-lab
+    title: D3 数据几何实验
+    area: 动画实验
+    status: todo
+    priority: normal
+    note: v0.4;聚焦 scale、geometry、data join 与插值输入,把运动职责交给合适的 runtime。
+  - id: lottie-delivery-lab
+    title: Lottie 动画交付实验
+    area: 动画实验
+    status: todo
+    priority: normal
+    note: v0.4;验证 segment、播放控制、响应式、主题限制、资产体积与交付边界。
+  - id: rive-state-machine-lab
+    title: Rive 状态机交互实验
+    area: 动画实验
+    status: todo
+    priority: normal
+    note: v0.4;验证 state-machine input、交互、响应式 artboard 与运行时所有权。
+  - id: canvas-frame-budget-lab
+    title: Canvas 帧预算实验
+    area: 动画实验
+    status: todo
+    priority: normal
+    note: v0.4;验证高密度绘制、粒子、指针交互、DPR、resize、cleanup 与帧时间。
+  - id: living-data-story
+    title: Living Data Story 旗舰作品
+    area: 动画实验
+    status: todo
+    priority: normal
+    note: v0.4;以时间范围、筛选与强调切换构建交互叙事,按图层职责组合 D3、矢量 runtime 与 Canvas。
+  - id: visual-runtime-decision-guide
+    title: 数据与视觉运行时选型指南
+    area: 动画实验
+    status: todo
+    priority: normal
+    note: v0.4;沉淀可访问性 fallback、创作流程、资产所有权、性能与产品适配矩阵。
+
+  # —— 代码视频 ——
+  - id: remotion-render-pipeline
+    title: Remotion 确定性渲染管线
+    area: 代码视频
+    status: todo
+    priority: normal
+    note: v0.5;建立 typed composition、local preview、确定性输入与可重复渲染命令。
+  - id: hyperframes-render-pipeline
+    title: HyperFrames 视频实验管线
+    area: 代码视频
+    status: todo
+    priority: normal
+    note: v0.5;以同一 brief 建立独立工程、渲染流程与约束记录。
+  - id: shared-video-production-contract
+    title: 共享代码视频生产契约
+    area: 代码视频
+    status: todo
+    priority: normal
+    note: v0.5;统一宽高比、帧率、时长、安全区、字体、素材、音频、字幕与 asset manifest。
+  - id: code-video-reference-film
+    title: 横竖双版代码视频旗舰作品
+    area: 代码视频
+    status: todo
+    priority: normal
+    note: v0.5;基于同一产品叙事制作 30–60 秒 16:9 成片及 9:16 改编,检查尺寸、时长、帧率、音频与画面。
+  - id: code-video-runtime-guide
+    title: 代码视频技术选型指南
+    area: 代码视频
+    status: todo
+    priority: normal
+    note: v0.5;比较迭代速度、渲染模型、可移植性、集成界面与运维约束。
+
+  # —— 方向级里程碑 ——
+  - id: motion-design-system
+    title: 可复用 Motion Design System
+    area: 共享基础设施
+    status: todo
+    priority: low
+    note: v0.6 方向;将已验证的 duration/easing/stagger/编排/中断/reduced-motion 决策沉淀到 motion-tokens 与 motion-kit,第二消费者出现后再稳定契约。
+  - id: ai-assisted-animation-pipeline
+    title: AI 辅助动画生产管线
+    area: AI 工作流
+    status: todo
+    priority: low
+    note: v0.7 方向;建立 creative brief → storyboard → asset manifest → implementation scaffold → QA report 的可审查、可复现流程。
+  - id: cross-repo-motion-distribution
+    title: 跨仓动画 package 分发
+    area: 共享基础设施
+    status: todo
+    priority: low
+    note: v0.8 方向;为 tokens、primitives 与 assets 建立版本和兼容策略、package 测试及至少一个外部 Studio/SaaS 消费者。
+  - id: animation-rd-platform-v1
+    title: 动画研发平台 v1 稳定基线
+    area: 动画实验
+    status: todo
+    priority: low
+    note: v1.0 方向;实验协议、旗舰作品、决策指南、共享 package 与 Studio handoff 契约形成稳定闭环,不包含正式编辑器产品能力。
   - id: nextjs-16-scaffold
     title: Next.js 16 基线脚手架
     area: 脚手架
@@ -204,6 +348,7 @@ features:
     title: 折线 / 柱状图演示页
     area: 演示与组件
     status: done
+    completedAt: 2026-06-02
     shippedIn: v0.1.0
   - id: gridstack-board
     title: 可拖拽缩放的 gridstack 看板
@@ -292,3 +437,9 @@ features:
     completedAt: 2026-06-11
     shippedIn: v0.1.0
     note: docs/theming.md 参考文档 + AGENTS.md 硬规则(双反射器、6 步添加设置清单等)。
+  - id: versioned-product-roadmap
+    title: v0.3–v1.0 版本级产品路线图
+    area: 文档与发布
+    status: done
+    completedAt: 2026-08-09
+    note: docs/roadmap.md 以能力结果组织版本;细化 v0.3–v0.5 的核心问题、能力、旗舰作品、退出标准与非目标,v0.6–v1.0 保持方向级规划并明确 Studio 分仓边界。

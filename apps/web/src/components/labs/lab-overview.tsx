@@ -16,7 +16,7 @@ export function LabOverview({ lab }: { lab: LabDefinition }) {
       <PageHeader
         icon={<PageHeaderIcon icon={lab.icon} />}
         title={lab.name}
-        titleSuffix={<Badge variant="secondary">Scaffolded</Badge>}
+        titleSuffix={<Badge variant="secondary">Planned · v0.4</Badge>}
         description={lab.description}
       />
       <PageContainer className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
@@ -24,8 +24,8 @@ export function LabOverview({ lab }: { lab: LabDefinition }) {
           <CardHeader>
             <CardTitle>Experiment stage</CardTitle>
             <CardDescription>
-              The route boundary is ready. Its runtime and examples will be
-              installed only when this lab begins.
+              This route is reserved for the v0.4 visual-runtime milestone. Its
+              dependency will be installed only when the experiment begins.
             </CardDescription>
           </CardHeader>
           <CardContent>

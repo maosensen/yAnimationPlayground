@@ -14,6 +14,16 @@ yAnimationPlayground 是一个通过小型、可比较实验系统学习浏览�
 - **共享基础设施** — design tokens、motion tokens、动画 primitive 与 assets 包
 - **工程门禁** — pnpm workspace、Biome、TypeScript、环境变量校验与 CI
 
+## 路线图
+
+后续开发按“最终获得什么能力”组织，而不是按依赖库清单推进。v0.3 聚焦可比较的
+交互动效实验，v0.4 聚焦数据与视觉运行时，v0.5 建立可重复的代码视频生产流程。
+后续里程碑会把经过验证的结果沉淀为共享 package 和 AI 辅助工作流，但不会把本仓库
+扩张成正式 Studio 产品。
+
+版本范围、旗舰作品、完成标准以及 Playground 与未来 Studio 的边界详见
+[docs/roadmap.md](./docs/roadmap.md)。
+
 ## 快速开始
 
 需要 **Node.js >= 22** 和 **pnpm 10.x**。

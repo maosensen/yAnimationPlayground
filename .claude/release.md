@@ -7,6 +7,10 @@
 - `package.json`
 - `apps/web/package.json`
 
+版本号先查 `docs/roadmap.md`:完成其中明确命名的 milestone 时,直接使用该
+milestone 版本(如 v0.3.0),优先于全局 release skill 的通用 semver 推算。
+非 milestone 发版才按通用 semver 规则判断。
+
 ## 门禁
 
 - `pnpm check && pnpm build`(check = biome check + tsc --noEmit)
