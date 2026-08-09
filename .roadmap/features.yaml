@@ -238,6 +238,7 @@ features:
     area: 共享基础设施
     status: done
     completedAt: 2026-08-09
+    shippedIn: v0.6.0
     priority: low
     note: v0.6;已将 duration/easing/spring/stagger/distance/编排/reduced-motion 沉淀到 motion-tokens 与 motion-kit,由 Motion 工作台、既有 Motion 探针、Remotion 与 CSS 多消费者验证,并加入运行时与编译契约测试。
   - id: ai-assisted-animation-pipeline

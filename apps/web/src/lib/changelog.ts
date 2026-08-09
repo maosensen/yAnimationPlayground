@@ -35,6 +35,35 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.6.0",
+    date: "2026-08-09",
+    title: "从动画参数，走向一套动作语言",
+    summary:
+      "Motion token 与组合原语现在拥有稳定契约，并经过现有 React 交互、Remotion 视频与专用工作台的多消费者验证。",
+    changes: [
+      {
+        kind: "new",
+        title: "跨运行时 Motion Tokens",
+        text: "统一时间、缓动、弹簧、交错、位移、编排与减少动效策略，并为 CSS、Motion 和视频帧提供明确换算边界。",
+      },
+      {
+        kind: "new",
+        title: "组合式 Motion Kit",
+        text: "通过独立子路径提供策略、过渡、Reveal、Stagger 与 Pressable，按语义变体组合行为而不堆叠布尔参数。",
+      },
+      {
+        kind: "new",
+        title: "Motion System 工作台",
+        text: "可以实时切换系统、完整与减少动效策略，重播进入序列，并连续切换状态观察可中断行为。",
+      },
+      {
+        kind: "improved",
+        title: "共享契约门禁",
+        text: "仓库检查现在包含 token 运行时断言与公共消费者编译测试，防止数值尺度、语义引用和导出接口漂移。",
+      },
+    ],
+  },
+  {
     version: "0.5.0",
     date: "2026-08-09",
     title: "同一份 brief，两套代码视频生产管线",
