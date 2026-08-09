@@ -10,16 +10,16 @@ export type NavItem = {
 
 export const navData: NavItem[] = [
   // Animation Labs Section
-  { label: "Animation Labs", isSection: true },
+  { label: "动画实验", isSection: true },
   {
-    title: "Web Labs",
+    title: "Web 实验",
     icon: "icon-[solar--test-tube-minimalistic-bold-duotone]",
     children: [
-      { title: "Overview", href: "/labs" },
+      { title: "实验总览", href: "/labs" },
       { title: "CSS + SVG", href: "/labs/css-svg" },
       { title: "GSAP", href: "/labs/gsap" },
       { title: "Motion", href: "/labs/motion" },
-      { title: "Decision Guide", href: "/labs/compare" },
+      { title: "技术选型", href: "/labs/compare" },
       { title: "D3", href: "/labs/d3" },
       { title: "Lottie", href: "/labs/lottie" },
       { title: "Rive", href: "/labs/rive" },

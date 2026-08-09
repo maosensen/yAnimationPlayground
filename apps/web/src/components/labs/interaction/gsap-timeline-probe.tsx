@@ -7,19 +7,18 @@ import {
 } from "@/components/ui/card";
 
 const labels = [
-  { time: "0.00s", name: "collect", detail: "Narrative reveal" },
-  { time: "2.70s", name: "resolve", detail: "SVG signal draw" },
-  { time: "4.75s", name: "decide", detail: "Decision handoff" },
+  { time: "0.00s", name: "collect", detail: "叙事内容揭示" },
+  { time: "2.70s", name: "resolve", detail: "SVG 信号绘制" },
+  { time: "4.75s", name: "decide", detail: "决策信息交接" },
 ];
 
 export function GsapTimelineProbe() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Timeline map</CardTitle>
+        <CardTitle>时间轴地图</CardTitle>
         <CardDescription>
-          Semantic labels keep editorial phases addressable while staggered
-          details remain attached to the master timeline.
+          语义化标签让每个编排阶段都能被精确定位，同时交错细节继续依附于主时间轴。
         </CardDescription>
       </CardHeader>
       <CardContent>

@@ -172,9 +172,9 @@ export function MotionBenchmark() {
     <InteractionHarness
       runtime={{
         name: "Motion",
-        model: "React sequence",
-        payload: "≈52 kB gzip route",
-        accent: "Interaction default",
+        model: "React 序列",
+        payload: "路由约 52 kB gzip",
+        accent: "交互默认方案",
       }}
       controller={{
         duration,

@@ -10,33 +10,30 @@ export default function MotionLabPage() {
       benchmark={<MotionBenchmark />}
       capabilities={[
         {
-          title: "React-native state",
-          detail:
-            "Presence, layout, and gestures compose with component state.",
+          title: "React 原生状态协作",
+          detail: "挂载状态、布局和手势可以直接与组件状态组合。",
           icon: "icon-[solar--code-circle-bold-duotone]",
         },
         {
-          title: "Interruptible motion",
-          detail:
-            "Springs and value animation retarget without rebuilding a timeline.",
+          title: "可中断动画",
+          detail: "弹簧和值动画可以重新指向目标，无需重建时间轴。",
           icon: "icon-[solar--cursor-square-bold-duotone]",
         },
         {
-          title: "Scoped sequences",
-          detail:
-            "useAnimate adds local choreography without leaking selectors globally.",
+          title: "作用域序列",
+          detail: "useAnimate 可以添加局部编排，同时避免选择器泄漏到全局。",
           icon: "icon-[solar--layers-minimalistic-bold-duotone]",
         },
       ]}
       probe={<MotionInteractionProbe />}
-      recommendation="Use Motion as the default upgrade when animation is a consequence of React state. It expresses gestures, presence, layout, and interruption more directly than timeline-centric code while still supporting short sequences."
+      recommendation="当动画是 React 状态变化的结果时，优先把 Motion 作为默认升级方案。它对手势、挂载状态、布局和中断的表达比时间轴中心代码更直接，同时仍能处理短序列编排。"
       useWhen={[
-        "The interaction is owned by React state, layout, gesture, or component presence.",
-        "Animations must retarget gracefully while the user is still interacting.",
+        "交互由 React 状态、布局、手势或组件挂载状态负责。",
+        "用户仍在交互时，动画需要平滑地重新指向新目标。",
       ]}
       avoidWhen={[
-        "A simple CSS transition communicates the state change just as clearly.",
-        "The work is an editorial sequence with many precise cross-layer cues.",
+        "一个简单的 CSS transition 已经能清楚表达状态变化。",
+        "作品是包含大量精确跨图层提示点的编辑型序列。",
       ]}
     />
   );

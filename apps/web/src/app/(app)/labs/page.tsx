@@ -19,28 +19,27 @@ export default function LabsPage() {
         icon={
           <PageHeaderIcon icon="icon-[solar--test-tube-minimalistic-bold-duotone]" />
         }
-        title="Animation labs"
-        description="Controlled browser experiments with isolated runtime boundaries."
+        title="动画实验"
+        description="在隔离的运行时边界内进行可控、可比较的浏览器动画实验。"
       />
       <PageContainer className="space-y-6">
         <Card className="overflow-hidden bg-primary text-primary-foreground">
           <CardHeader className="gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-2xl">
               <Badge className="bg-primary-foreground/14 text-primary-foreground ring-1 ring-primary-foreground/20">
-                v0.3 reference suite
+                v0.3 参考实验套件
               </Badge>
               <CardTitle className="mt-3 text-2xl">
-                One story. Three motion models. A defensible default.
+                同一个故事，三种动效模型，一套有依据的默认策略。
               </CardTitle>
               <CardDescription className="mt-2 text-primary-foreground/75">
-                Compare native CSS/SVG, Motion, and GSAP under the same stage,
-                transport controls, viewport presets, and reduced-motion
-                contract.
+                在相同舞台、播放控制、视口预设和减弱动态效果规范下，对比原生
+                CSS/SVG、Motion 与 GSAP。
               </CardDescription>
             </div>
             <Button asChild variant="secondary" size="lg">
               <Link href="/labs/compare">
-                Open decision guide
+                查看技术选型指南
                 <span
                   className="icon-[solar--arrow-right-up-bold-duotone]"
                   data-icon="inline-end"
@@ -64,7 +63,7 @@ export default function LabsPage() {
                       lab.status === "reference" ? "default" : "secondary"
                     }
                   >
-                    {lab.status === "reference" ? "Reference" : "Planned"}
+                    {lab.status === "reference" ? "参考实现" : "规划中"}
                   </Badge>
                 </div>
                 <CardTitle>{lab.name}</CardTitle>
@@ -73,7 +72,7 @@ export default function LabsPage() {
               <CardContent className="mt-auto">
                 <Button asChild variant="outline" className="w-full">
                   <Link href={`/labs/${lab.slug}`}>
-                    {lab.status === "reference" ? "Open lab" : "View scope"}
+                    {lab.status === "reference" ? "打开实验" : "查看范围"}
                   </Link>
                 </Button>
               </CardContent>

@@ -16,30 +16,30 @@ export function LabOverview({ lab }: { lab: LabDefinition }) {
       <PageHeader
         icon={<PageHeaderIcon icon={lab.icon} />}
         title={lab.name}
-        titleSuffix={<Badge variant="secondary">Planned · v0.4</Badge>}
+        titleSuffix={<Badge variant="secondary">计划于 v0.4</Badge>}
         description={lab.description}
       />
       <PageContainer className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <Card>
           <CardHeader>
-            <CardTitle>Experiment stage</CardTitle>
+            <CardTitle>实验舞台</CardTitle>
             <CardDescription>
-              This route is reserved for the v0.4 visual-runtime milestone. Its
-              dependency will be installed only when the experiment begins.
+              此路由预留给 v0.4
+              视觉运行时节点；只有实验正式开始时才会安装对应依赖。
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex min-h-80 items-center justify-center rounded-xl bg-muted/40 p-6 text-center text-sm text-muted-foreground ring-1 ring-border">
-              Add the first controlled experiment here.
+              首个受控实验将在这里实现。
             </div>
           </CardContent>
         </Card>
 
         <Card className="h-fit">
           <CardHeader>
-            <CardTitle>Study focus</CardTitle>
+            <CardTitle>研究重点</CardTitle>
             <CardDescription>
-              Keep each exercise small, measurable, and comparable.
+              每个实验都应保持小而明确、可测量、可比较。
             </CardDescription>
           </CardHeader>
           <CardContent>

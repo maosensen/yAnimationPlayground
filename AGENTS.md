@@ -2,6 +2,21 @@
 
 This file is the **single source of truth** for AI coding assistants (Claude Code, Cursor, Copilot, etc.) when working with code in this repository. Tool-specific entry points (e.g. `CLAUDE.md`) should only reference this file so guidance stays unified.
 
+## Product-facing language
+
+- yAnimationPlayground is primarily a personal research and debugging tool for
+  a Chinese-speaking operator. User-facing controls, feature descriptions,
+  parameter explanations, diagnostics, principles, conclusions, and decision
+  guides must use Simplified Chinese.
+- Copy rendered inside an animation work itself may remain English when it is
+  part of the visual direction, narrative, or reference composition.
+- Technology names, API identifiers, code, comments, commit messages, and
+  agent/developer-only documentation may remain English under the repository's
+  existing conventions.
+- When the boundary is ambiguous, ask who reads the content: use Chinese for
+  the human operating or studying the playground, and English is acceptable
+  for AI/agent implementation context.
+
 ## Prerequisites
 
 - Node.js >= 22 (the shared floor for Next.js and the future HyperFrames workspace)

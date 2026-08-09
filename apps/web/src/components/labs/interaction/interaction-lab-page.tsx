@@ -37,12 +37,12 @@ export function InteractionLabPage({
       <PageHeader
         icon={<PageHeaderIcon icon={lab.icon} />}
         title={lab.name}
-        titleSuffix={<Badge>v0.3 reference</Badge>}
+        titleSuffix={<Badge>v0.3 参考实现</Badge>}
         description={lab.description}
         actions={
           <Button asChild variant="outline">
             <Link href="/labs/compare">
-              Compare runtimes
+              对比运行时
               <span
                 className="icon-[solar--arrow-right-up-bold-duotone]"
                 data-icon="inline-end"
@@ -55,10 +55,7 @@ export function InteractionLabPage({
       <PageContainer className="space-y-6">
         {benchmark}
 
-        <section
-          className="grid gap-4 md:grid-cols-3"
-          aria-label="Capabilities"
-        >
+        <section className="grid gap-4 md:grid-cols-3" aria-label="能力说明">
           {capabilities.map((capability) => (
             <Card key={capability.title}>
               <CardHeader>
@@ -78,18 +75,17 @@ export function InteractionLabPage({
         <section className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)]">
           <Card>
             <CardHeader>
-              <CardTitle>Working conclusion</CardTitle>
+              <CardTitle>实验结论</CardTitle>
               <CardDescription>
-                The recommendation produced by this implementation, not by API
-                familiarity alone.
+                结论来自实际实现，而不是对 API 熟悉程度的主观判断。
               </CardDescription>
             </CardHeader>
             <CardContent className="text-sm leading-6">
               {recommendation}
             </CardContent>
           </Card>
-          <DecisionList title="Use it when" items={useWhen} positive />
-          <DecisionList title="Avoid it when" items={avoidWhen} />
+          <DecisionList title="适合使用" items={useWhen} positive />
+          <DecisionList title="不适合使用" items={avoidWhen} />
         </section>
       </PageContainer>
     </>
