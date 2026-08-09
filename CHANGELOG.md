@@ -15,6 +15,8 @@ playground keeps as its UI and engineering foundation.
   template into `apps/web`, added isolated Remotion and HyperFrames workspace
   boundaries, created shared token/motion/assets package shells, and exposed
   seven dependency-free browser lab routes.
+- **Default port 4394** — `pnpm dev` and `pnpm start` now bind to port 4394,
+  with the local site URL default and setup documentation aligned.
 
 ## [0.1.4] - 2026-08-06
 

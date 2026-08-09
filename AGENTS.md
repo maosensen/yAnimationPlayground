@@ -11,9 +11,9 @@ This file is the **single source of truth** for AI coding assistants (Claude Cod
 
 ```sh
 pnpm install
-pnpm dev              # Turbopack dev server (port 3005)
+pnpm dev              # Turbopack dev server (port 4394)
 pnpm build            # Production build for the web workspace
-pnpm start            # Run production build (port 3005)
+pnpm start            # Run production build (port 4394)
 pnpm check            # root Biome check + every workspace typecheck
 pnpm check-types      # run each workspace's supported typecheck
 pnpm lint             # repository-wide Biome lint + format check

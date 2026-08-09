@@ -23,7 +23,7 @@ pnpm install
 pnpm dev
 ```
 
-打开 [http://localhost:3005](http://localhost:3005)。
+打开 [http://localhost:4394](http://localhost:4394)。
 
 ## 常用命令
 

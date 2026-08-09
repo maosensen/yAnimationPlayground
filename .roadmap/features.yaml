@@ -89,7 +89,7 @@ features:
     area: 动画实验
     status: done
     completedAt: 2026-08-09
-    note: 现有 Next + shadcn 模板完整迁入 apps/web;建立 7 个 Web Lab 路由、Remotion/HyperFrames 独立工程边界、4 个共享 package 与 notes 目录,重型动画依赖按实验延迟安装。
+    note: 现有 Next + shadcn 模板完整迁入 apps/web;建立 7 个 Web Lab 路由、Remotion/HyperFrames 独立工程边界、4 个共享 package 与 notes 目录,重型动画依赖按实验延迟安装;本地开发与生产服务统一使用 4394 端口。
   - id: nextjs-16-scaffold
     title: Next.js 16 基线脚手架
     area: 脚手架

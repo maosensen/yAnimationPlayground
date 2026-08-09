@@ -27,7 +27,7 @@ const serverSchema = z.object({
 /** Client-safe variables — must be prefixed with `NEXT_PUBLIC_`. */
 const clientSchema = z.object({
   /** Absolute site origin, used for metadata and absolute links. */
-  NEXT_PUBLIC_SITE_URL: z.url().default("http://localhost:3005"),
+  NEXT_PUBLIC_SITE_URL: z.url().default("http://localhost:4394"),
 });
 
 /** Available on both server and client (inlined by Next.js). */
