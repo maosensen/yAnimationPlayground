@@ -34,6 +34,11 @@ export const navData: NavItem[] = [
     icon: "icon-[solar--video-frame-play-horizontal-bold-duotone]",
     children: [{ title: "生产与选型", href: "/labs/code-video" }],
   },
+  {
+    title: "AI 制作",
+    icon: "icon-[solar--magic-stick-3-bold-duotone]",
+    children: [{ title: "动画生产管线", href: "/labs/ai-pipeline" }],
+  },
 
   // Dashboards Section
   { label: "Dashboards", isSection: true },

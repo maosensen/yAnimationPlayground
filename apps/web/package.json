@@ -18,6 +18,7 @@
     "@iconify/react": "^6.0.2",
     "@rive-app/react-canvas-lite": "^4.31.0",
     "@tanstack/react-query": "^5.100.14",
+    "@yanimation/animation-pipeline": "workspace:*",
     "@yanimation/motion-kit": "workspace:*",
     "@yanimation/motion-tokens": "workspace:*",
     "class-variance-authority": "^0.7.1",

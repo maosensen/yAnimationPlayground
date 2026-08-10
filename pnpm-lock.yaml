@@ -35,6 +35,9 @@ importers:
       '@remotion/media':
         specifier: 4.0.507
         version: 4.0.507(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@yanimation/animation-pipeline':
+        specifier: workspace:*
+        version: link:../../packages/animation-pipeline
       '@yanimation/motion-tokens':
         specifier: workspace:*
         version: link:../../packages/motion-tokens
@@ -81,6 +84,9 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.100.14
         version: 5.100.14(react@19.2.4)
+      '@yanimation/animation-pipeline':
+        specifier: workspace:*
+        version: link:../../packages/animation-pipeline
       '@yanimation/motion-kit':
         specifier: workspace:*
         version: link:../../packages/motion-kit

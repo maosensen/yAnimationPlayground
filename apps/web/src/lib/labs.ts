@@ -41,6 +41,15 @@ export const labs = {
     icon: "icon-[solar--widget-add-bold-duotone]",
     status: "reference",
   },
+  "ai-pipeline": {
+    slug: "ai-pipeline",
+    name: "AI 动画生产管线",
+    description:
+      "把创意简报、结构化 AI 草案、实现脚手架与可执行 QA 组织成可审查流程。",
+    focus: ["结构化契约", "确定性编译", "人工审查与 QA"],
+    icon: "icon-[solar--magic-stick-3-bold-duotone]",
+    status: "reference",
+  },
   d3: {
     slug: "d3",
     name: "D3",

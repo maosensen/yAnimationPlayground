@@ -11,6 +11,7 @@ yAnimationPlayground 是一个通过小型、可比较实验系统学习浏览�
 - **生产级应用壳层** — Next.js 16、React 19、Tailwind CSS v4、shadcn/ui、React Compiler
 - **完整保留主题系统** — 颜色预设、自定义品牌色、中性色族、对比度、阴影、导航、圆角与字体
 - **代码视频管线** — 可运行的 Remotion 与 HyperFrames 横竖双版参考工程
+- **AI 辅助生产** — 模型中立的简报到故事板编译流程，包含人工审查点、语义 QA、溯源清单与 Remotion 实现证明
 - **共享基础设施** — design tokens、motion tokens、动画 primitive、assets 与视频生产契约
 - **工程门禁** — pnpm workspace、Biome、TypeScript、环境变量校验与 CI
 
@@ -47,6 +48,9 @@ pnpm dev
 | `pnpm lint` | 使用 Biome 检查整个 monorepo |
 | `pnpm lint:fix` | 应用 Biome 安全修复 |
 | `pnpm format` | 格式化支持的文件 |
+| `pnpm pipeline:generate` | 把已审查的 Signal Atlas 源文件编译为可追踪生产产物 |
+| `pnpm pipeline:check` | 校验 Schema、语义 QA 与生成物漂移 |
+| `pnpm pipeline:inspect` | 验收 v0.7 Remotion 参考成片 |
 | `pnpm video:prepare` | 校验并同步共享视频输入 |
 | `pnpm video:check` | 检查两套视频渲染工程 |
 | `pnpm video:render` | 渲染全部横版与竖版参考成片 |
@@ -65,13 +69,15 @@ apps/
 │       ├── lottie/
 │       ├── rive/
 │       ├── canvas/
-│       └── code-video/
+│       ├── code-video/
+│       └── ai-pipeline/
 ├── remotion/                  # 独立 React 视频工程
 └── hyperframes/               # 独立 HTML-to-video 工程
 packages/
 ├── design-tokens/             # 色彩、字体、间距、层级
 ├── motion-tokens/             # duration、easing、stagger、节奏
 ├── motion-kit/                # 可复用动画 primitive
+├── animation-pipeline/        # AI 输出 Schema、编译器、QA 与参考产物
 ├── assets/                    # 共享源素材与实验 fixture
 └── video-contract/            # 共享 brief 与视频生产契约
 notes/                         # 已完成实验的结论
@@ -82,6 +88,8 @@ notes/                         # 已完成实验的结论
 
 v0.5 的工作流、运行时比较、命令与成片验收结果详见
 [docs/code-video-production.md](./docs/code-video-production.md)。
+v0.7 的结构化 AI 边界、人工审查阶段、确定性编译器与 QA 策略详见
+[docs/ai-assisted-production.md](./docs/ai-assisted-production.md)。
 
 ## 添加 UI 组件
 

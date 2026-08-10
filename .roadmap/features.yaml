@@ -244,9 +244,10 @@ features:
   - id: ai-assisted-animation-pipeline
     title: AI 辅助动画生产管线
     area: AI 工作流
-    status: doing
+    status: done
+    completedAt: 2026-08-10
     priority: low
-    note: v0.7;正在建立 creative brief → structured AI draft → storyboard / asset manifest / implementation scaffold → executable QA → Remotion proof 的可审查、可复现流程,不绑定模型供应商。
+    note: v0.7;已建立 creative brief → structured AI draft → storyboard / asset manifest / implementation scaffold → executable QA → Remotion proof 的模型中立生产链,含版本化 Schema、确定性 hash、生成物漂移检查、10 条语义门禁、受控失败 fixture 与中文审查工作台。
   - id: cross-repo-motion-distribution
     title: 跨仓动画 package 分发
     area: 共享基础设施

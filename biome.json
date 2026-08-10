@@ -16,7 +16,8 @@
       "!**/output",
       "!packages/animation-pipeline/examples/**/generated",
       "!packages/animation-pipeline/examples/**/fixtures/*-qa-report.json",
-      "!packages/animation-pipeline/schema"
+      "!packages/animation-pipeline/schema",
+      "!notes/evidence/v0.7-render-report.json"
     ]
   },
   "formatter": {
