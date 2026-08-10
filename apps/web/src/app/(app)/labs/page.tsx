@@ -27,19 +27,19 @@ export default function LabsPage() {
           <CardHeader className="gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-2xl">
               <Badge className="bg-primary-foreground/14 text-primary-foreground ring-1 ring-primary-foreground/20">
-                v0.6 Motion Design System
+                v0.8 Three.js 空间动画
               </Badge>
               <CardTitle className="mt-3 text-2xl">
-                从单点实验走向可复用、可验证的动作语言。
+                从二维画布进入可测量、可降级的空间舞台。
               </CardTitle>
               <CardDescription className="mt-2 text-primary-foreground/75">
-                把 duration、easing、spring、stagger 与 reduced-motion
-                决策沉淀为跨浏览器与视频运行时的稳定契约。
+                掌握场景图、相机、光照、射线检测、GPU 资源清理和帧预算，并明确
+                Three.js 不应该接管哪些常规界面职责。
               </CardDescription>
             </div>
             <Button asChild variant="secondary" size="lg">
-              <Link href="/labs/motion-system">
-                打开系统实验
+              <Link href="/labs/threejs">
+                打开空间实验
                 <span
                   className="icon-[solar--arrow-right-up-bold-duotone]"
                   data-icon="inline-end"

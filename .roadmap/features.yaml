@@ -249,12 +249,20 @@ features:
     shippedIn: v0.7.0
     priority: low
     note: v0.7;已建立 creative brief → structured AI draft → storyboard / asset manifest / implementation scaffold → executable QA → Remotion proof 的模型中立生产链,含版本化 Schema、确定性 hash、生成物漂移检查、10 条语义门禁、受控失败 fixture 与中文审查工作台。
+  - id: threejs-spatial-animation-lab
+    title: Three.js 空间与 WebGL 动画实验
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-11
+    shippedIn: v0.8.0
+    priority: low
+    note: v0.8;已建立按路由加载的 Three.js 核心运行时与 Spatial Signal Field 旗舰作品,覆盖场景图、相机、光照、点云、射线检测、三档 DPR/密度、renderer 遥测、减少动效、语义后备与完整 GPU 资源回收;附中文技术地图、实测记录和 chunk 隔离检查。
   - id: cross-repo-motion-distribution
     title: 跨仓动画 package 分发
     area: 共享基础设施
     status: todo
     priority: low
-    note: v0.8 方向;为 tokens、primitives 与 assets 建立版本和兼容策略、package 测试及至少一个外部 Studio/SaaS 消费者。
+    note: v0.9 方向;为 tokens、primitives 与 assets 建立版本和兼容策略、package 测试及至少一个外部 Studio/SaaS 消费者。
   - id: animation-rd-platform-v1
     title: 动画研发平台 v1 稳定基线
     area: 动画实验

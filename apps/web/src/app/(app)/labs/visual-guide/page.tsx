@@ -70,6 +70,13 @@ const runtimeRows = [
     "中至高",
   ],
   [
+    "Three.js",
+    "空间 / WebGL 渲染层",
+    "3D 场景、相机叙事、模型、材质与空间命中",
+    "代码 / GPU 场景图",
+    "高",
+  ],
+  [
     "Remotion / HyperFrames",
     "视频输出工程",
     "批量视频、模板化内容与离线渲染",
@@ -99,6 +106,12 @@ const decisions = [
     answer: "有明确吞吐需求时再进入 Canvas，并先定义帧预算。",
     icon: "icon-[solar--stopwatch-play-bold-duotone]",
   },
+  {
+    question: "信息是否真正依赖相机、透视、光照或深度？",
+    answer:
+      "只有空间关系本身有意义时才进入 Three.js；普通二维动效继续留在 DOM、SVG 或 Canvas。",
+    icon: "icon-[solar--planet-4-bold-duotone]",
+  },
 ];
 
 export default function VisualGuidePage() {
@@ -109,11 +122,11 @@ export default function VisualGuidePage() {
           <PageHeaderIcon icon="icon-[solar--map-arrow-square-bold-duotone]" />
         }
         title="视觉运行时选型指南"
-        titleSuffix={<Badge>v0.4 结论</Badge>}
+        titleSuffix={<Badge>v0.8 更新</Badge>}
         description="先判断谁拥有状态、资产和渲染表面，再决定动画技术。"
         actions={
           <Button asChild>
-            <Link href="/labs/living-data-story">打开旗舰作品</Link>
+            <Link href="/labs/threejs">打开 Three.js 实验</Link>
           </Button>
         }
       />
@@ -128,7 +141,8 @@ export default function VisualGuidePage() {
             </CardTitle>
             <CardDescription className="max-w-3xl leading-6 text-primary-foreground/75">
               数据几何加 D3，精密序列加 GSAP，线性设计资产加 Lottie，交互资产加
-              Rive，高密度即时绘制才加 Canvas。Remotion 与 HyperFrames
+              Rive，高密度二维绘制才加 Canvas；只有空间含义真实存在时才加
+              Three.js。Remotion 与 HyperFrames
               属于视频生产工程，不与网页交互运行时争夺同一个位置。
             </CardDescription>
           </CardHeader>
