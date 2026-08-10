@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "category": "schema",
+      "evidenceIds": [
+        "signal-atlas",
+        "signal-atlas"
+      ],
+      "id": "schema.valid",
+      "message": "Creative brief and production draft share one project ID.",
+      "status": "pass"
+    },
+    {
+      "category": "schema",
+      "evidenceIds": [
+        "capture-signal",
+        "missing-layer"
+      ],
+      "id": "ids.unique",
+      "message": "Scene, asset, and layer IDs are unique within their namespaces.",
+      "status": "pass"
+    },
+    {
+      "category": "timeline",
+      "evidenceIds": [
+        "capture-signal"
+      ],
+      "id": "timeline.contiguous",
+      "message": "Scenes form a contiguous 12s timeline.",
+      "status": "pass"
+    },
+    {
+      "category": "assets",
+      "evidenceIds": [
+        "asset-that-does-not-exist"
+      ],
+      "id": "assets.references",
+      "message": "Missing asset references: asset-that-does-not-exist.",
+      "status": "fail"
+    },
+    {
+      "category": "assets",
+      "evidenceIds": [],
+      "id": "assets.readiness",
+      "message": "Every asset is licensed and marked ready for implementation.",
+      "status": "pass"
+    },
+    {
+      "category": "implementation",
+      "evidenceIds": [
+        "capture-signal"
+      ],
+      "id": "implementation.scenes",
+      "message": "Every storyboard scene is assigned to an implementation target.",
+      "status": "pass"
+    },
+    {
+      "category": "implementation",
+      "evidenceIds": [
+        "landscape",
+        "portrait"
+      ],
+      "id": "implementation.formats",
+      "message": "Every requested format has a declared output composition.",
+      "status": "pass"
+    },
+    {
+      "category": "implementation",
+      "evidenceIds": [
+        "missing-layer"
+      ],
+      "id": "motion.vocabulary",
+      "message": "Every layer uses a shared semantic motion intent.",
+      "status": "pass"
+    },
+    {
+      "category": "accessibility",
+      "evidenceIds": [
+        "missing-layer"
+      ],
+      "id": "accessibility.fallbacks",
+      "message": "Every layer defines a reduced-motion fallback.",
+      "status": "pass"
+    },
+    {
+      "category": "review",
+      "evidenceIds": [
+        "storyboard",
+        "assets",
+        "implementation"
+      ],
+      "id": "review.gates",
+      "message": "Storyboard, assets, and implementation checkpoints are human-approved.",
+      "status": "pass"
+    }
+  ],
+  "projectId": "signal-atlas",
+  "schemaVersion": 1,
+  "status": "fail",
+  "summary": {
+    "fail": 1,
+    "pass": 9,
+    "warn": 0
+  }
+}

@@ -13,7 +13,10 @@
       "!**/.next",
       "!**/dist",
       "!**/build",
-      "!**/output"
+      "!**/output",
+      "!packages/animation-pipeline/examples/**/generated",
+      "!packages/animation-pipeline/examples/**/fixtures/*-qa-report.json",
+      "!packages/animation-pipeline/schema"
     ]
   },
   "formatter": {

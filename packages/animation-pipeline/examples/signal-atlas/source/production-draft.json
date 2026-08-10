@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "projectId": "signal-atlas",
+  "generator": {
+    "kind": "ai-assisted",
+    "provider": "provider-neutral",
+    "model": "reference-agent-output",
+    "promptContractVersion": "1.0.0"
+  },
+  "scenes": [
+    {
+      "id": "capture-signal",
+      "start": 0,
+      "duration": 4,
+      "intent": "Turn scattered events into a legible direction.",
+      "copy": {
+        "eyebrow": "01 / CAPTURE",
+        "title": "Find the signal.",
+        "body": "Ideas arrive as fragments. Structure reveals what is worth moving."
+      },
+      "visual": {
+        "kind": "signal-field",
+        "direction": "A field of events converges into three stable trajectories."
+      },
+      "layers": [
+        {
+          "id": "capture-copy",
+          "kind": "text",
+          "role": "Primary scene message",
+          "motionIntent": "enter",
+          "accessibility": {
+            "essential": true,
+            "reducedMotion": "replace-with-opacity",
+            "fallback": "Reveal final copy with opacity only."
+          }
+        },
+        {
+          "id": "capture-field",
+          "kind": "data",
+          "role": "Deterministic signal sample",
+          "assetId": "signal-sample",
+          "motionIntent": "emphasis",
+          "accessibility": {
+            "essential": false,
+            "reducedMotion": "static",
+            "fallback": "Render the converged field as a static diagram."
+          }
+        }
+      ],
+      "acceptanceCriteria": [
+        "Signal convergence is readable within the first two seconds.",
+        "Copy remains inside both format safe areas."
+      ]
+    },
+    {
+      "id": "map-system",
+      "start": 4,
+      "duration": 4,
+      "intent": "Expose the production stages and their relationships.",
+      "copy": {
+        "eyebrow": "02 / MAP",
+        "title": "Make the system visible.",
+        "body": "Brief, storyboard, assets, implementation, and QA stay connected."
+      },
+      "visual": {
+        "kind": "atlas-grid",
+        "direction": "Five stage nodes lock into a reviewable production map."
+      },
+      "layers": [
+        {
+          "id": "map-copy",
+          "kind": "text",
+          "role": "Production system message",
+          "motionIntent": "enter",
+          "accessibility": {
+            "essential": true,
+            "reducedMotion": "replace-with-opacity",
+            "fallback": "Reveal final copy with opacity only."
+          }
+        },
+        {
+          "id": "map-grid",
+          "kind": "shape",
+          "role": "Five-stage production map",
+          "motionIntent": "layout",
+          "accessibility": {
+            "essential": true,
+            "reducedMotion": "static",
+            "fallback": "Show all five connected stages in their final positions."
+          }
+        }
+      ],
+      "acceptanceCriteria": [
+        "All five stages are visible at the scene hold.",
+        "Connections communicate order without implying full automation."
+      ]
+    },
+    {
+      "id": "ship-proof",
+      "start": 8,
+      "duration": 4,
+      "intent": "Close on deterministic evidence rather than a generation claim.",
+      "copy": {
+        "eyebrow": "03 / PROVE",
+        "title": "Ship what you can verify.",
+        "body": "Stable inputs, explicit approvals, and executable checks produce trusted motion."
+      },
+      "visual": {
+        "kind": "review-stack",
+        "direction": "Artifact cards resolve into a passing QA seal and bundle hash."
+      },
+      "layers": [
+        {
+          "id": "proof-copy",
+          "kind": "text",
+          "role": "Closing message",
+          "motionIntent": "enter",
+          "accessibility": {
+            "essential": true,
+            "reducedMotion": "replace-with-opacity",
+            "fallback": "Reveal final copy with opacity only."
+          }
+        },
+        {
+          "id": "proof-stack",
+          "kind": "data",
+          "role": "Compiled artifact and QA evidence",
+          "assetId": "artifact-index",
+          "motionIntent": "emphasis",
+          "accessibility": {
+            "essential": true,
+            "reducedMotion": "preserve",
+            "fallback": "Show the final artifact list and passing status without card travel."
+          }
+        }
+      ],
+      "acceptanceCriteria": [
+        "The passing status is paired with named checks.",
+        "The final frame communicates traceability, not autonomous approval."
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "inter-font",
+      "kind": "font",
+      "role": "Shared display and interface typography",
+      "origin": "repo",
+      "locator": "@remotion/google-fonts/Inter",
+      "license": "OFL-1.1",
+      "reviewStatus": "ready"
+    },
+    {
+      "id": "signal-sample",
+      "kind": "data",
+      "role": "Seeded event coordinates for the opening field",
+      "origin": "generated",
+      "locator": "seed:4394/signal-field",
+      "license": "project-generated",
+      "reviewStatus": "ready"
+    },
+    {
+      "id": "artifact-index",
+      "kind": "data",
+      "role": "Names and statuses of compiled production artifacts",
+      "origin": "inline",
+      "locator": "pipeline:artifact-index",
+      "license": "project-authored",
+      "reviewStatus": "ready"
+    }
+  ],
+  "implementationTargets": [
+    {
+      "id": "remotion-proof",
+      "runtime": "remotion",
+      "entryPoint": "apps/remotion/src/signal-atlas.tsx",
+      "strategy": "Frame-driven React composition reads the compiled storyboard and provenance bundle.",
+      "sceneIds": ["capture-signal", "map-system", "ship-proof"],
+      "outputs": [
+        {
+          "id": "signal-atlas-landscape",
+          "formatId": "landscape",
+          "compositionId": "SignalAtlasLandscape"
+        },
+        {
+          "id": "signal-atlas-portrait",
+          "formatId": "portrait",
+          "compositionId": "SignalAtlasPortrait"
+        }
+      ]
+    },
+    {
+      "id": "web-review-workbench",
+      "runtime": "web",
+      "entryPoint": "apps/web/src/app/(app)/labs/ai-pipeline/page.tsx",
+      "strategy": "Server-rendered artifacts feed a small client-side review and fault-injection surface.",
+      "sceneIds": ["capture-signal", "map-system", "ship-proof"],
+      "outputs": [
+        {
+          "id": "signal-atlas-web-landscape",
+          "formatId": "landscape",
+          "compositionId": "AiPipelineWorkbench"
+        },
+        {
+          "id": "signal-atlas-web-portrait",
+          "formatId": "portrait",
+          "compositionId": "AiPipelineWorkbench"
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "reviewer": "human-creative-director",
+    "checkpoints": [
+      {
+        "stage": "storyboard",
+        "status": "approved",
+        "note": "Three-scene escalation and 12-second pacing are approved."
+      },
+      {
+        "stage": "assets",
+        "status": "approved",
+        "note": "All assets are local, inline, or deterministically generated."
+      },
+      {
+        "stage": "implementation",
+        "status": "approved",
+        "note": "Web review and Remotion proof are explicitly assigned."
+      }
+    ]
+  }
+}

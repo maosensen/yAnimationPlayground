@@ -1,0 +1,404 @@
+{
+  "$id": "https://yanimation.dev/schemas/production-draft.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "font",
+              "data",
+              "image",
+              "audio",
+              "svg"
+            ],
+            "type": "string"
+          },
+          "license": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "locator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "origin": {
+            "enum": [
+              "repo",
+              "inline",
+              "generated"
+            ],
+            "type": "string"
+          },
+          "reviewStatus": {
+            "enum": [
+              "ready",
+              "blocked"
+            ],
+            "type": "string"
+          },
+          "role": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "role",
+          "origin",
+          "locator",
+          "license",
+          "reviewStatus"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generator": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "ai-assisted",
+          "type": "string"
+        },
+        "model": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "promptContractVersion": {
+          "const": "1.0.0",
+          "type": "string"
+        },
+        "provider": {
+          "const": "provider-neutral",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "provider",
+        "model",
+        "promptContractVersion"
+      ],
+      "type": "object"
+    },
+    "implementationTargets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "entryPoint": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "outputs": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "compositionId": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "formatId": {
+                  "enum": [
+                    "landscape",
+                    "portrait",
+                    "square"
+                  ],
+                  "type": "string"
+                },
+                "id": {
+                  "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "formatId",
+                "compositionId"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "runtime": {
+            "enum": [
+              "remotion",
+              "web"
+            ],
+            "type": "string"
+          },
+          "sceneIds": {
+            "items": {
+              "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "strategy": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "runtime",
+          "entryPoint",
+          "strategy",
+          "sceneIds",
+          "outputs"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "projectId": {
+      "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+      "type": "string"
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoints": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "note": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "stage": {
+                "enum": [
+                  "storyboard",
+                  "assets",
+                  "implementation"
+                ],
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "changes-requested"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "stage",
+              "status",
+              "note"
+            ],
+            "type": "object"
+          },
+          "minItems": 3,
+          "type": "array"
+        },
+        "reviewer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "const": "approved",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "reviewer",
+        "checkpoints"
+      ],
+      "type": "object"
+    },
+    "scenes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "acceptanceCriteria": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "copy": {
+            "additionalProperties": false,
+            "properties": {
+              "body": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "eyebrow": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "title": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "eyebrow",
+              "title",
+              "body"
+            ],
+            "type": "object"
+          },
+          "duration": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "id": {
+            "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "intent": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "layers": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "accessibility": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "essential": {
+                      "type": "boolean"
+                    },
+                    "fallback": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "reducedMotion": {
+                      "enum": [
+                        "preserve",
+                        "replace-with-opacity",
+                        "static"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "essential",
+                    "reducedMotion",
+                    "fallback"
+                  ],
+                  "type": "object"
+                },
+                "assetId": {
+                  "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "id": {
+                  "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "text",
+                    "shape",
+                    "data",
+                    "image"
+                  ],
+                  "type": "string"
+                },
+                "motionIntent": {
+                  "enum": [
+                    "feedback",
+                    "enter",
+                    "exit",
+                    "layout",
+                    "emphasis"
+                  ],
+                  "type": "string"
+                },
+                "role": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "role",
+                "motionIntent",
+                "accessibility"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "start": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "visual": {
+            "additionalProperties": false,
+            "properties": {
+              "direction": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "signal-field",
+                  "atlas-grid",
+                  "review-stack"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "direction"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "start",
+          "duration",
+          "intent",
+          "copy",
+          "visual",
+          "layers",
+          "acceptanceCriteria"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schemaVersion": {
+      "const": 1,
+      "type": "number"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "generator",
+    "scenes",
+    "assets",
+    "implementationTargets",
+    "review"
+  ],
+  "type": "object"
+}
