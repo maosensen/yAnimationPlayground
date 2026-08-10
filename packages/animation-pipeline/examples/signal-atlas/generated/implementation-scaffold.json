@@ -1,0 +1,107 @@
+{
+  "motionVocabulary": "@yanimation/motion-tokens",
+  "projectId": "signal-atlas",
+  "sceneContracts": [
+    {
+      "acceptanceCriteria": [
+        "Signal convergence is readable within the first two seconds.",
+        "Copy remains inside both format safe areas."
+      ],
+      "assetIds": [
+        "signal-sample"
+      ],
+      "layerIds": [
+        "capture-copy",
+        "capture-field"
+      ],
+      "motionIntents": [
+        "enter",
+        "emphasis"
+      ],
+      "sceneId": "capture-signal"
+    },
+    {
+      "acceptanceCriteria": [
+        "All five stages are visible at the scene hold.",
+        "Connections communicate order without implying full automation."
+      ],
+      "assetIds": [],
+      "layerIds": [
+        "map-copy",
+        "map-grid"
+      ],
+      "motionIntents": [
+        "enter",
+        "layout"
+      ],
+      "sceneId": "map-system"
+    },
+    {
+      "acceptanceCriteria": [
+        "The passing status is paired with named checks.",
+        "The final frame communicates traceability, not autonomous approval."
+      ],
+      "assetIds": [
+        "artifact-index"
+      ],
+      "layerIds": [
+        "proof-copy",
+        "proof-stack"
+      ],
+      "motionIntents": [
+        "enter",
+        "emphasis"
+      ],
+      "sceneId": "ship-proof"
+    }
+  ],
+  "schemaVersion": 1,
+  "targets": [
+    {
+      "entryPoint": "apps/remotion/src/signal-atlas.tsx",
+      "id": "remotion-proof",
+      "outputs": [
+        {
+          "compositionId": "SignalAtlasLandscape",
+          "formatId": "landscape",
+          "id": "signal-atlas-landscape"
+        },
+        {
+          "compositionId": "SignalAtlasPortrait",
+          "formatId": "portrait",
+          "id": "signal-atlas-portrait"
+        }
+      ],
+      "runtime": "remotion",
+      "sceneIds": [
+        "capture-signal",
+        "map-system",
+        "ship-proof"
+      ],
+      "strategy": "Frame-driven React composition reads the compiled storyboard and provenance bundle."
+    },
+    {
+      "entryPoint": "apps/web/src/app/(app)/labs/ai-pipeline/page.tsx",
+      "id": "web-review-workbench",
+      "outputs": [
+        {
+          "compositionId": "AiPipelineWorkbench",
+          "formatId": "landscape",
+          "id": "signal-atlas-web-landscape"
+        },
+        {
+          "compositionId": "AiPipelineWorkbench",
+          "formatId": "portrait",
+          "id": "signal-atlas-web-portrait"
+        }
+      ],
+      "runtime": "web",
+      "sceneIds": [
+        "capture-signal",
+        "map-system",
+        "ship-proof"
+      ],
+      "strategy": "Server-rendered artifacts feed a small client-side review and fault-injection surface."
+    }
+  ]
+}

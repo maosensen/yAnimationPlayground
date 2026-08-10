@@ -1,0 +1,194 @@
+{
+  "$id": "https://yanimation.dev/schemas/creative-brief.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audience": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "callToAction": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "constraints": {
+      "additionalProperties": false,
+      "properties": {
+        "assetPolicy": {
+          "enum": [
+            "repo-only",
+            "repo-and-generated"
+          ],
+          "type": "string"
+        },
+        "copyLanguage": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "providerPolicy": {
+          "const": "provider-neutral",
+          "type": "string"
+        },
+        "reducedMotionRequired": {
+          "const": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "copyLanguage",
+        "assetPolicy",
+        "reducedMotionRequired",
+        "providerPolicy"
+      ],
+      "type": "object"
+    },
+    "coreMessage": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "durationSeconds": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "formats": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "height": {
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
+            "type": "integer"
+          },
+          "id": {
+            "enum": [
+              "landscape",
+              "portrait",
+              "square"
+            ],
+            "type": "string"
+          },
+          "safeArea": {
+            "additionalProperties": false,
+            "properties": {
+              "bottom": {
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "left": {
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "right": {
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "top": {
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "top",
+              "right",
+              "bottom",
+              "left"
+            ],
+            "type": "object"
+          },
+          "width": {
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "width",
+          "height",
+          "safeArea"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "fps": {
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991,
+      "type": "integer"
+    },
+    "objective": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "projectId": {
+      "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$",
+      "type": "string"
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reviewer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "const": "approved",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "reviewer",
+        "note"
+      ],
+      "type": "object"
+    },
+    "schemaVersion": {
+      "const": 1,
+      "type": "number"
+    },
+    "seed": {
+      "maximum": 9007199254740991,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tone": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 2,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "title",
+    "seed",
+    "durationSeconds",
+    "fps",
+    "audience",
+    "objective",
+    "coreMessage",
+    "callToAction",
+    "tone",
+    "formats",
+    "constraints",
+    "review"
+  ],
+  "type": "object"
+}

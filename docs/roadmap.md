@@ -4,8 +4,9 @@ yAnimationPlayground is an R&D platform for proving animation techniques before
 they become production tools. Versions are organized around capabilities and
 evidence, not around installing libraries.
 
-The current release is **v0.6.0**, which established reusable motion tokens and
-composition-first primitives. The next milestone is **v0.7.0**.
+The current release is **v0.7.0**, which established a structured,
+provider-neutral AI-assisted animation workflow. The next milestone is
+**v0.8.0**.
 
 ## Planning model
 
@@ -36,8 +37,8 @@ moves into `packages/` only after a second real consumer proves the contract.
 | v0.4.0 | Shipped | Data, vector-runtime, and immediate-mode visual animation |
 | v0.5.0 | Shipped | Repeatable code-driven video pipelines with Remotion and HyperFrames |
 | v0.6.0 | Shipped | A reusable motion design system with stable tokens and primitives |
-| v0.7.0 | Next | An AI-assisted brief-to-animation production workflow |
-| v0.8.0 | Direction | Versioned packages and cross-repository consumption |
+| v0.7.0 | Shipped | An AI-assisted brief-to-animation production workflow |
+| v0.8.0 | Next | Versioned packages and cross-repository consumption |
 | v1.0.0 | Direction | A validated animation R&D platform ready to feed dedicated studios |
 
 Milestones are evidence-driven and intentionally have no fixed dates. Later
@@ -211,14 +212,62 @@ A full animated component catalogue, a visual timeline editor, published npm
 packages, and cross-repository compatibility policy remain outside this
 milestone. Cross-repository distribution begins in v0.8.
 
-## v0.7.0–v1.0.0 — Directional milestones
+## v0.7.0 — AI-assisted production pipeline
 
-### v0.7.0 — AI-assisted production pipeline
+### Core question
 
-Define a reviewable pipeline from creative brief to storyboard, asset manifest,
-implementation scaffold, and QA report. AI output must remain structured,
-reproducible, and human-editable; the milestone evaluates workflow leverage,
-not autonomous generation as an end in itself.
+How can an AI or coding agent accelerate animation pre-production without
+turning prompts, generated decisions, and review state into an opaque process
+that cannot be reproduced or safely handed to a human?
+
+### Capabilities
+
+- A versioned creative-brief and production-draft contract that constrains AI
+  output before it enters the repository.
+- A deterministic compiler that materializes the storyboard, asset manifest,
+  implementation scaffold, QA report, and provenance manifest from reviewed
+  source files.
+- A renderer-neutral scene model with explicit timing, assets, motion intents,
+  accessibility fallbacks, and runtime assignments.
+- An executable QA policy covering schema integrity, timeline continuity,
+  referential integrity, implementation coverage, and review gates.
+- A Chinese operator workbench that explains every stage, exposes the evidence,
+  and demonstrates how a deliberately injected defect is caught.
+- A real Remotion consumer generated from the same reference bundle, proving
+  that the intermediate artifacts can drive implementation rather than ending
+  as documentation.
+
+### Flagship work
+
+Produce **Signal Atlas**, a compact multi-scene animation package that starts
+as a human creative brief, receives a structured AI production draft, compiles
+into reviewable artifacts, passes automated QA, and drives a deterministic
+Remotion composition. The workbench must make the entire chain legible without
+requiring an API key or a specific model provider.
+
+### Exit criteria
+
+- A clean checkout can regenerate and validate every tracked artifact with one
+  command, and a drift check proves identical input produces identical output.
+- The AI-facing prompt contract and schema reject prose-only or structurally
+  incomplete responses before implementation begins.
+- Every scene, asset, motion intent, runtime assignment, and approval decision
+  has a stable ID and survives into the provenance manifest.
+- QA includes both a passing reference run and a controlled failing fixture so
+  the system demonstrates detection rather than reporting unconditional green.
+- The generated bundle is consumed by the web workbench and Remotion without
+  introducing a model SDK or secret into either runtime.
+- Contract tests, production build, desktop/mobile browser checks, Remotion
+  composition discovery, and a rendered-output inspection all succeed.
+
+### Out of scope
+
+Autonomous creative approval, model-provider orchestration, prompt history,
+cloud asset generation, collaborative review, a visual timeline editor, and
+project persistence belong to dedicated studio products. This milestone proves
+the portable production contract and review loop only.
+
+## v0.8.0–v1.0.0 — Directional milestones
 
 ### v0.8.0 — Cross-repository distribution
 

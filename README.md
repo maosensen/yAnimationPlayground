@@ -13,6 +13,7 @@ shared motion packages.
 - **Production-ready shell** — Next.js 16, React 19, Tailwind CSS v4, shadcn/ui, and React Compiler
 - **Theme system preserved** — runtime presets, custom brand color, neutral families, contrast, elevation, navigation, radius, and fonts
 - **Code-video pipelines** — runnable Remotion and HyperFrames workspaces with landscape and portrait reference films
+- **AI-assisted production** — a provider-neutral brief-to-storyboard compiler with review gates, semantic QA, provenance, and a Remotion proof
 - **Shared foundations** — explicit packages for design tokens, motion tokens, motion primitives, assets, and video production contracts
 - **Engineering gates** — pnpm workspaces, Biome, TypeScript, environment validation, and CI
 
@@ -50,6 +51,9 @@ Open [http://localhost:4394](http://localhost:4394).
 | `pnpm lint` | Run Biome across the monorepo |
 | `pnpm lint:fix` | Apply safe Biome fixes |
 | `pnpm format` | Format supported files |
+| `pnpm pipeline:generate` | Compile the reviewed Signal Atlas source into tracked production artifacts |
+| `pnpm pipeline:check` | Validate schema, semantic QA, and generated-artifact drift |
+| `pnpm pipeline:inspect` | Inspect the rendered v0.7 Remotion proof |
 | `pnpm video:prepare` | Validate and synchronize shared video inputs |
 | `pnpm video:check` | Check both renderer workspaces |
 | `pnpm video:render` | Render all landscape and portrait reference outputs |
@@ -68,13 +72,15 @@ apps/
 │       ├── lottie/
 │       ├── rive/
 │       ├── canvas/
-│       └── code-video/
+│       ├── code-video/
+│       └── ai-pipeline/
 ├── remotion/                  # isolated React video workspace
 └── hyperframes/               # isolated HTML-to-video workspace
 packages/
 ├── design-tokens/             # color, typography, spacing, elevation
 ├── motion-tokens/             # duration, easing, stagger, rhythm
 ├── motion-kit/                # reusable animation primitives
+├── animation-pipeline/        # AI-facing schemas, compiler, QA, and reference bundle
 ├── assets/                    # shared source assets and fixtures
 └── video-contract/            # shared brief and render production contract
 notes/                         # findings from completed experiments
@@ -86,6 +92,8 @@ extracted only after a second real consumer proves it.
 
 See [docs/code-video-production.md](./docs/code-video-production.md) for the
 v0.5 workflow, renderer comparison, commands, and verified output contract.
+See [docs/ai-assisted-production.md](./docs/ai-assisted-production.md) for the
+v0.7 structured AI boundary, review stages, deterministic compiler, and QA policy.
 
 ## Adding UI components
 

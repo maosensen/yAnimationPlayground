@@ -1,0 +1,141 @@
+{
+  "durationSeconds": 12,
+  "fps": 30,
+  "projectId": "signal-atlas",
+  "scenes": [
+    {
+      "acceptanceCriteria": [
+        "Signal convergence is readable within the first two seconds.",
+        "Copy remains inside both format safe areas."
+      ],
+      "copy": {
+        "body": "Ideas arrive as fragments. Structure reveals what is worth moving.",
+        "eyebrow": "01 / CAPTURE",
+        "title": "Find the signal."
+      },
+      "duration": 4,
+      "id": "capture-signal",
+      "intent": "Turn scattered events into a legible direction.",
+      "layers": [
+        {
+          "accessibility": {
+            "essential": true,
+            "fallback": "Reveal final copy with opacity only.",
+            "reducedMotion": "replace-with-opacity"
+          },
+          "id": "capture-copy",
+          "kind": "text",
+          "motionIntent": "enter",
+          "role": "Primary scene message"
+        },
+        {
+          "accessibility": {
+            "essential": false,
+            "fallback": "Render the converged field as a static diagram.",
+            "reducedMotion": "static"
+          },
+          "assetId": "signal-sample",
+          "id": "capture-field",
+          "kind": "data",
+          "motionIntent": "emphasis",
+          "role": "Deterministic signal sample"
+        }
+      ],
+      "start": 0,
+      "visual": {
+        "direction": "A field of events converges into three stable trajectories.",
+        "kind": "signal-field"
+      }
+    },
+    {
+      "acceptanceCriteria": [
+        "All five stages are visible at the scene hold.",
+        "Connections communicate order without implying full automation."
+      ],
+      "copy": {
+        "body": "Brief, storyboard, assets, implementation, and QA stay connected.",
+        "eyebrow": "02 / MAP",
+        "title": "Make the system visible."
+      },
+      "duration": 4,
+      "id": "map-system",
+      "intent": "Expose the production stages and their relationships.",
+      "layers": [
+        {
+          "accessibility": {
+            "essential": true,
+            "fallback": "Reveal final copy with opacity only.",
+            "reducedMotion": "replace-with-opacity"
+          },
+          "id": "map-copy",
+          "kind": "text",
+          "motionIntent": "enter",
+          "role": "Production system message"
+        },
+        {
+          "accessibility": {
+            "essential": true,
+            "fallback": "Show all five connected stages in their final positions.",
+            "reducedMotion": "static"
+          },
+          "id": "map-grid",
+          "kind": "shape",
+          "motionIntent": "layout",
+          "role": "Five-stage production map"
+        }
+      ],
+      "start": 4,
+      "visual": {
+        "direction": "Five stage nodes lock into a reviewable production map.",
+        "kind": "atlas-grid"
+      }
+    },
+    {
+      "acceptanceCriteria": [
+        "The passing status is paired with named checks.",
+        "The final frame communicates traceability, not autonomous approval."
+      ],
+      "copy": {
+        "body": "Stable inputs, explicit approvals, and executable checks produce trusted motion.",
+        "eyebrow": "03 / PROVE",
+        "title": "Ship what you can verify."
+      },
+      "duration": 4,
+      "id": "ship-proof",
+      "intent": "Close on deterministic evidence rather than a generation claim.",
+      "layers": [
+        {
+          "accessibility": {
+            "essential": true,
+            "fallback": "Reveal final copy with opacity only.",
+            "reducedMotion": "replace-with-opacity"
+          },
+          "id": "proof-copy",
+          "kind": "text",
+          "motionIntent": "enter",
+          "role": "Closing message"
+        },
+        {
+          "accessibility": {
+            "essential": true,
+            "fallback": "Show the final artifact list and passing status without card travel.",
+            "reducedMotion": "preserve"
+          },
+          "assetId": "artifact-index",
+          "id": "proof-stack",
+          "kind": "data",
+          "motionIntent": "emphasis",
+          "role": "Compiled artifact and QA evidence"
+        }
+      ],
+      "start": 8,
+      "visual": {
+        "direction": "Artifact cards resolve into a passing QA seal and bundle hash.",
+        "kind": "review-stack"
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "seed": 4394,
+  "title": "Signal Atlas"
+}

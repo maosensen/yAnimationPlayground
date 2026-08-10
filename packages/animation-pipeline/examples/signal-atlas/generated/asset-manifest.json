@@ -1,0 +1,34 @@
+{
+  "assets": [
+    {
+      "id": "inter-font",
+      "kind": "font",
+      "license": "OFL-1.1",
+      "locator": "@remotion/google-fonts/Inter",
+      "origin": "repo",
+      "reviewStatus": "ready",
+      "role": "Shared display and interface typography"
+    },
+    {
+      "id": "signal-sample",
+      "kind": "data",
+      "license": "project-generated",
+      "locator": "seed:4394/signal-field",
+      "origin": "generated",
+      "reviewStatus": "ready",
+      "role": "Seeded event coordinates for the opening field"
+    },
+    {
+      "id": "artifact-index",
+      "kind": "data",
+      "license": "project-authored",
+      "locator": "pipeline:artifact-index",
+      "origin": "inline",
+      "reviewStatus": "ready",
+      "role": "Names and statuses of compiled production artifacts"
+    }
+  ],
+  "policy": "repo-and-generated",
+  "projectId": "signal-atlas",
+  "schemaVersion": 1
+}

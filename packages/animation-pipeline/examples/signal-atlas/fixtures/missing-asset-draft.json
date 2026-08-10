@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "projectId": "signal-atlas",
+  "generator": {
+    "kind": "ai-assisted",
+    "provider": "provider-neutral",
+    "model": "controlled-invalid-fixture",
+    "promptContractVersion": "1.0.0"
+  },
+  "scenes": [
+    {
+      "id": "capture-signal",
+      "start": 0,
+      "duration": 12,
+      "intent": "Exercise semantic QA with a structurally valid but unresolved asset.",
+      "copy": {
+        "eyebrow": "FAULT / FIXTURE",
+        "title": "A valid shape can still be unsafe.",
+        "body": "Schema validation passes while referential integrity fails."
+      },
+      "visual": {
+        "kind": "signal-field",
+        "direction": "Attempt to render a missing asset."
+      },
+      "layers": [
+        {
+          "id": "missing-layer",
+          "kind": "image",
+          "role": "Intentionally unresolved review image",
+          "assetId": "asset-that-does-not-exist",
+          "motionIntent": "enter",
+          "accessibility": {
+            "essential": true,
+            "reducedMotion": "static",
+            "fallback": "Report the missing evidence instead of rendering it."
+          }
+        }
+      ],
+      "acceptanceCriteria": ["QA must reject the unresolved asset reference."]
+    }
+  ],
+  "assets": [],
+  "implementationTargets": [
+    {
+      "id": "fixture-remotion",
+      "runtime": "remotion",
+      "entryPoint": "fixtures/never-rendered.tsx",
+      "strategy": "This target exists only to isolate the asset-reference failure.",
+      "sceneIds": ["capture-signal"],
+      "outputs": [
+        {
+          "id": "fixture-landscape",
+          "formatId": "landscape",
+          "compositionId": "FixtureLandscape"
+        },
+        {
+          "id": "fixture-portrait",
+          "formatId": "portrait",
+          "compositionId": "FixturePortrait"
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "reviewer": "fixture-author",
+    "checkpoints": [
+      {
+        "stage": "storyboard",
+        "status": "approved",
+        "note": "Fixture timeline is intentionally minimal."
+      },
+      {
+        "stage": "assets",
+        "status": "approved",
+        "note": "Approval alone must not bypass referential QA."
+      },
+      {
+        "stage": "implementation",
+        "status": "approved",
+        "note": "Fixture target covers the only scene."
+      }
+    ]
+  }
+}

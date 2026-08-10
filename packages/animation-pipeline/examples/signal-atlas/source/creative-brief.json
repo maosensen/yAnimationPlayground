@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "projectId": "signal-atlas",
+  "title": "Signal Atlas",
+  "seed": 4394,
+  "durationSeconds": 12,
+  "fps": 30,
+  "audience": "Product and motion teams turning complex system behavior into a clear launch story",
+  "objective": "Show that structured review turns noisy animation ideas into an implementation-ready system",
+  "coreMessage": "Map the signal. Review the system. Ship with intent.",
+  "callToAction": "Make every decision traceable.",
+  "tone": ["precise", "calm", "technical", "confident"],
+  "formats": [
+    {
+      "id": "landscape",
+      "width": 1920,
+      "height": 1080,
+      "safeArea": { "top": 72, "right": 96, "bottom": 72, "left": 96 }
+    },
+    {
+      "id": "portrait",
+      "width": 1080,
+      "height": 1920,
+      "safeArea": { "top": 112, "right": 72, "bottom": 112, "left": 72 }
+    }
+  ],
+  "constraints": {
+    "copyLanguage": "English",
+    "assetPolicy": "repo-and-generated",
+    "reducedMotionRequired": true,
+    "providerPolicy": "provider-neutral"
+  },
+  "review": {
+    "status": "approved",
+    "reviewer": "human-creative-director",
+    "note": "Scope, message, duration, formats, and provider-neutral boundary are approved."
+  }
+}

@@ -35,6 +35,35 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.7.0",
+    date: "2026-08-10",
+    title: "让 AI 进入一条可以审查的生产线",
+    summary:
+      "创意简报、结构化 AI 草案、故事板、资产、实现脚手架与 QA 现在形成可重复流程，并由同一份产物驱动 Web 审查和 Remotion 成片。",
+    changes: [
+      {
+        kind: "new",
+        title: "AI 动画生产工作台",
+        text: "可以逐阶段查看输入、审查责任与编译产物，并用中文理解每一条生产规则。",
+      },
+      {
+        kind: "new",
+        title: "确定性编译与溯源",
+        text: "同一份已审查输入会生成固定故事板、资产清单、实现脚手架、QA 报告与 bundle hash。",
+      },
+      {
+        kind: "new",
+        title: "可执行语义 QA",
+        text: "十条门禁覆盖时间线、资产引用、规格覆盖、减少动效与人工批准，并通过缺失资产样例证明错误会被阻断。",
+      },
+      {
+        kind: "new",
+        title: "Signal Atlas 实现证明",
+        text: "一份 12 秒生产 bundle 同时驱动 Web 工作台和 Remotion 横竖双版 Composition，运行时不携带模型 SDK 或密钥。",
+      },
+    ],
+  },
+  {
     version: "0.6.0",
     date: "2026-08-09",
     title: "从动画参数，走向一套动作语言",

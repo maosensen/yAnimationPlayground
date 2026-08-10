@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-10T14:37:07.693Z",
+  "project": "signal-atlas",
+  "bundleHash": "ab5065bf114afe692d4e4cae5d0848d12a7fa795a138ac4417d3b8344c122070",
+  "output": {
+    "renderer": "remotion",
+    "composition": "SignalAtlasLandscape",
+    "file": "apps/remotion/output/signal-atlas-landscape.mp4",
+    "dimensions": "1920×1080",
+    "duration": 12.053,
+    "fps": "30/1",
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "bytes": 1696480
+  },
+  "visualInspection": {
+    "frames": [
+      60,
+      180,
+      300
+    ],
+    "result": "pass",
+    "note": "All three scenes preserve safe areas, legible hierarchy, and the reviewed artifact/QA narrative."
+  }
+}

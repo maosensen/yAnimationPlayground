@@ -1,0 +1,44 @@
+{
+  "artifactHashes": {
+    "assetManifest": "6254b148354df266228e807cb2d4926c40533bd6069defe96fe0af751eb31540",
+    "implementationScaffold": "d85512083eb2cabf4b440afb96b77a7cb686b3609433e0357ebf71191019af41",
+    "qaReport": "be42cdf9846fc71ec1c4a8f074f05343e4f8143d14904ec17618f428ceffb3b8",
+    "storyboard": "650a70a8a20340628a64ad571b4e51160ab2b1801a48d7f52f93838fda5da907"
+  },
+  "bundleHash": "ab5065bf114afe692d4e4cae5d0848d12a7fa795a138ac4417d3b8344c122070",
+  "generator": {
+    "kind": "ai-assisted",
+    "model": "reference-agent-output",
+    "promptContractVersion": "1.0.0",
+    "provider": "provider-neutral"
+  },
+  "inputHashes": {
+    "creativeBrief": "25832b75c30585b0b23220e89f769850883966c6bb982ae49fe69d25b2dcfbc6",
+    "productionDraft": "76a8ecb03afdf51461769942b5d450f57df6095eddde4fd7db3857aa6cf31d39"
+  },
+  "pipelineVersion": "0.1.0",
+  "projectId": "signal-atlas",
+  "review": {
+    "checkpoints": [
+      {
+        "note": "Three-scene escalation and 12-second pacing are approved.",
+        "stage": "storyboard",
+        "status": "approved"
+      },
+      {
+        "note": "All assets are local, inline, or deterministically generated.",
+        "stage": "assets",
+        "status": "approved"
+      },
+      {
+        "note": "Web review and Remotion proof are explicitly assigned.",
+        "stage": "implementation",
+        "status": "approved"
+      }
+    ],
+    "reviewer": "human-creative-director",
+    "status": "approved"
+  },
+  "schemaVersion": 1,
+  "seed": 4394
+}

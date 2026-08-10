@@ -9,6 +9,38 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-08-10
+
+### Added
+
+- **AI-assisted production workbench** — inspect a complete brief-to-animation
+  workflow in Chinese, move between five review stages, examine stable
+  artifacts, and inject a controlled missing-asset fault to see the pipeline
+  block unsafe implementation.
+- **Versioned AI output contract** — a provider-neutral prompt contract and
+  JSON Schemas constrain creative briefs and production drafts before they
+  enter the repository, with stable IDs for scenes, layers, assets, targets,
+  and outputs.
+- **Deterministic production compiler** — reviewed source files now materialize
+  a storyboard, asset manifest, implementation scaffold, QA report, and
+  provenance manifest with repeatable SHA-256 hashes and drift detection.
+- **Executable semantic QA** — ten cross-artifact checks cover timeline
+  continuity, referential integrity, implementation coverage, motion
+  vocabulary, reduced-motion fallbacks, and human review gates; a schema-valid
+  failure fixture proves that invalid references are rejected.
+- **Signal Atlas reference production** — one 12-second pipeline bundle drives
+  the web review experience plus 1920×1080 and 1080×1920 Remotion compositions,
+  with the landscape film verified at 30 FPS and H.264.
+
+### Changed
+
+- **Pipeline-aware repository gates** — aggregate checks now run contract tests
+  and generated-artifact drift validation, while video preparation verifies the
+  reviewed pipeline bundle before renderer work begins.
+- **Provider-neutral runtime boundary** — browser and video consumers read only
+  reviewed, tracked artifacts; no model SDK, credential, or network dependency
+  is added to either runtime.
+
 ## [0.6.0] - 2026-08-09
 
 ### Added
@@ -230,7 +262,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.7.0
 [0.6.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.6.0
 [0.5.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.5.0
 [0.4.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.4.0

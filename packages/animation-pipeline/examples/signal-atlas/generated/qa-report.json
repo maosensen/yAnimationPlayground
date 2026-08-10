@@ -1,0 +1,134 @@
+{
+  "checks": [
+    {
+      "category": "schema",
+      "evidenceIds": [
+        "signal-atlas",
+        "signal-atlas"
+      ],
+      "id": "schema.valid",
+      "message": "Creative brief and production draft share one project ID.",
+      "status": "pass"
+    },
+    {
+      "category": "schema",
+      "evidenceIds": [
+        "capture-signal",
+        "map-system",
+        "ship-proof",
+        "inter-font",
+        "signal-sample",
+        "artifact-index",
+        "capture-copy",
+        "capture-field",
+        "map-copy",
+        "map-grid",
+        "proof-copy",
+        "proof-stack"
+      ],
+      "id": "ids.unique",
+      "message": "Scene, asset, and layer IDs are unique within their namespaces.",
+      "status": "pass"
+    },
+    {
+      "category": "timeline",
+      "evidenceIds": [
+        "capture-signal",
+        "map-system",
+        "ship-proof"
+      ],
+      "id": "timeline.contiguous",
+      "message": "Scenes form a contiguous 12s timeline.",
+      "status": "pass"
+    },
+    {
+      "category": "assets",
+      "evidenceIds": [
+        "signal-sample",
+        "artifact-index"
+      ],
+      "id": "assets.references",
+      "message": "Every referenced asset resolves through the asset manifest.",
+      "status": "pass"
+    },
+    {
+      "category": "assets",
+      "evidenceIds": [
+        "inter-font",
+        "signal-sample",
+        "artifact-index"
+      ],
+      "id": "assets.readiness",
+      "message": "Every asset is licensed and marked ready for implementation.",
+      "status": "pass"
+    },
+    {
+      "category": "implementation",
+      "evidenceIds": [
+        "capture-signal",
+        "map-system",
+        "ship-proof"
+      ],
+      "id": "implementation.scenes",
+      "message": "Every storyboard scene is assigned to an implementation target.",
+      "status": "pass"
+    },
+    {
+      "category": "implementation",
+      "evidenceIds": [
+        "landscape",
+        "portrait"
+      ],
+      "id": "implementation.formats",
+      "message": "Every requested format has a declared output composition.",
+      "status": "pass"
+    },
+    {
+      "category": "implementation",
+      "evidenceIds": [
+        "capture-copy",
+        "capture-field",
+        "map-copy",
+        "map-grid",
+        "proof-copy",
+        "proof-stack"
+      ],
+      "id": "motion.vocabulary",
+      "message": "Every layer uses a shared semantic motion intent.",
+      "status": "pass"
+    },
+    {
+      "category": "accessibility",
+      "evidenceIds": [
+        "capture-copy",
+        "capture-field",
+        "map-copy",
+        "map-grid",
+        "proof-copy",
+        "proof-stack"
+      ],
+      "id": "accessibility.fallbacks",
+      "message": "Every layer defines a reduced-motion fallback.",
+      "status": "pass"
+    },
+    {
+      "category": "review",
+      "evidenceIds": [
+        "storyboard",
+        "assets",
+        "implementation"
+      ],
+      "id": "review.gates",
+      "message": "Storyboard, assets, and implementation checkpoints are human-approved.",
+      "status": "pass"
+    }
+  ],
+  "projectId": "signal-atlas",
+  "schemaVersion": 1,
+  "status": "pass",
+  "summary": {
+    "fail": 0,
+    "pass": 10,
+    "warn": 0
+  }
+}
