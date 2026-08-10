@@ -6,7 +6,7 @@ evidence, not around installing libraries.
 
 The current release is **v0.7.0**, which established a structured,
 provider-neutral AI-assisted animation workflow. The next milestone is
-**v0.8.0**.
+**v0.8.0**, which adds spatial and WebGL animation foundations with Three.js.
 
 ## Planning model
 
@@ -38,7 +38,8 @@ moves into `packages/` only after a second real consumer proves the contract.
 | v0.5.0 | Shipped | Repeatable code-driven video pipelines with Remotion and HyperFrames |
 | v0.6.0 | Shipped | A reusable motion design system with stable tokens and primitives |
 | v0.7.0 | Shipped | An AI-assisted brief-to-animation production workflow |
-| v0.8.0 | Next | Versioned packages and cross-repository consumption |
+| v0.8.0 | Next | Three.js spatial and WebGL animation foundations |
+| v0.9.0 | Direction | Versioned packages and cross-repository consumption |
 | v1.0.0 | Direction | A validated animation R&D platform ready to feed dedicated studios |
 
 Milestones are evidence-driven and intentionally have no fixed dates. Later
@@ -210,7 +211,7 @@ drive an existing interaction and a frame-based renderer.
 
 A full animated component catalogue, a visual timeline editor, published npm
 packages, and cross-repository compatibility policy remain outside this
-milestone. Cross-repository distribution begins in v0.8.
+milestone. Cross-repository distribution begins in v0.9.
 
 ## v0.7.0 — AI-assisted production pipeline
 
@@ -267,9 +268,57 @@ cloud asset generation, collaborative review, a visual timeline editor, and
 project persistence belong to dedicated studio products. This milestone proves
 the portable production contract and review loop only.
 
-## v0.8.0–v1.0.0 — Directional milestones
+## v0.8.0 — Spatial and WebGL animation
 
-### v0.8.0 — Cross-repository distribution
+### Core question
+
+When does spatial depth justify a WebGL scene graph and GPU rendering cost over
+CSS, SVG, or Canvas, and how should a Three.js runtime cooperate with React
+without putting per-frame state into the component render cycle?
+
+### Capabilities
+
+- A route-local, client-only Three.js runtime with an explicit renderer,
+  lifecycle, resize policy, and complete GPU-resource cleanup.
+- A spatial animation lab covering scene graphs, cameras, lighting, materials,
+  buffer geometry, orbit controls, raycasting, and data-driven transitions.
+- Quality presets for device-pixel ratio and point density, plus live frame,
+  draw-call, geometry, and primitive diagnostics from the renderer.
+- Reduced-motion behavior, pause and camera controls, keyboard-equivalent
+  selection, and a semantic fallback when WebGL is unavailable.
+- A Chinese decision guide that distinguishes DOM/SVG, Canvas, and Three.js by
+  dimensionality, interaction, accessibility, authoring cost, and frame budget.
+
+### Flagship work
+
+Build **Spatial Signal Field**, an interactive three-dimensional signal atlas
+with multiple scene states, camera choreography, raycast selection, and a
+data-to-depth narrative. It must stay understandable through its semantic
+control surface when the canvas is paused, motion-reduced, or unavailable.
+
+### Exit criteria
+
+- Three.js is absent from routes that do not render the spatial lab and is
+  loaded behind a narrow client boundary.
+- Route transitions stop the animation loop, disconnect observers and controls,
+  and explicitly dispose renderer, geometry, and material resources.
+- The scene exposes at least three density/DPR profiles and live renderer
+  diagnostics without updating React state every frame.
+- Reduced motion preserves the selected state and final visual information;
+  keyboard controls can reach every raycast-selectable signal.
+- Production build, desktop browser interaction, route re-entry, WebGL fallback
+  review, and package-isolation inspection all succeed.
+
+### Out of scope
+
+WebGPU, physics engines, Blender or glTF production pipelines, shader-authoring
+systems, a general-purpose 3D editor, and React Three Fiber abstractions remain
+outside this milestone. The core Three.js lifecycle is learned first so a later
+abstraction decision is evidence-based.
+
+## v0.9.0–v1.0.0 — Directional milestones
+
+### v0.9.0 — Cross-repository distribution
 
 Make the proven token, primitive, and asset contracts consumable by independent
 studio and SaaS repositories. Add versioning, compatibility policy, package
