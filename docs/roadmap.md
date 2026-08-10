@@ -4,9 +4,8 @@ yAnimationPlayground is an R&D platform for proving animation techniques before
 they become production tools. Versions are organized around capabilities and
 evidence, not around installing libraries.
 
-The current release is **v0.7.0**, which established a structured,
-provider-neutral AI-assisted animation workflow. The next milestone is
-**v0.8.0**, which adds spatial and WebGL animation foundations with Three.js.
+The current release is **v0.8.0**, which added spatial and WebGL animation
+foundations with Three.js. The next milestone is **v0.9.0**.
 
 ## Planning model
 
@@ -38,8 +37,8 @@ moves into `packages/` only after a second real consumer proves the contract.
 | v0.5.0 | Shipped | Repeatable code-driven video pipelines with Remotion and HyperFrames |
 | v0.6.0 | Shipped | A reusable motion design system with stable tokens and primitives |
 | v0.7.0 | Shipped | An AI-assisted brief-to-animation production workflow |
-| v0.8.0 | Next | Three.js spatial and WebGL animation foundations |
-| v0.9.0 | Direction | Versioned packages and cross-repository consumption |
+| v0.8.0 | Shipped | Three.js spatial and WebGL animation foundations |
+| v0.9.0 | Next | Versioned packages and cross-repository consumption |
 | v1.0.0 | Direction | A validated animation R&D platform ready to feed dedicated studios |
 
 Milestones are evidence-driven and intentionally have no fixed dates. Later

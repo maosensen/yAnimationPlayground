@@ -254,6 +254,7 @@ features:
     area: 动画实验
     status: done
     completedAt: 2026-08-11
+    shippedIn: v0.8.0
     priority: low
     note: v0.8;已建立按路由加载的 Three.js 核心运行时与 Spatial Signal Field 旗舰作品,覆盖场景图、相机、光照、点云、射线检测、三档 DPR/密度、renderer 遥测、减少动效、语义后备与完整 GPU 资源回收;附中文技术地图、实测记录和 chunk 隔离检查。
   - id: cross-repo-motion-distribution

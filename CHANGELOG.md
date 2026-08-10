@@ -9,6 +9,8 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-08-11
+
 ### Added
 
 - **Three.js spatial animation lab** — explore scene graphs, perspective
@@ -286,7 +288,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.0
 [0.7.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.7.0
 [0.6.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.6.0
 [0.5.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.5.0
