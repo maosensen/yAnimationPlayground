@@ -35,6 +35,35 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.8.0",
+    date: "2026-08-11",
+    title: "让空间关系成为信息，而不是装饰",
+    summary:
+      "Three.js 现在拥有独立实验阶段：从场景图、相机和射线交互，到帧预算、减少动效、语义后备和 GPU 资源清理，都能在同一个空间信号场中实际操作。",
+    changes: [
+      {
+        kind: "new",
+        title: "Spatial Signal Field",
+        text: "在信号星群、分层映射和聚焦路径之间切换，用相机、点云、光照与空间节点理解真正的三维叙事。",
+      },
+      {
+        kind: "new",
+        title: "三档 WebGL 帧预算",
+        text: "可比较 480、1,200 和 2,600 点，以及 1×、1.5×、2× DPR，并查看 FPS、帧时、draw calls 与 GPU geometry。",
+      },
+      {
+        kind: "new",
+        title: "Three.js 技术定位",
+        text: "中文技术地图明确区分 DOM/SVG、Canvas 与 Three.js，只有信息依赖相机、透视、深度、模型或 GPU 管线时才升级。",
+      },
+      {
+        kind: "improved",
+        title: "可访问的 3D 生命周期",
+        text: "射线点击始终有原生按钮等价路径，减少动效停止循环但保留最终信息，离开路由会完整释放观察器、控制器和 GPU 资源。",
+      },
+    ],
+  },
+  {
     version: "0.7.0",
     date: "2026-08-10",
     title: "让 AI 进入一条可以审查的生产线",

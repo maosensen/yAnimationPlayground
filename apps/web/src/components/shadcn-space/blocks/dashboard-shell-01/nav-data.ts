@@ -25,6 +25,7 @@ export const navData: NavItem[] = [
       { title: "Lottie", href: "/labs/lottie" },
       { title: "Rive", href: "/labs/rive" },
       { title: "Canvas", href: "/labs/canvas" },
+      { title: "Three.js", href: "/labs/threejs" },
       { title: "Living Data Story", href: "/labs/living-data-story" },
       { title: "视觉运行时选型", href: "/labs/visual-guide" },
     ],

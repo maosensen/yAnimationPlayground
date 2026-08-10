@@ -7,7 +7,7 @@ yAnimationPlayground 是一个通过小型、可比较实验系统学习浏览�
 
 ## 已包含内容
 
-- **Web 实验室** — CSS + SVG、GSAP、Motion、D3、Lottie、Rive、Canvas 路由
+- **Web 实验室** — CSS + SVG、GSAP、Motion、D3、Lottie、Rive、Canvas、Three.js 路由
 - **生产级应用壳层** — Next.js 16、React 19、Tailwind CSS v4、shadcn/ui、React Compiler
 - **完整保留主题系统** — 颜色预设、自定义品牌色、中性色族、对比度、阴影、导航、圆角与字体
 - **代码视频管线** — 可运行的 Remotion 与 HyperFrames 横竖双版参考工程
@@ -18,8 +18,8 @@ yAnimationPlayground 是一个通过小型、可比较实验系统学习浏览�
 ## 路线图
 
 后续开发按“最终获得什么能力”组织，而不是按依赖库清单推进。v0.3 聚焦可比较的
-交互动效实验，v0.4 聚焦数据与视觉运行时，v0.5 建立可重复的代码视频生产流程。
-后续里程碑会把经过验证的结果沉淀为共享 package 和 AI 辅助工作流，但不会把本仓库
+交互动效实验，v0.4 聚焦数据与视觉运行时，v0.5 建立可重复的代码视频生产流程，
+v0.8 补全 Three.js 空间与 WebGL 动画能力。后续里程碑会把经过验证的结果沉淀为共享 package，但不会把本仓库
 扩张成正式 Studio 产品。
 
 版本范围、旗舰作品、完成标准以及 Playground 与未来 Studio 的边界详见
@@ -51,6 +51,7 @@ pnpm dev
 | `pnpm pipeline:generate` | 把已审查的 Signal Atlas 源文件编译为可追踪生产产物 |
 | `pnpm pipeline:check` | 校验 Schema、语义 QA 与生成物漂移 |
 | `pnpm pipeline:inspect` | 验收 v0.7 Remotion 参考成片 |
+| `pnpm three:inspect` | 验证构建后的 Three.js chunk 只由实验路由加载 |
 | `pnpm video:prepare` | 校验并同步共享视频输入 |
 | `pnpm video:check` | 检查两套视频渲染工程 |
 | `pnpm video:render` | 渲染全部横版与竖版参考成片 |
@@ -69,6 +70,7 @@ apps/
 │       ├── lottie/
 │       ├── rive/
 │       ├── canvas/
+│       ├── threejs/
 │       ├── code-video/
 │       └── ai-pipeline/
 ├── remotion/                  # 独立 React 视频工程
@@ -90,6 +92,8 @@ v0.5 的工作流、运行时比较、命令与成片验收结果详见
 [docs/code-video-production.md](./docs/code-video-production.md)。
 v0.7 的结构化 AI 边界、人工审查阶段、确定性编译器与 QA 策略详见
 [docs/ai-assisted-production.md](./docs/ai-assisted-production.md)。
+v0.8 的场景生命周期、性能档位、可访问性边界与 Canvas / Three.js 选型详见
+[docs/threejs-spatial-animation.md](./docs/threejs-spatial-animation.md)。
 
 ## 添加 UI 组件
 

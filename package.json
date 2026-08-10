@@ -28,6 +28,7 @@
     "pipeline:generate": "pnpm --filter @yanimation/animation-pipeline generate",
     "pipeline:check": "pnpm --filter @yanimation/animation-pipeline check",
     "pipeline:inspect": "node scripts/inspect-pipeline-output.mjs",
+    "three:inspect": "node scripts/inspect-threejs-route.mjs",
     "video:prepare": "pnpm pipeline:check && pnpm --filter @yanimation/video-contract check && pnpm --filter @yanimation/remotion prepare:assets && pnpm --filter @yanimation/hyperframes prepare:compositions",
     "video:check": "pnpm video:prepare && pnpm --filter @yanimation/remotion compositions && pnpm --filter @yanimation/hyperframes lint:composition && pnpm --filter @yanimation/hyperframes validate",
     "video:render": "pnpm --filter @yanimation/remotion render && pnpm --filter @yanimation/hyperframes render",

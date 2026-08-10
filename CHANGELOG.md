@@ -9,6 +9,30 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+### Added
+
+- **Three.js spatial animation lab** — explore scene graphs, perspective
+  cameras, lighting, materials, point clouds, OrbitControls, raycasting, and
+  three spatial layouts through the interactive Spatial Signal Field.
+- **WebGL performance controls** — compare 480/1×, 1,200/1.5×, and 2,600/2×
+  point-density/DPR profiles with low-frequency FPS, frame-time, draw-call,
+  primitive, and geometry diagnostics from `renderer.info`.
+- **Spatial runtime decision guide** — the Chinese operator documentation and
+  visual technology map now place Three.js alongside DOM/SVG, D3, Canvas,
+  vector runtimes, and video renderers with explicit escalation criteria.
+- **Route-isolation inspection** — `pnpm three:inspect` verifies that the built
+  Three.js runtime chunk is referenced only by `/labs/threejs`.
+
+### Changed
+
+- **Accessible 3D lifecycle** — the scene stops its render loop for pause or
+  reduced motion, keeps native keyboard-equivalent signal controls, exposes a
+  WebGL fallback, and disposes controls, observers, geometry, materials, and
+  renderer resources on route exit.
+- **Roadmap sequencing** — spatial/WebGL animation is now v0.8; cross-repository
+  package distribution moves to v0.9 while v1.0 remains the platform graduation
+  milestone.
+
 ## [0.7.0] - 2026-08-10
 
 ### Added

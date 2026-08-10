@@ -9,7 +9,7 @@ shared motion packages.
 
 ## What is included
 
-- **Web labs** — routes for CSS + SVG, GSAP, Motion, D3, Lottie, Rive, and Canvas
+- **Web labs** — routes for CSS + SVG, GSAP, Motion, D3, Lottie, Rive, Canvas, and Three.js
 - **Production-ready shell** — Next.js 16, React 19, Tailwind CSS v4, shadcn/ui, and React Compiler
 - **Theme system preserved** — runtime presets, custom brand color, neutral families, contrast, elevation, navigation, radius, and fonts
 - **Code-video pipelines** — runnable Remotion and HyperFrames workspaces with landscape and portrait reference films
@@ -21,9 +21,9 @@ shared motion packages.
 
 Development is organized around capability outcomes rather than a checklist of
 libraries. v0.3 focuses on comparable interaction-motion experiments, v0.4 on
-data and visual runtimes, and v0.5 on repeatable code-driven video pipelines.
-Later milestones turn proven results into shared packages and AI-assisted
-workflows without turning this repository into a productized studio.
+data and visual runtimes, v0.5 on repeatable code-driven video pipelines, and
+v0.8 on spatial/WebGL animation with Three.js. Later milestones turn proven
+results into shared packages without turning this repository into a productized studio.
 
 See [docs/roadmap.md](./docs/roadmap.md) for version scope, flagship work, exit
 criteria, and the boundary between this playground and future studio repositories.
@@ -54,6 +54,7 @@ Open [http://localhost:4394](http://localhost:4394).
 | `pnpm pipeline:generate` | Compile the reviewed Signal Atlas source into tracked production artifacts |
 | `pnpm pipeline:check` | Validate schema, semantic QA, and generated-artifact drift |
 | `pnpm pipeline:inspect` | Inspect the rendered v0.7 Remotion proof |
+| `pnpm three:inspect` | Verify the built Three.js chunk remains isolated to its lab route |
 | `pnpm video:prepare` | Validate and synchronize shared video inputs |
 | `pnpm video:check` | Check both renderer workspaces |
 | `pnpm video:render` | Render all landscape and portrait reference outputs |
@@ -72,6 +73,7 @@ apps/
 │       ├── lottie/
 │       ├── rive/
 │       ├── canvas/
+│       ├── threejs/
 │       ├── code-video/
 │       └── ai-pipeline/
 ├── remotion/                  # isolated React video workspace
@@ -94,6 +96,9 @@ See [docs/code-video-production.md](./docs/code-video-production.md) for the
 v0.5 workflow, renderer comparison, commands, and verified output contract.
 See [docs/ai-assisted-production.md](./docs/ai-assisted-production.md) for the
 v0.7 structured AI boundary, review stages, deterministic compiler, and QA policy.
+See [docs/threejs-spatial-animation.md](./docs/threejs-spatial-animation.md) for
+the v0.8 scene lifecycle, performance controls, accessibility boundary, and
+Canvas-versus-Three.js decision.
 
 ## Adding UI components
 

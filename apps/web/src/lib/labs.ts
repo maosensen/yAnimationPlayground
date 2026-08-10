@@ -82,6 +82,14 @@ export const labs = {
     icon: "icon-[solar--layers-bold-duotone]",
     status: "reference",
   },
+  threejs: {
+    slug: "threejs",
+    name: "Three.js",
+    description: "研究场景图、相机、WebGL 帧预算与可访问的空间交互。",
+    focus: ["场景图与相机", "GPU 帧预算", "射线交互与降级"],
+    icon: "icon-[solar--planet-4-bold-duotone]",
+    status: "reference",
+  },
 } satisfies Record<string, LabDefinition>;
 
 export const labList = Object.values(labs);
