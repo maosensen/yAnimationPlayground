@@ -244,9 +244,9 @@ features:
   - id: ai-assisted-animation-pipeline
     title: AI 辅助动画生产管线
     area: AI 工作流
-    status: todo
+    status: doing
     priority: low
-    note: v0.7 方向;建立 creative brief → storyboard → asset manifest → implementation scaffold → QA report 的可审查、可复现流程。
+    note: v0.7;正在建立 creative brief → structured AI draft → storyboard / asset manifest / implementation scaffold → executable QA → Remotion proof 的可审查、可复现流程,不绑定模型供应商。
   - id: cross-repo-motion-distribution
     title: 跨仓动画 package 分发
     area: 共享基础设施
