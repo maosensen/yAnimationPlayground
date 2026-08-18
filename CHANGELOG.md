@@ -9,6 +9,28 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-08-18
+
+### Added
+
+- **Official video-agent workflows** — the repository now carries all 12
+  official Remotion skills and 26 official HyperFrames skills, with pinned
+  upstream sources and content hashes for reproducible agent work.
+
+### Changed
+
+- **Animation-first application shell** — the home route now opens the lab
+  overview, while navigation focuses on browser animation, code video, AI
+  production, and release history.
+- **Chinese recovery states** — global and in-shell 404/error screens now use
+  Chinese operator copy and return directly to the experiment overview.
+
+### Removed
+
+- **Unrelated template demos** — the analytics dashboard, generic chart and UI
+  galleries, Gridstack examples, demo-only widgets, and the unused Gridstack
+  runtime no longer distract from animation research.
+
 ## [0.8.0] - 2026-08-11
 
 ### Added
@@ -288,7 +310,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.1
 [0.8.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.0
 [0.7.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.7.0
 [0.6.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.6.0

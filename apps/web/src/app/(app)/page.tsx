@@ -1,10 +1,5 @@
-import { DashboardGrid } from "@/components/gridstack/dashboard-grid";
-import { PageContainer } from "@/components/page-container";
+import { redirect } from "next/navigation";
 
-export default function DashboardPage() {
-  return (
-    <PageContainer>
-      <DashboardGrid />
-    </PageContainer>
-  );
+export default function HomePage() {
+  redirect("/labs");
 }

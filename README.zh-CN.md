@@ -104,6 +104,21 @@ pnpm dlx shadcn@latest add <component-name> -c apps/web
 生成的组件位于 `apps/web/src/components/ui/`，归本仓库所有并可自由修改。
 `@shadcn-space` registry 继续配置在 `apps/web/components.json`。
 
+## 官方 Agent Skills
+
+仓库已在 `.agents/skills/` 固定完整的 Remotion 与 HyperFrames 官方 skills，
+`skills-lock.json` 记录上游 GitHub 来源和内容哈希，保证代码视频工作流可审查、可复现。
+上游 skill 文件不参与 Biome 检查；应通过上游更新同步，避免在本地格式化其内容。
+
+更新全部项目级 skills：
+
+```sh
+pnpm dlx skills update --project --yes
+```
+
+项目级 skills 提供创作与验收规范；Codex 插件安装在应用层，可能增加远程工具、连接与权限，
+不会提交进这个仓库。
+
 ## 开发约定
 
 所有编码约定、库选型、workspace 边界和 AI 编码助手规则统一记录在

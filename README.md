@@ -110,6 +110,24 @@ Generated components live in `apps/web/src/components/ui/` and are owned by
 this repository. The `@shadcn-space` registry remains configured in
 `apps/web/components.json`.
 
+## Official agent skills
+
+This repository vendors the complete official Remotion and HyperFrames skill
+sets under `.agents/skills/`. `skills-lock.json` records their upstream GitHub
+sources and content hashes so video workflows stay reviewable and reproducible.
+Vendored skill files are excluded from Biome; update them from upstream rather
+than formatting their contents locally.
+
+Refresh every project-scoped skill with:
+
+```sh
+pnpm dlx skills update --project --yes
+```
+
+These project skills provide authoring and verification guidance. Codex plugins
+are installed separately at the application level and may add remote tools or
+connections; they are not committed to this repository.
+
 ## Conventions
 
 All coding conventions, library choices, workspace boundaries, and rules for

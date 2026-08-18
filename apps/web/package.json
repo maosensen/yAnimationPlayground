@@ -1,7 +1,7 @@
 {
   "name": "@yanimation/web",
   "description": "Interactive Next.js labs for yAnimationPlayground.",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "engines": {
     "node": ">=22"
@@ -29,7 +29,6 @@
     "d3-shape": "^3.2.0",
     "date-fns": "^4.4.0",
     "embla-carousel-react": "^8.6.0",
-    "gridstack": "^12.6.0",
     "gsap": "^3.15.0",
     "input-otp": "^1.4.2",
     "lottie-web": "^5.13.0",

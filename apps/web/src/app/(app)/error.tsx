@@ -26,19 +26,19 @@ export default function ErrorPage({
     <PageContainer className="flex flex-col">
       <StatusPage
         icon="icon-[solar--danger-triangle-line-duotone]"
-        title="Something went wrong"
-        description="An unexpected error occurred while rendering this page. Try again — if it keeps happening, check the logs."
+        title="页面发生错误"
+        description="渲染页面时发生了意外错误。请重新尝试；如果问题持续出现，请检查运行日志。"
         className="min-h-[60svh]"
       >
         {error.digest ? (
           <p className="font-mono text-xs text-muted-foreground">
-            Digest: {error.digest}
+            错误摘要：{error.digest}
           </p>
         ) : null}
         <div className="flex gap-2">
-          <Button onClick={() => unstable_retry()}>Try again</Button>
+          <Button onClick={() => unstable_retry()}>重新尝试</Button>
           <Button variant="outline" asChild>
-            <Link href="/">Back to dashboard</Link>
+            <Link href="/labs">返回实验总览</Link>
           </Button>
         </div>
       </StatusPage>

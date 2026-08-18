@@ -35,6 +35,30 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.8.1",
+    date: "2026-08-18",
+    title: "把仓库真正收拢成动画实验场",
+    summary:
+      "官方视频 Agent 工作流已经固定进仓库，旧模板 Demo 也完成退役；入口、导航和异常反馈现在都围绕动画研究主线服务。",
+    changes: [
+      {
+        kind: "new",
+        title: "38 个官方视频 Skills",
+        text: "完整收录 Remotion 12 个与 HyperFrames 26 个官方技能，并锁定上游来源和内容哈希，方便 Agent 稳定复现工作流。",
+      },
+      {
+        kind: "improved",
+        title: "动画优先的信息架构",
+        text: "首页直接进入实验总览，导航移除分析仪表盘、通用图表与 UI 画廊，只保留动画、代码视频、AI 制作和版本记录。",
+      },
+      {
+        kind: "fixed",
+        title: "中文状态反馈",
+        text: "已退役地址和异常页面统一使用中文说明，并提供返回实验总览的明确操作。",
+      },
+    ],
+  },
+  {
     version: "0.8.0",
     date: "2026-08-11",
     title: "让空间关系成为信息，而不是装饰",
