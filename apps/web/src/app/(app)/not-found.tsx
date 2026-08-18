@@ -9,12 +9,12 @@ export default function NotFound() {
     <PageContainer className="flex flex-col">
       <StatusPage
         code="404"
-        title="Page not found"
-        description="The page you are looking for doesn't exist or may have moved."
+        title="页面未找到"
+        description="你访问的页面不存在、已被移除，或地址已经发生变化。"
         className="min-h-[60svh]"
       >
         <Button asChild>
-          <Link href="/">Back to dashboard</Link>
+          <Link href="/labs">返回实验总览</Link>
         </Button>
       </StatusPage>
     </PageContainer>

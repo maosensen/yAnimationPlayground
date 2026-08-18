@@ -374,51 +374,52 @@ features:
   - id: analytics-dashboard
     title: 分析仪表盘演示页
     area: 演示与组件
-    status: done
+    status: skipped
     completedAt: 2026-06-02
     shippedIn: v0.1.0
-    note: 统计卡、销售/收益图表、国家销量、产品表等部件;v0.1.2 起首页改为可编排 gridstack 看板承载这些 widgets。
+    note: 曾包含统计卡、销售/收益图表、国家销量与产品表;2026-08-18 为聚焦动画研究主线而退役。
   - id: chart-pages
     title: 折线 / 柱状图演示页
     area: 演示与组件
-    status: done
+    status: skipped
     completedAt: 2026-06-02
     shippedIn: v0.1.0
+    note: 2026-08-18 移除与动画研究无关的模板图表页。
   - id: gridstack-board
     title: 可拖拽缩放的 gridstack 看板
     area: 演示与组件
-    status: done
+    status: skipped
     completedAt: 2026-06-15
     shippedIn: v0.1.0
-    note: /ui/gridstack 基础 + 进阶演示(增删 widget、compact、float、保存/恢复布局);首页看板同源。
+    note: 曾提供基础与进阶演示;2026-08-18 随模板仪表盘一并退役。
   - id: dashboard-customize
     title: 仪表盘 Customize 工具栏
     area: 演示与组件
-    status: done
+    status: skipped
     completedAt: 2026-07-14
     shippedIn: v0.1.2
-    note: 逐 widget 显隐 + 恢复默认排布,看板按可见集干净重建。
+    note: 2026-08-18 随模板仪表盘一并退役。
   - id: grid-board-component
     title: 可复用 GridBoard 组件
     area: 演示与组件
-    status: done
+    status: skipped
     completedAt: 2026-07-14
     shippedIn: v0.1.2
-    note: <GridBoard> + useGridBoard(自 yBlocks 移植),网格行为、chrome 与 CSS 收敛一处;主题化角部缩放手柄。
+    note: 2026-08-18 随模板仪表盘一并退役,避免保留无真实消费者的抽象。
   - id: avatar-fallbacks
     title: 头像回退背景
     area: 演示与组件
     status: done
     completedAt: 2026-06-26
     shippedIn: v0.1.0
-    note: AvatarFallback 纯色 / 渐变两式 + /ui/avatars 演示页。
+    note: AvatarFallback 保留纯色 / 渐变两式;2026-08-18 移除独立演示页。
   - id: display-card
     title: DisplayCard 展示卡组件
     area: 演示与组件
-    status: done
+    status: skipped
     completedAt: 2026-06-15
     shippedIn: v0.1.0
-    note: 含 /ui/display-card 画廊页。
+    note: 2026-08-18 移除组件及画廊页,统一回归 shadcn Card。
 
   # —— 工程化 ——
   - id: env-validation

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { StatusPage } from "@/components/status-page";
 import { Button } from "@/components/ui/button";
 
-export const metadata: Metadata = { title: "Page not found" };
+export const metadata: Metadata = { title: "页面未找到" };
 
 /**
  * Global 404 for URLs that match no route at all. Renders in the root layout
@@ -15,11 +15,11 @@ export default function NotFound() {
     <main className="flex flex-1 flex-col">
       <StatusPage
         code="404"
-        title="Page not found"
-        description="The page you are looking for doesn't exist or may have moved."
+        title="页面未找到"
+        description="你访问的页面不存在、已被移除，或地址已经发生变化。"
       >
         <Button asChild>
-          <Link href="/">Back to dashboard</Link>
+          <Link href="/labs">返回实验总览</Link>
         </Button>
       </StatusPage>
     </main>

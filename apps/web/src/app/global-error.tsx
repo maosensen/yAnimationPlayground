@@ -22,16 +22,14 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body className="flex min-h-svh flex-col items-center justify-center gap-4 p-6 text-center">
-        <h1 className="text-lg font-semibold tracking-tight">
-          Something went wrong
-        </h1>
+        <h1 className="text-lg font-semibold tracking-tight">应用发生错误</h1>
         <p className="max-w-sm text-sm text-muted-foreground">
-          A fatal error crashed the app.
-          {error.digest ? ` (digest: ${error.digest})` : ""}
+          应用遇到了无法自动恢复的错误。
+          {error.digest ? `（错误摘要：${error.digest}）` : ""}
         </p>
-        <Button onClick={() => unstable_retry()}>Try again</Button>
+        <Button onClick={() => unstable_retry()}>重新尝试</Button>
       </body>
     </html>
   );
