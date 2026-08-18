@@ -4,8 +4,9 @@ yAnimationPlayground is an R&D platform for proving animation techniques before
 they become production tools. Versions are organized around capabilities and
 evidence, not around installing libraries.
 
-The current release is **v0.8.0**, which added spatial and WebGL animation
-foundations with Three.js. The next milestone is **v0.9.0**.
+The current release is **v0.8.1**, which keeps the playground focused on
+animation research and adds reproducible Remotion and HyperFrames agent
+workflows. The next direction is **v0.9.0**.
 
 ## Planning model
 
@@ -38,7 +39,8 @@ moves into `packages/` only after a second real consumer proves the contract.
 | v0.6.0 | Shipped | A reusable motion design system with stable tokens and primitives |
 | v0.7.0 | Shipped | An AI-assisted brief-to-animation production workflow |
 | v0.8.0 | Shipped | Three.js spatial and WebGL animation foundations |
-| v0.9.0 | Next | Versioned packages and cross-repository consumption |
+| v0.8.1 | Shipped | Official video-agent workflows and an animation-first application shell |
+| v0.9.0 | Direction | Applied animation and video productions from real scenarios |
 | v1.0.0 | Direction | A validated animation R&D platform ready to feed dedicated studios |
 
 Milestones are evidence-driven and intentionally have no fixed dates. Later
@@ -210,7 +212,8 @@ drive an existing interaction and a frame-based renderer.
 
 A full animated component catalogue, a visual timeline editor, published npm
 packages, and cross-repository compatibility policy remain outside this
-milestone. Cross-repository distribution begins in v0.9.
+milestone. Cross-repository distribution stays deferred until an independent
+studio or SaaS creates a real shared-package requirement.
 
 ## v0.7.0 — AI-assisted production pipeline
 
@@ -317,12 +320,21 @@ abstraction decision is evidence-based.
 
 ## v0.9.0–v1.0.0 — Directional milestones
 
-### v0.9.0 — Cross-repository distribution
+### v0.9.0 — Applied animation productions
 
-Make the proven token, primitive, and asset contracts consumable by independent
-studio and SaaS repositories. Add versioning, compatibility policy, package
-tests, and at least one external consumer before declaring the distribution
-model complete.
+Move from isolated technique studies to complete animation and video work based
+on real product communication, feature demonstration, or narrative briefs.
+Each production should begin with an audience, message, delivery format, and
+constraints; runtime selection then follows the work instead of determining it.
+Browser animation, Remotion, HyperFrames, GSAP, Three.js, and vector runtimes
+remain implementation choices whose value must be demonstrated by the finished
+artifact and recorded production evidence.
+
+### Deferred — Cross-repository distribution
+
+Publishing token, primitive, and asset packages is intentionally postponed.
+The existing packages remain private until an independent studio or SaaS
+creates a concrete sharing need and can serve as a real compatibility consumer.
 
 ### v1.0.0 — Validated R&D platform
 
