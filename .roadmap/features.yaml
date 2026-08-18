@@ -249,6 +249,13 @@ features:
     shippedIn: v0.7.0
     priority: low
     note: v0.7;已建立 creative brief → structured AI draft → storyboard / asset manifest / implementation scaffold → executable QA → Remotion proof 的模型中立生产链,含版本化 Schema、确定性 hash、生成物漂移检查、10 条语义门禁、受控失败 fixture 与中文审查工作台。
+  - id: official-video-agent-skills
+    title: Remotion 与 HyperFrames 官方 Agent Skills
+    area: AI 工作流
+    status: done
+    completedAt: 2026-08-18
+    shippedIn: v0.8.1
+    note: 固定 Remotion 12 个与 HyperFrames 26 个官方技能,以 skills-lock.json 记录上游来源和内容哈希;技能保持项目级,应用插件保持 Codex 环境级。
   - id: threejs-spatial-animation-lab
     title: Three.js 空间与 WebGL 动画实验
     area: 动画实验

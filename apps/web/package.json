@@ -1,7 +1,7 @@
 {
   "name": "@yanimation/web",
   "description": "Interactive Next.js labs for yAnimationPlayground.",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "engines": {
     "node": ">=22"
