@@ -1,0 +1,429 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Variable Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #0a0a0a;
+    }
+
+    [id="f01-hook-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    [id="f01-hook-content"] {
+      position: absolute;
+      inset: 0 0 auto;
+      width: 1920px;
+      height: 900px;
+      overflow: hidden;
+    }
+
+    [id="f01-hook-panel"] {
+      position: absolute;
+      top: 96px;
+      left: 80px;
+      width: 1760px;
+      height: 690px;
+      overflow: hidden;
+      background: #ffced0;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 12px;
+      box-shadow:
+        0 1px 3px rgba(10, 10, 10, 0.08),
+        0 4px 16px rgba(10, 10, 10, 0.04);
+    }
+
+    [id="f01-hook-panel"]::before,
+    [id="f01-hook-panel"]::after {
+      position: absolute;
+      left: 80px;
+      right: 80px;
+      height: 1px;
+      content: "";
+      background: rgba(10, 10, 10, 0.12);
+    }
+
+    [id="f01-hook-panel"]::before {
+      top: 86px;
+    }
+
+    [id="f01-hook-panel"]::after {
+      bottom: 86px;
+    }
+
+    [id="f01-hook-motion-wrapper"] {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    [id="f01-hook-slot-wrap"] {
+      position: absolute;
+      top: 184px;
+      left: 80px;
+      width: 1600px;
+      height: 272px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [id="f01-hook-word-slot"] {
+      min-width: 1320px;
+      white-space: nowrap;
+      text-align: center;
+      font-family: "Inter Variable Variable";
+      font-size: 196px;
+      font-weight: 400;
+      line-height: 0.96;
+      letter-spacing: -0.028em;
+      color: #0a0a0a;
+      will-change: transform, opacity, filter;
+    }
+
+    [id="f01-hook-word-rail"] {
+      position: absolute;
+      top: 246px;
+      left: 80px;
+      width: 1600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      white-space: nowrap;
+      font-family: "Inter Variable Variable";
+      font-size: 66px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.018em;
+      color: #0a0a0a;
+      will-change: transform, opacity;
+    }
+
+    [data-f01-hook-prep-word] {
+      display: inline-flex;
+      align-items: center;
+      height: 92px;
+      padding: 0 28px;
+      background: #ffffff;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 8px;
+    }
+
+    [id="f01-hook-claim-primary"] {
+      position: absolute;
+      top: 150px;
+      left: 130px;
+      width: 1500px;
+      white-space: nowrap;
+      text-align: center;
+      font-family: "Inter Variable Variable";
+      font-size: 70px;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.018em;
+      color: rgba(10, 10, 10, 0.62);
+      will-change: transform, opacity;
+    }
+
+    [id="f01-hook-claim-row"] {
+      position: absolute;
+      top: 304px;
+      left: 100px;
+      width: 1560px;
+      min-height: 132px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      white-space: nowrap;
+      text-align: center;
+      font-family: "Inter Variable Variable";
+      font-size: 96px;
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.022em;
+      color: #0a0a0a;
+      will-change: transform, opacity;
+    }
+
+    [id="f01-hook-claim-copy"] {
+      display: inline-block;
+      min-width: 1280px;
+      text-align: center;
+    }
+
+    [id="f01-hook-period"] {
+      display: inline-block;
+      width: 54px;
+      margin-left: 8px;
+      color: #9d7400;
+      text-align: left;
+      will-change: transform, opacity;
+    }
+
+    [id="f01-hook-meter"] {
+      position: absolute;
+      right: 80px;
+      bottom: 37px;
+      left: 80px;
+      height: 22px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    [data-f01-hook-tick] {
+      width: 1px;
+      height: 10px;
+      background: #0a0a0a;
+      opacity: 0.18;
+      transform-origin: center bottom;
+    }
+  </style>
+
+  <div data-hf-id="hf-6nlu" id="root" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="4.2">
+    <div data-hf-id="hf-pw7z" id="f01-hook-ground" class="clip" data-start="0" data-duration="4.2" data-track-index="0"></div>
+
+    <div data-hf-id="hf-5r8s" id="f01-hook-content" class="clip" data-start="0" data-duration="4.2" data-track-index="1">
+      <div data-hf-id="hf-r2jw" id="f01-hook-panel" data-layout-allow-overflow="">
+        <div data-hf-id="hf-c9xy" id="f01-hook-motion-wrapper" data-layout-allow-overflow="">
+          <div data-hf-id="hf-ppci" id="f01-hook-slot-wrap">
+            <div data-hf-id="hf-iq1k" id="f01-hook-word-slot">AUTH</div>
+          </div>
+
+          <div data-hf-id="hf-lcr1" id="f01-hook-word-rail" aria-hidden="true">
+            <span data-hf-id="hf-vfq0" data-f01-hook-prep-word="">AUTH</span>
+            <span data-hf-id="hf-g1vk" data-f01-hook-prep-word="">ROUTES</span>
+            <span data-hf-id="hf-75q7" data-f01-hook-prep-word="">DATABASE</span>
+            <span data-hf-id="hf-kgho" data-f01-hook-prep-word="">TOOLING</span>
+          </div>
+
+          <div data-hf-id="hf-gbdq" id="f01-hook-claim-primary"></div>
+          <div data-hf-id="hf-g5io" id="f01-hook-claim-row">
+            <span data-hf-id="hf-ptn6" id="f01-hook-claim-copy"></span><span data-hf-id="hf-jaxb" id="f01-hook-period">。</span>
+          </div>
+
+          <div data-hf-id="hf-uo7n" id="f01-hook-meter" aria-hidden="true">
+            <i data-hf-id="hf-ky4y" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-x1jq" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-xfur" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-xu5s" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-v20l" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-vgbm" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-vumn" data-f01-hook-tick=""></i>
+            <i data-hf-id="hf-w8xo" data-f01-hook-tick=""></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (() => {
+      const frameId = "01-hook";
+      const duration = 4.2;
+      const pulse = 0.04;
+
+      const beatSteps = [0, 20, 32, 44, 55, 60, 76, 90];
+      const beats = beatSteps.map((step) => step * pulse);
+
+      const prepContent = [
+        { title: "AUTH", hold: 0.6 },
+        { title: "ROUTES", hold: 0.26 },
+        { title: "DATABASE", hold: 0.24 },
+        { title: "TOOLING", hold: 0.21 },
+      ];
+      const baseDuration = 0.16;
+      const secondsPerCharacter = 0.01;
+      let cumulative = 0;
+      const prepTimeline = prepContent.map((entry) => {
+        const itemDuration =
+          baseDuration + entry.title.length * secondsPerCharacter + entry.hold;
+        const start = cumulative;
+        cumulative += itemDuration;
+        return { ...entry, start, end: cumulative };
+      });
+
+      const primarySequence = [
+        { t: 0, text: "" },
+        { t: beats[5], text: "PRODUCT FIRST" },
+        { t: beats[7], text: "" },
+      ];
+      const claimSequence = [
+        { t: 0, text: "" },
+        { t: beats[6], text: "SKIP THE SETUP" },
+        { t: 3.28, text: "START WITH PRODUCT CODE" },
+      ];
+
+      const stateAt = (sequence, time) => {
+        for (let index = sequence.length - 1; index >= 0; index -= 1) {
+          if (time >= sequence[index].t) return sequence[index];
+        }
+        return sequence[0];
+      };
+
+      const prepAt = (time) => {
+        for (let index = prepTimeline.length - 1; index >= 0; index -= 1) {
+          if (time >= prepTimeline[index].start) return prepTimeline[index];
+        }
+        return prepTimeline[0];
+      };
+
+      const wordSlot = document.getElementById("f01-hook-word-slot");
+      const wordRail = document.getElementById("f01-hook-word-rail");
+      const primaryClaim = document.getElementById("f01-hook-claim-primary");
+      const claimRow = document.getElementById("f01-hook-claim-row");
+      const claimCopy = document.getElementById("f01-hook-claim-copy");
+      const period = document.getElementById("f01-hook-period");
+      const motionWrapper = document.getElementById("f01-hook-motion-wrapper");
+      const ticks = Array.from(document.querySelectorAll("[data-f01-hook-tick]"));
+
+      const tl = gsap.timeline({ paused: true });
+
+      gsap.set(
+        wordSlot,
+        { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, filter: "blur(0px)" },
+      );
+      gsap.set(wordRail, { opacity: 0, x: 0 });
+      gsap.set(primaryClaim, { opacity: 0, x: 230 });
+      gsap.set(claimRow, { opacity: 0, x: 90 });
+      gsap.set(period, { opacity: 0, scale: 0.92 });
+      gsap.set(motionWrapper, { x: 0 });
+
+      const stateDriver = { t: 0 };
+      let lastPrep = "AUTH";
+      let lastPrimary = "";
+      let lastClaim = "";
+
+      tl.to(
+        stateDriver,
+        {
+          t: duration,
+          duration,
+          ease: "none",
+          onUpdate: () => {
+            const prep = prepAt(stateDriver.t).title;
+            if (prep !== lastPrep) {
+              wordSlot.textContent = prep;
+              lastPrep = prep;
+            }
+
+            const primary = stateAt(primarySequence, stateDriver.t).text;
+            if (primary !== lastPrimary) {
+              primaryClaim.textContent = primary;
+              lastPrimary = primary;
+            }
+
+            const claim = stateAt(claimSequence, stateDriver.t).text;
+            if (claim !== lastClaim) {
+              claimCopy.textContent = claim;
+              lastClaim = claim;
+            }
+          },
+        },
+        0,
+      );
+
+      tl.fromTo(
+        wordSlot,
+        { scale: 1.34, opacity: 0, filter: "blur(10px)" },
+        {
+          scale: 1,
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 0.36,
+          ease: "power4.out",
+        },
+        beats[1],
+      );
+      tl.fromTo(
+        wordSlot,
+        { x: 230, opacity: 0, filter: "blur(0px)" },
+        { x: 0, opacity: 1, duration: 0.36, ease: "expo.out" },
+        beats[2],
+      );
+      tl.fromTo(
+        wordSlot,
+        { y: 70, rotation: 2.5, opacity: 0 },
+        {
+          y: 0,
+          rotation: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: "circ.out",
+        },
+        beats[3],
+      );
+
+      tl.set(wordSlot, { opacity: 0 }, beats[4]);
+      tl.set(wordRail, { opacity: 1, x: 0 }, beats[4]);
+      tl.to(
+        wordRail,
+        { x: -230, duration: 0.3, ease: "power4.in" },
+        beats[4],
+      );
+      tl.to(
+        wordRail,
+        { opacity: 0, duration: 0.18, ease: "power1.in" },
+        beats[4],
+      );
+
+      tl.fromTo(
+        primaryClaim,
+        { x: 230, opacity: 0.35 },
+        { x: 0, opacity: 1, duration: 0.3, ease: "power4.out" },
+        beats[5],
+      );
+      tl.fromTo(
+        claimRow,
+        { x: 90, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.36, ease: "expo.out" },
+        beats[6],
+      );
+
+      tl.set(primaryClaim, { opacity: 0 }, beats[7]);
+      tl.fromTo(
+        period,
+        { opacity: 0, scale: 0.92 },
+        { opacity: 1, scale: 1, duration: 0.24, ease: "power2.out" },
+        beats[7],
+      );
+      tl.to(
+        motionWrapper,
+        { x: -56, duration: duration - beats[7], ease: "power3.in" },
+        beats[7],
+      );
+
+      ticks.forEach((tick, index) => {
+        const beat = beats[index];
+        tl.to(
+          tick,
+          { opacity: 0.72, scaleY: 2.1, duration: 0.08, ease: "power2.out" },
+          beat,
+        );
+        tl.to(
+          tick,
+          { opacity: 0.18, scaleY: 1, duration: 0.14, ease: "power2.in" },
+          beat + 0.08,
+        );
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[frameId] = tl;
+    })();
+  </script>
+</template>

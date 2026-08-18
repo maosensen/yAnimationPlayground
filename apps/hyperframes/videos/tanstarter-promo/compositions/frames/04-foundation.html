@@ -1,0 +1,658 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+
+    @font-face {
+      font-family: "Inter Variable Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 800;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #0a0a0a;
+      font-family: "Inter Variable", sans-serif;
+    }
+
+    [class~="f04-foundation-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    [class~="f04-foundation-scene"] {
+      position: absolute;
+      inset: 0;
+      height: 900px;
+      overflow: hidden;
+    }
+
+    [class~="f04-foundation-kicker"] {
+      position: absolute;
+      top: 56px;
+      left: 80px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      line-height: 1;
+    }
+
+    [class~="f04-foundation-spike"] {
+      color: #be8c00;
+      font-size: 32px;
+      letter-spacing: 0;
+    }
+
+    [class~="f04-foundation-title-wrap"] {
+      position: absolute;
+      top: 106px;
+      left: 80px;
+      display: inline-flex;
+      align-items: baseline;
+      min-width: 1180px;
+      white-space: nowrap;
+    }
+
+    [class~="f04-foundation-title"] {
+      font-family: "Inter Variable Variable", sans-serif;
+      font-size: 88px;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+      line-height: 1.02;
+    }
+
+    [class~="f04-foundation-cursor"] {
+      display: inline-block;
+      width: 30px;
+      margin-left: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 66px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    [class~="f04-foundation-top-rule"] {
+      position: absolute;
+      top: 224px;
+      left: 80px;
+      width: 1760px;
+      height: 1px;
+      background: rgba(10, 10, 10, 0.12);
+    }
+
+    [class~="f04-foundation-flow-readout"] {
+      position: absolute;
+      top: 246px;
+      left: 710px;
+      width: 500px;
+      min-height: 36px;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 1.35;
+    }
+
+    [class~="f04-foundation-stage"] {
+      position: absolute;
+      top: 304px;
+      left: 80px;
+      width: 1760px;
+      height: 516px;
+    }
+
+    [class~="f04-foundation-card"] {
+      position: absolute;
+      top: 0;
+      width: 620px;
+      height: 516px;
+      overflow: hidden;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 12px;
+      background: #ffffff;
+      will-change: transform, opacity;
+    }
+
+    [class~="f04-foundation-card-left"] {
+      left: 0;
+    }
+
+    [class~="f04-foundation-card-right"] {
+      right: 0;
+    }
+
+    [class~="f04-foundation-card-band"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 106px;
+      background: #ffced0;
+      border-bottom: 1px solid rgba(10, 10, 10, 0.12);
+    }
+
+    [class~="f04-foundation-card-index"] {
+      position: absolute;
+      top: 26px;
+      left: 32px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      line-height: 1;
+    }
+
+    [class~="f04-foundation-card-title"] {
+      position: absolute;
+      top: 135px;
+      left: 32px;
+      font-family: "Inter Variable Variable", sans-serif;
+      font-size: 56px;
+      font-weight: 400;
+      letter-spacing: -0.018em;
+      line-height: 1.06;
+    }
+
+    [class~="f04-foundation-card-subtitle"] {
+      position: absolute;
+      top: 210px;
+      left: 34px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    [class~="f04-foundation-module-grid"] {
+      position: absolute;
+      top: 278px;
+      right: 32px;
+      left: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    [class~="f04-foundation-module"] {
+      height: 112px;
+      box-sizing: border-box;
+      padding: 20px;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 8px;
+      background: #ffced0;
+    }
+
+    [class~="f04-foundation-module-label"] {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+
+    [class~="f04-foundation-module-mark"] {
+      width: 40px;
+      height: 8px;
+      margin-top: 20px;
+      border-radius: 9999px;
+      background: rgba(10, 10, 10, 0.22);
+    }
+
+    [class~="f04-foundation-card-status"] {
+      position: absolute;
+      right: 32px;
+      bottom: 26px;
+      left: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid rgba(10, 10, 10, 0.12);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    [class~="f04-foundation-card-dot"] {
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      border-radius: 9999px;
+      background: #ffffff;
+      transform-origin: 50% 50%;
+    }
+
+    [class~="f04-foundation-flow-svg"] {
+      position: absolute;
+      inset: 0;
+      width: 1760px;
+      height: 516px;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    [class~="f04-foundation-flow-path"] {
+      fill: none;
+      stroke: #0a0a0a;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    [class~="f04-foundation-flow-shadow"] {
+      fill: none;
+      stroke: rgba(10, 10, 10, 0.12);
+      stroke-width: 1;
+    }
+
+    [class~="f04-foundation-node"] {
+      position: absolute;
+      left: 50%;
+      box-sizing: border-box;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      border-radius: 8px;
+      background: #ffffff;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      transform-origin: 50% 50%;
+    }
+
+    [class~="f04-foundation-router"] {
+      top: 18px;
+      width: 174px;
+      height: 68px;
+      margin-left: -87px;
+    }
+
+    [class~="f04-foundation-server"] {
+      top: 176px;
+      width: 244px;
+      height: 82px;
+      margin-left: -122px;
+      text-align: center;
+    }
+
+    [class~="f04-foundation-node-active"] {
+      background: #ffced0;
+      border-color: rgba(10, 10, 10, 0.28);
+    }
+
+    [class~="f04-foundation-anchor"] {
+      position: absolute;
+      top: 313px;
+      z-index: 3;
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      border-radius: 9999px;
+      background: #ffffff;
+      transform-origin: 50% 50%;
+    }
+
+    [class~="f04-foundation-anchor-left"] {
+      left: 611px;
+    }
+
+    [class~="f04-foundation-anchor-right"] {
+      right: 611px;
+    }
+  </style>
+
+  <div data-hf-id="hf-hg3l" id="root" data-composition-id="04-foundation" data-width="1920" data-height="1080" data-start="0" data-duration="6.8">
+    <div data-hf-id="hf-etxw" id="f04-foundation-ground" class="clip f04-foundation-ground" data-start="0" data-duration="6.8" data-track-index="0"></div>
+
+    <section data-hf-id="hf-pk3p" id="f04-foundation-scene" class="clip f04-foundation-scene" data-start="0" data-duration="6.8" data-track-index="1">
+      <div data-hf-id="hf-xvoq" class="f04-foundation-kicker">
+        <span data-hf-id="hf-zwx3" class="f04-foundation-spike">✱</span>
+        <span data-hf-id="hf-aig0">FOUNDATION</span>
+      </div>
+
+      <div data-hf-id="hf-9zvy" class="f04-foundation-title-wrap">
+        <span data-hf-id="hf-iefr" id="f04-foundation-title" class="f04-foundation-title"></span>
+        <span data-hf-id="hf-64oe" id="f04-foundation-cursor" class="f04-foundation-cursor">_</span>
+      </div>
+
+      <div data-hf-id="hf-q2gl" class="f04-foundation-top-rule"></div>
+      <div data-hf-id="hf-zi5w" id="f04-foundation-flow-readout" class="f04-foundation-flow-readout">
+        TYPE CONTRACT
+      </div>
+
+      <div data-hf-id="hf-578x" class="f04-foundation-stage">
+        <article data-hf-id="hf-fhrz" id="f04-foundation-auth-card" class="f04-foundation-card f04-foundation-card-left">
+          <div data-hf-id="hf-sssp" class="f04-foundation-card-band">
+            <div data-hf-id="hf-9u8y" class="f04-foundation-card-index">IDENTITY</div>
+          </div>
+          <div data-hf-id="hf-e36m" class="f04-foundation-card-title">Better Auth</div>
+          <div data-hf-id="hf-f0go" class="f04-foundation-card-subtitle">AUTH BOUNDARY</div>
+          <div data-hf-id="hf-ocf2" class="f04-foundation-module-grid">
+            <div data-hf-id="hf-sjip" class="f04-foundation-module">
+              <div data-hf-id="hf-g3h0" class="f04-foundation-module-label">SESSION</div>
+              <div data-hf-id="hf-2o6x" class="f04-foundation-module-mark"></div>
+            </div>
+            <div data-hf-id="hf-0x1h" class="f04-foundation-module">
+              <div data-hf-id="hf-bb4i" class="f04-foundation-module-label">POLICY</div>
+              <div data-hf-id="hf-h39p" class="f04-foundation-module-mark"></div>
+            </div>
+          </div>
+          <div data-hf-id="hf-5hi2" class="f04-foundation-card-status">
+            <span data-hf-id="hf-ck5r">IDENTITY</span>
+            <span data-hf-id="hf-cbvx" id="f04-foundation-auth-dot" class="f04-foundation-card-dot"></span>
+          </div>
+        </article>
+
+        <article data-hf-id="hf-g4sc" id="f04-foundation-data-card" class="f04-foundation-card f04-foundation-card-right">
+          <div data-hf-id="hf-ztfh" class="f04-foundation-card-band">
+            <div data-hf-id="hf-5i7c" class="f04-foundation-card-index">DATA</div>
+          </div>
+          <div data-hf-id="hf-3ad8" class="f04-foundation-card-title">Drizzle</div>
+          <div data-hf-id="hf-ry0i" class="f04-foundation-card-subtitle">POSTGRESQL</div>
+          <div data-hf-id="hf-uk76" class="f04-foundation-module-grid">
+            <div data-hf-id="hf-23yk" class="f04-foundation-module">
+              <div data-hf-id="hf-byhv" class="f04-foundation-module-label">SCHEMA</div>
+              <div data-hf-id="hf-ia6s" class="f04-foundation-module-mark"></div>
+            </div>
+            <div data-hf-id="hf-1pnj" class="f04-foundation-module">
+              <div data-hf-id="hf-mzzg" class="f04-foundation-module-label">QUERY</div>
+              <div data-hf-id="hf-hvvr" class="f04-foundation-module-mark"></div>
+            </div>
+          </div>
+          <div data-hf-id="hf-7i7y" class="f04-foundation-card-status">
+            <span data-hf-id="hf-ancn">POSTGRESQL</span>
+            <span data-hf-id="hf-i9yz" id="f04-foundation-data-dot" class="f04-foundation-card-dot"></span>
+          </div>
+        </article>
+
+        <svg data-hf-id="hf-kjeh" class="f04-foundation-flow-svg" viewBox="0 0 1760 516" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path data-hf-id="hf-9eru" class="f04-foundation-flow-shadow" d="M 880 86 L 880 176 M 880 258 C 880 304 760 322 620 322 M 880 258 C 880 304 1000 322 1140 322" />
+          <path data-hf-id="hf-4vjv" id="f04-foundation-path-spine" class="f04-foundation-flow-path" d="M 880 86 L 880 176" />
+          <path data-hf-id="hf-1lle" id="f04-foundation-path-auth" class="f04-foundation-flow-path" d="M 880 258 C 880 304 760 322 620 322" />
+          <path data-hf-id="hf-n86c" id="f04-foundation-path-data" class="f04-foundation-flow-path" d="M 880 258 C 880 304 1000 322 1140 322" />
+        </svg>
+
+        <div data-hf-id="hf-iecw" id="f04-foundation-router" class="f04-foundation-node f04-foundation-router">
+          ROUTER
+        </div>
+        <div data-hf-id="hf-jr03" id="f04-foundation-server" class="f04-foundation-node f04-foundation-server">
+          SERVER FUNCTIONS
+        </div>
+        <div data-hf-id="hf-s6h7" id="f04-foundation-auth-anchor" class="f04-foundation-anchor f04-foundation-anchor-left"></div>
+        <div data-hf-id="hf-qi8e" id="f04-foundation-data-anchor" class="f04-foundation-anchor f04-foundation-anchor-right"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      const timeline = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["04-foundation"] = timeline;
+
+      const titleElement = document.getElementById("f04-foundation-title");
+      const cursorElement = document.getElementById("f04-foundation-cursor");
+      const readoutElement = document.getElementById(
+        "f04-foundation-flow-readout",
+      );
+
+      const titleStates = [
+        { t: 0, text: "" },
+        { t: 0.08, text: "PROD" },
+        { t: 0.2, text: "PRODUCTION" },
+        { t: 0.42, text: "PRODUCTION FOUND" },
+        { t: 0.62, text: "PRODUCTION FOUNDAITON" },
+        { t: 0.78, text: "PRODUCTION FOUNDA" },
+        { t: 0.94, text: "PRODUCTION FOUNDATION" },
+      ];
+
+      const titleAt = (time) => {
+        for (let index = titleStates.length - 1; index >= 0; index -= 1) {
+          if (time >= titleStates[index].t) {
+            return titleStates[index].text;
+          }
+        }
+        return "";
+      };
+
+      const titleDriver = { time: 0 };
+      timeline.to(
+        titleDriver,
+        {
+          time: 1.1,
+          duration: 1.1,
+          ease: "none",
+          onUpdate: () => {
+            titleElement.textContent = titleAt(titleDriver.time);
+          },
+        },
+        0,
+      );
+
+      const blinkDriver = { phase: 0 };
+      timeline.to(
+        blinkDriver,
+        {
+          phase: Math.PI * 4,
+          duration: 1.1,
+          ease: "none",
+          onUpdate: () => {
+            cursorElement.style.opacity =
+              Math.sin(blinkDriver.phase) >= 0 ? "1" : "0";
+          },
+        },
+        0,
+      );
+      timeline.to(cursorElement, { opacity: 0, duration: 0.16 }, 1.02);
+
+      timeline.fromTo(
+        "#f04-foundation-auth-card",
+        { x: 260, scale: 0.96, opacity: 0 },
+        {
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1.05,
+          ease: "power3.out",
+        },
+        1,
+      );
+      timeline.fromTo(
+        "#f04-foundation-data-card",
+        { x: -260, scale: 0.96, opacity: 0 },
+        {
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1.05,
+          ease: "power3.out",
+        },
+        1.14,
+      );
+
+      timeline.fromTo(
+        ["#f04-foundation-router", "#f04-foundation-server"],
+        { y: 18, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.62,
+          stagger: 0.16,
+          ease: "power2.out",
+        },
+        0.34,
+      );
+
+      const pathIds = [
+        "f04-foundation-path-spine",
+        "f04-foundation-path-auth",
+        "f04-foundation-path-data",
+      ];
+      pathIds.forEach((id) => {
+        const path = document.getElementById(id);
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = `${length}`;
+        path.style.strokeDashoffset = `${length}`;
+      });
+
+      timeline.to(
+        "#f04-foundation-path-spine",
+        {
+          strokeDashoffset: 0,
+          duration: 0.68,
+          ease: "power2.out",
+        },
+        3,
+      );
+      timeline.to(
+        "#f04-foundation-path-auth",
+        {
+          strokeDashoffset: 0,
+          duration: 0.72,
+          ease: "power2.out",
+        },
+        3.52,
+      );
+      timeline.to(
+        "#f04-foundation-path-data",
+        {
+          strokeDashoffset: 0,
+          duration: 0.72,
+          ease: "power2.out",
+        },
+        4.08,
+      );
+
+      timeline.fromTo(
+        "#f04-foundation-flow-readout",
+        { y: 10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" },
+        3,
+      );
+      timeline.fromTo(
+        "#f04-foundation-auth-anchor",
+        { scale: 0.2, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.38, ease: "power2.out" },
+        4.08,
+      );
+      timeline.fromTo(
+        "#f04-foundation-data-anchor",
+        { scale: 0.2, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.38, ease: "power2.out" },
+        4.64,
+      );
+      timeline.fromTo(
+        "#f04-foundation-auth-dot",
+        { scale: 0.2, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.36, ease: "power2.out" },
+        4.48,
+      );
+      timeline.fromTo(
+        "#f04-foundation-data-dot",
+        { scale: 0.2, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.36, ease: "power2.out" },
+        5.08,
+      );
+
+      const flowContent = [
+        {
+          title: "ROUTER",
+          body: "route types",
+          nodeId: "f04-foundation-router",
+          hold: 0.18,
+        },
+        {
+          title: "SERVER FUNCTIONS",
+          body: "server boundary",
+          nodeId: "f04-foundation-server",
+          hold: 0.18,
+        },
+        {
+          title: "BETTER AUTH",
+          body: "identity",
+          nodeId: "f04-foundation-auth-card",
+          hold: 0.2,
+        },
+        {
+          title: "DRIZZLE + POSTGRESQL",
+          body: "data",
+          nodeId: "f04-foundation-data-card",
+          hold: 0.42,
+        },
+      ];
+
+      let cumulative = 0;
+      const flowSequence = flowContent.map((entry) => {
+        const duration = 0.32 + entry.body.length * 0.008 + entry.hold;
+        const start = cumulative;
+        cumulative += duration;
+        return { ...entry, start, end: cumulative };
+      });
+
+      const flowAt = (time) => {
+        for (let index = flowSequence.length - 1; index >= 0; index -= 1) {
+          if (time >= flowSequence[index].start) {
+            return flowSequence[index];
+          }
+        }
+        return flowSequence[0];
+      };
+
+      const flowDriver = { time: 0 };
+      let lastFlowTitle = "";
+      timeline.to(
+        flowDriver,
+        {
+          time: cumulative,
+          duration: 2.7,
+          ease: "none",
+          onUpdate: () => {
+            const entry = flowAt(flowDriver.time);
+            if (entry.title === lastFlowTitle) {
+              return;
+            }
+
+            readoutElement.textContent = entry.title;
+            flowSequence.forEach((item) => {
+              document
+                .getElementById(item.nodeId)
+                .classList.remove("f04-foundation-node-active");
+            });
+            document
+              .getElementById(entry.nodeId)
+              .classList.add("f04-foundation-node-active");
+            lastFlowTitle = entry.title;
+          },
+        },
+        3,
+      );
+    })();
+  </script>
+</template>

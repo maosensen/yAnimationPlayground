@@ -273,9 +273,10 @@ features:
   - id: applied-animation-productions
     title: 真实场景动画与视频作品
     area: 动画实验
-    status: todo
+    status: done
+    completedAt: 2026-08-18
     priority: low
-    note: v0.9 方向;从真实产品沟通、功能演示或内容叙事场景出发完成可交付作品,以实际制作证据反推浏览器动画、Remotion、HyperFrames 与视觉运行时的选择。
+    note: v0.9;已完成首个真实产品沟通作品 TanStarter 产品介绍视频,使用 HyperFrames 打通仓库事实盘点、中文脚本与旁白、7 镜动画、接缝门禁、Studio 审阅和 1080p 成片交付,实验数据记录于 notes/v0.9-tanstarter-product-video.md。
   - id: animation-rd-platform-v1
     title: 动画研发平台 v1 稳定基线
     area: 动画实验

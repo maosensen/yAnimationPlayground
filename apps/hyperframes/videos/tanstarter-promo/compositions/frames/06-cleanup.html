@@ -1,0 +1,575 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Inter Variable Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 800;
+      font-display: swap;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #0a0a0a;
+      font-family: "Inter Variable", sans-serif;
+    }
+
+    [class~="f06-cleanup-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    [class~="f06-cleanup-stage"] {
+      position: absolute;
+      inset: 0;
+    }
+
+    [class~="f06-cleanup-page-shell"] {
+      position: absolute;
+      left: 80px;
+      top: 48px;
+      width: 1760px;
+      height: 800px;
+      overflow: hidden;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(10, 10, 10, 0.08), 0 4px 16px rgba(10, 10, 10, 0.04);
+    }
+
+    [class~="f06-cleanup-page-image"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 1760px;
+      height: auto;
+    }
+
+    [class~="f06-cleanup-page-dimmer"] {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      pointer-events: none;
+    }
+
+    [class~="f06-cleanup-scroll-rail"] {
+      position: absolute;
+      right: 14px;
+      top: 18px;
+      width: 4px;
+      height: 764px;
+      border-radius: 9999px;
+      background: rgba(10, 10, 10, 0.08);
+      overflow: hidden;
+    }
+
+    [class~="f06-cleanup-scroll-thumb"] {
+      width: 100%;
+      height: 164px;
+      border-radius: inherit;
+      background: rgba(10, 10, 10, 0.28);
+    }
+
+    [class~="f06-cleanup-card"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1040px;
+      overflow: hidden;
+      border-radius: 12px;
+      filter: drop-shadow(0 4px 16px rgba(10, 10, 10, 0.08));
+      transform-origin: 0 0;
+      will-change: transform, opacity;
+    }
+
+    [class~="f06-cleanup-card-head"] {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      padding: 0 30px;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      border-radius: 12px 12px 0 0;
+      background: #ffced0;
+    }
+
+    [class~="f06-cleanup-head-copy"] {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+    }
+
+    [class~="f06-cleanup-head-title"] {
+      font-family: "Inter Variable Variable", sans-serif;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.018em;
+    }
+
+    [class~="f06-cleanup-head-label"] {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.58;
+    }
+
+    [class~="f06-cleanup-chevron"] {
+      width: 18px;
+      height: 18px;
+      border-right: 2px solid #0a0a0a;
+      border-bottom: 2px solid #0a0a0a;
+      opacity: 0.62;
+      transform: rotate(45deg) translate(-4px, -4px);
+    }
+
+    [class~="f06-cleanup-expand-mask"] {
+      position: relative;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    [class~="f06-cleanup-expand-sheet"] {
+      position: relative;
+      box-sizing: border-box;
+      height: 360px;
+      padding: 22px 24px;
+      border-right: 1px solid rgba(10, 10, 10, 0.12);
+      border-left: 1px solid rgba(10, 10, 10, 0.12);
+      background: #ffffff;
+      will-change: transform;
+    }
+
+    [class~="f06-cleanup-row"] {
+      position: relative;
+      height: 88px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(10, 10, 10, 0.12);
+    }
+
+    [class~="f06-cleanup-row"]:last-child {
+      border-bottom: 0;
+    }
+
+    [class~="f06-cleanup-row-content"],
+    [class~="f06-cleanup-row-ghost"] {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      will-change: transform, opacity;
+    }
+
+    [class~="f06-cleanup-row-content"] {
+      z-index: 2;
+      background: #ffffff;
+    }
+
+    [class~="f06-cleanup-row-ghost"] {
+      color: rgba(10, 10, 10, 0.4);
+    }
+
+    [class~="f06-cleanup-path"] {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    [class~="f06-cleanup-kind"] {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.46;
+    }
+
+    [class~="f06-cleanup-removed-line"] {
+      width: 72%;
+      height: 1px;
+      background: rgba(10, 10, 10, 0.2);
+    }
+
+    [class~="f06-cleanup-removed-copy"] {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 19px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    [class~="f06-cleanup-below"] {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      height: 68px;
+      padding: 0 28px;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 0 0 12px 12px;
+      background: #ffced0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      will-change: transform;
+    }
+
+    [class~="f06-cleanup-foundation-mark"] {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    [class~="f06-cleanup-foundation-dot"] {
+      width: 9px;
+      height: 9px;
+      border-radius: 9999px;
+      background: #0a0a0a;
+    }
+
+    [class~="f06-cleanup-tree"] {
+      position: absolute;
+      left: 1230px;
+      top: 160px;
+      width: 560px;
+      box-sizing: border-box;
+      padding: 28px 30px 30px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: #181715;
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(10, 10, 10, 0.08), 0 4px 16px rgba(10, 10, 10, 0.04);
+      will-change: transform, opacity;
+    }
+
+    [class~="f06-cleanup-tree-head"] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 38px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.68;
+    }
+
+    [class~="f06-cleanup-tree-row"] {
+      display: flex;
+      align-items: center;
+      height: 52px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    [class~="f06-cleanup-tree-row"][data-depth="1"] {
+      padding-left: 30px;
+    }
+
+    [class~="f06-cleanup-tree-row"][data-depth="2"] {
+      padding-left: 62px;
+    }
+
+    [class~="f06-cleanup-tree-guide"] {
+      display: inline-block;
+      width: 24px;
+      margin-right: 8px;
+      color: rgba(255, 255, 255, 0.34);
+    }
+
+    [class~="f06-cleanup-product-slot"] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      height: 66px;
+      margin-top: 12px;
+      padding: 0 12px 0 62px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      background: #1f1e1b;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 21px;
+      will-change: transform, opacity;
+    }
+
+    [class~="f06-cleanup-product-label"] {
+      display: inline-flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 6px;
+      background: #f0b100;
+      color: #0a0a0a;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      will-change: transform, opacity;
+    }
+  </style>
+
+  <div data-hf-id="hf-y0vo" id="root" data-composition-id="06-cleanup" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-cxxf" id="f06-cleanup-ground" class="clip f06-cleanup-ground" data-start="0" data-duration="7" data-track-index="0"></div>
+
+    <div data-hf-id="hf-56pq" id="f06-cleanup-stage" class="clip f06-cleanup-stage" data-start="0" data-duration="7" data-track-index="1">
+      <div data-hf-id="hf-xpm1" class="f06-cleanup-page-shell" data-layout-allow-overflow="">
+        <img data-hf-id="hf-ojor" id="f06-cleanup-page-image" class="f06-cleanup-page-image" src="assets/full-page.png" alt="TanStarter full product page" data-layout-allow-overflow="">
+        <div data-hf-id="hf-7596" id="f06-cleanup-page-dimmer" class="f06-cleanup-page-dimmer"></div>
+        <div data-hf-id="hf-m4ew" class="f06-cleanup-scroll-rail">
+          <div data-hf-id="hf-jeay" id="f06-cleanup-scroll-thumb" class="f06-cleanup-scroll-thumb"></div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-ksi2" id="f06-cleanup-card" class="f06-cleanup-card">
+        <div data-hf-id="hf-3qtt" class="f06-cleanup-card-head">
+          <div data-hf-id="hf-jskw" class="f06-cleanup-head-copy">
+            <span data-hf-id="hf-l58m" class="f06-cleanup-head-title">Cleanup checklist</span>
+            <span data-hf-id="hf-16k0" class="f06-cleanup-head-label">starter examples</span>
+          </div>
+          <span data-hf-id="hf-rw6n" class="f06-cleanup-chevron" aria-hidden="true"></span>
+        </div>
+
+        <div data-hf-id="hf-weug" class="f06-cleanup-expand-mask" data-layout-allow-overflow="">
+          <div data-hf-id="hf-4u1u" id="f06-cleanup-expand-sheet" class="f06-cleanup-expand-sheet">
+            <div data-hf-id="hf-hum0" class="f06-cleanup-row">
+              <div data-hf-id="hf-yckc" id="f06-cleanup-row-1-ghost" class="f06-cleanup-row-ghost">
+                <span data-hf-id="hf-vyj6" class="f06-cleanup-removed-line"></span>
+                <span data-hf-id="hf-p6kh" class="f06-cleanup-removed-copy">removed</span>
+              </div>
+              <div data-hf-id="hf-5slg" id="f06-cleanup-row-1" class="f06-cleanup-row-content">
+                <span data-hf-id="hf-m8xb" class="f06-cleanup-path">routes/demo-*</span>
+                <span data-hf-id="hf-9hgz" class="f06-cleanup-kind">example</span>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-a5n4" class="f06-cleanup-row">
+              <div data-hf-id="hf-h50j" id="f06-cleanup-row-2-ghost" class="f06-cleanup-row-ghost">
+                <span data-hf-id="hf-btna" class="f06-cleanup-removed-line"></span>
+                <span data-hf-id="hf-op05" class="f06-cleanup-removed-copy">removed</span>
+              </div>
+              <div data-hf-id="hf-eghb" id="f06-cleanup-row-2" class="f06-cleanup-row-content">
+                <span data-hf-id="hf-n4bt" class="f06-cleanup-path">components/demo-*</span>
+                <span data-hf-id="hf-logj" class="f06-cleanup-kind">example</span>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-8yq1" class="f06-cleanup-row">
+              <div data-hf-id="hf-oxna" id="f06-cleanup-row-3-ghost" class="f06-cleanup-row-ghost">
+                <span data-hf-id="hf-c7yb" class="f06-cleanup-removed-line"></span>
+                <span data-hf-id="hf-pvx8" class="f06-cleanup-removed-copy">removed</span>
+              </div>
+              <div data-hf-id="hf-aida" id="f06-cleanup-row-3" class="f06-cleanup-row-content">
+                <span data-hf-id="hf-gp7h" class="f06-cleanup-path">data/demo-*</span>
+                <span data-hf-id="hf-la5i" class="f06-cleanup-kind">example</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-sd8g" id="f06-cleanup-below" class="f06-cleanup-below">
+          <span data-hf-id="hf-yn51" class="f06-cleanup-foundation-mark">
+            <span data-hf-id="hf-k40s" class="f06-cleanup-foundation-dot"></span>
+            Infrastructure stays
+          </span>
+          <span data-hf-id="hf-nwqz">Product space opens</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-bd1m" id="f06-cleanup-tree" class="f06-cleanup-tree">
+        <div data-hf-id="hf-2gcr" class="f06-cleanup-tree-head">
+          <span data-hf-id="hf-15el">src</span>
+          <span data-hf-id="hf-pqow">foundation</span>
+        </div>
+        <div data-hf-id="hf-ig6q" class="f06-cleanup-tree-row"><span data-hf-id="hf-vzta" class="f06-cleanup-tree-guide">└─</span>routes/</div>
+        <div data-hf-id="hf-yj1g" class="f06-cleanup-tree-row" data-depth="1"><span data-hf-id="hf-lozq" class="f06-cleanup-tree-guide">├─</span>auth/</div>
+        <div data-hf-id="hf-e29q" class="f06-cleanup-tree-row" data-depth="1"><span data-hf-id="hf-s6c2" class="f06-cleanup-tree-guide">└─</span>index.tsx</div>
+        <div data-hf-id="hf-evfd" class="f06-cleanup-tree-row"><span data-hf-id="hf-dfbe" class="f06-cleanup-tree-guide">├─</span>theme/</div>
+        <div data-hf-id="hf-f1yu" class="f06-cleanup-tree-row"><span data-hf-id="hf-skn3" class="f06-cleanup-tree-guide">└─</span>devtools/</div>
+        <div data-hf-id="hf-zxya" id="f06-cleanup-product-slot" class="f06-cleanup-product-slot">
+          <span data-hf-id="hf-3gjj">features/…</span>
+          <span data-hf-id="hf-jdzb" id="f06-cleanup-product-label" class="f06-cleanup-product-label">Your product</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+
+    const timeline = gsap.timeline({ paused: true });
+    window.__timelines["06-cleanup"] = timeline;
+
+    const pageImage = document.getElementById("f06-cleanup-page-image");
+    const pageDimmer = document.getElementById("f06-cleanup-page-dimmer");
+    const scrollThumb = document.getElementById("f06-cleanup-scroll-thumb");
+    const cleanupCard = document.getElementById("f06-cleanup-card");
+    const expandSheet = document.getElementById("f06-cleanup-expand-sheet");
+    const below = document.getElementById("f06-cleanup-below");
+    const tree = document.getElementById("f06-cleanup-tree");
+    const productSlot = document.getElementById("f06-cleanup-product-slot");
+    const productLabel = document.getElementById("f06-cleanup-product-label");
+
+    timeline.fromTo(
+      pageImage,
+      { y: 0 },
+      { y: -410, duration: 2.35, ease: "power3.out" },
+      0.05,
+    );
+    timeline.fromTo(
+      scrollThumb,
+      { y: 0 },
+      { y: 452, duration: 2.35, ease: "power3.out" },
+      0.05,
+    );
+
+    timeline.fromTo(
+      pageDimmer,
+      { opacity: 0 },
+      { opacity: 0.82, duration: 0.42, ease: "power1.inOut" },
+      2.58,
+    );
+    timeline.fromTo(
+      cleanupCard,
+      { x: 697, y: 635, scale: 0.5, opacity: 0 },
+      { x: 120, y: 145, scale: 1, opacity: 1, duration: 0.62, ease: "power3.out" },
+      2.6,
+    );
+    timeline.fromTo(
+      [expandSheet, below],
+      { y: -360 },
+      { y: 0, duration: 0.55, ease: "power3.out" },
+      2.88,
+    );
+
+    const rowContents = [
+      document.getElementById("f06-cleanup-row-1"),
+      document.getElementById("f06-cleanup-row-2"),
+      document.getElementById("f06-cleanup-row-3"),
+    ];
+    const rowGhosts = [
+      document.getElementById("f06-cleanup-row-1-ghost"),
+      document.getElementById("f06-cleanup-row-2-ghost"),
+      document.getElementById("f06-cleanup-row-3-ghost"),
+    ];
+
+    timeline.fromTo(
+      rowContents,
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.26, stagger: 0.07, ease: "power2.out" },
+      3.12,
+    );
+
+    const CONTENT = [
+      { label: "routes/demo-*", row: rowContents[0], ghost: rowGhosts[0] },
+      { label: "components/demo-*", row: rowContents[1], ghost: rowGhosts[1] },
+      { label: "data/demo-*", row: rowContents[2], ghost: rowGhosts[2] },
+    ];
+    const BASE_DURATION = 0.42;
+    const SEC_PER_CHAR = 0.008;
+    const HOLD = 0.05;
+    const DELETE_WINDOW = 1.68;
+    let cumulative = 0;
+    const rawSequence = CONTENT.map((entry) => {
+      const duration = BASE_DURATION + entry.label.length * SEC_PER_CHAR + HOLD;
+      const start = cumulative;
+      cumulative += duration;
+      return { ...entry, start, duration };
+    });
+    const sequenceScale = DELETE_WINDOW / cumulative;
+    const SEQUENCE = rawSequence.map((entry) => ({
+      ...entry,
+      start: entry.start * sequenceScale,
+      duration: entry.duration * sequenceScale,
+    }));
+
+    SEQUENCE.forEach((entry) => {
+      const start = 4.4 + entry.start;
+      const rampDuration = entry.duration * 0.2;
+      const burstDuration = entry.duration * 0.18;
+      const tailDuration = entry.duration * 0.62;
+
+      timeline.fromTo(
+        entry.ghost,
+        { opacity: 0 },
+        { opacity: 1, duration: burstDuration, ease: "none" },
+        start + rampDuration,
+      );
+      timeline.to(
+        entry.row,
+        { x: -46, duration: rampDuration, ease: "power3.in" },
+        start,
+      );
+      timeline.to(
+        entry.row,
+        { x: -320, duration: burstDuration, ease: "none" },
+        start + rampDuration,
+      );
+      timeline.to(
+        entry.row,
+        { x: -420, duration: tailDuration, ease: "power4.out" },
+        start + rampDuration + burstDuration,
+      );
+      timeline.to(
+        entry.row,
+        { opacity: 0, duration: tailDuration * 0.58, ease: "power2.in" },
+        start + rampDuration + burstDuration + tailDuration * 0.18,
+      );
+    });
+
+    timeline.fromTo(
+      tree,
+      { y: 26, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" },
+      6.18,
+    );
+    timeline.fromTo(
+      productSlot,
+      { scaleX: 0.86, opacity: 0, transformOrigin: "0% 50%" },
+      { scaleX: 1, opacity: 1, duration: 0.38, ease: "power3.out" },
+      6.28,
+    );
+    timeline.fromTo(
+      productLabel,
+      { y: -28, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.34, ease: "power3.out" },
+      6.38,
+    );
+  </script>
+</template>

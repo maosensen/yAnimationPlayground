@@ -1,0 +1,11 @@
+{
+  "name": "tanstarter-promo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "../../node_modules/.bin/hyperframes preview",
+    "check": "../../node_modules/.bin/hyperframes check",
+    "render": "../../node_modules/.bin/hyperframes render",
+    "publish": "../../node_modules/.bin/hyperframes publish"
+  }
+}

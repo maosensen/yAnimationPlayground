@@ -1,0 +1,511 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 800;
+      font-display: swap;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #0a0a0a;
+      font-family: "Inter Variable";
+    }
+
+    [class~="f05-toolchain-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    [class~="f05-toolchain-stage"] {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    [class~="f05-toolchain-heading"] {
+      position: absolute;
+      top: 54px;
+      left: 81px;
+      z-index: 8;
+      display: flex;
+      align-items: baseline;
+      gap: 30px;
+    }
+
+    [class~="f05-toolchain-kicker"] {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-family: "JetBrains Mono";
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    [class~="f05-toolchain-spike"] {
+      color: #be8c00;
+      font-family: "Inter Variable";
+      font-size: 31px;
+      line-height: 1;
+    }
+
+    [class~="f05-toolchain-title"] {
+      font-size: 70px;
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.022em;
+    }
+
+    [class~="f05-toolchain-card"] {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 5;
+      box-sizing: border-box;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 12px;
+      background: #ffced0;
+      box-shadow:
+        0 1px 3px rgba(10, 10, 10, 0.08),
+        0 4px 16px rgba(10, 10, 10, 0.04);
+    }
+
+    [class~="f05-toolchain-ui-card"] {
+      width: 690px;
+      height: 178px;
+      padding: 29px 34px 27px;
+    }
+
+    [class~="f05-toolchain-tool-card"] {
+      width: 430px;
+      height: 170px;
+      padding: 26px 30px;
+      background: #ffffff;
+    }
+
+    [class~="f05-toolchain-card-index"] {
+      margin-bottom: 18px;
+      color: #6f5b5c;
+      font-family: "JetBrains Mono";
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    [class~="f05-toolchain-card-row"] {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    [class~="f05-toolchain-card-name"] {
+      font-size: 43px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+    }
+
+    [class~="f05-toolchain-tool-card"] [class~="f05-toolchain-card-name"] {
+      font-size: 38px;
+    }
+
+    [class~="f05-toolchain-card-role"] {
+      flex: 0 0 auto;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      border-radius: 9999px;
+      padding: 9px 14px 8px;
+      font-family: "JetBrains Mono";
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    [class~="f05-toolchain-route"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 3;
+      width: 1920px;
+      height: 700px;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    [class~="f05-toolchain-route"] path {
+      fill: none;
+      stroke: rgba(10, 10, 10, 0.28);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    [class~="f05-toolchain-route"] circle {
+      fill: #e7000b;
+      stroke: #ffffff;
+      stroke-width: 5;
+    }
+
+    [class~="f05-toolchain-responsibility"] {
+      position: absolute;
+      top: 650px;
+      left: 50%;
+      z-index: 7;
+      display: flex;
+      width: 420px;
+      height: 42px;
+      margin-left: -210px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 9999px;
+      background: #ffffff;
+      font-family: "JetBrains Mono";
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    [class~="f05-toolchain-responsibility-dot"] {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: #e7000b;
+    }
+
+    [class~="f05-toolchain-tool-card"][class~="f05-toolchain-is-active"] {
+      border-color: rgba(231, 0, 11, 0.62);
+      background: #ffced0;
+    }
+
+    [class~="f05-toolchain-evidence"] {
+      position: absolute;
+      top: 714px;
+      left: 190px;
+      z-index: 10;
+      width: 1540px;
+      height: 162px;
+      overflow: hidden;
+      border: 1px solid rgba(10, 10, 10, 0.2);
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow:
+        0 1px 3px rgba(10, 10, 10, 0.08),
+        0 4px 16px rgba(10, 10, 10, 0.04);
+    }
+
+    [class~="f05-toolchain-evidence"] img {
+      position: absolute;
+      top: -1041px;
+      left: -614px;
+      width: 2800px;
+      height: auto;
+      max-width: none;
+    }
+
+    [class~="f05-toolchain-evidence-label"] {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      z-index: 2;
+      display: grid;
+      height: 112px;
+      box-sizing: border-box;
+      align-content: center;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 8px;
+      padding: 0 24px;
+      background: rgba(255, 255, 255, 0.94);
+      font-family: "JetBrains Mono";
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    [class~="f05-toolchain-evidence-label"] span {
+      color: #767676;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+    }
+  </style>
+
+  <div data-hf-id="hf-qnbu" id="root" data-composition-id="05-toolchain" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-0hob" id="f05-toolchain-ground" class="clip f05-toolchain-ground" data-start="0" data-duration="8.1" data-track-index="0"></div>
+
+    <div data-hf-id="hf-xcuq" id="f05-toolchain-stage" class="clip f05-toolchain-stage" data-start="0" data-duration="8.1" data-track-index="1">
+      <header data-hf-id="hf-di92" class="f05-toolchain-heading" id="f05-toolchain-heading">
+        <div data-hf-id="hf-j6ah" class="f05-toolchain-kicker">
+          <span data-hf-id="hf-y1hi" class="f05-toolchain-spike">✱</span>
+          <span data-hf-id="hf-rq3c">One toolchain</span>
+        </div>
+        <div data-hf-id="hf-se3u" class="f05-toolchain-title">A deliberate stack</div>
+      </header>
+
+      <div data-hf-id="hf-xipp" class="f05-toolchain-card f05-toolchain-ui-card" id="f05-toolchain-shadcn" data-target-x="-420" data-target-y="-310">
+        <div data-hf-id="hf-bpru" class="f05-toolchain-card-index">01 / interface</div>
+        <div data-hf-id="hf-nbe7" class="f05-toolchain-card-row">
+          <div data-hf-id="hf-mz4y" class="f05-toolchain-card-name">shadcn/ui</div>
+          <div data-hf-id="hf-ctzz" class="f05-toolchain-card-role">UI kit</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-2zx3" class="f05-toolchain-card f05-toolchain-ui-card" id="f05-toolchain-base-ui" data-target-x="420" data-target-y="-310">
+        <div data-hf-id="hf-tb4r" class="f05-toolchain-card-index">02 / interface</div>
+        <div data-hf-id="hf-z0y7" class="f05-toolchain-card-row">
+          <div data-hf-id="hf-redl" class="f05-toolchain-card-name">Base UI</div>
+          <div data-hf-id="hf-ao0b" class="f05-toolchain-card-role">Primitives</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-8w17" class="f05-toolchain-card f05-toolchain-tool-card" id="f05-toolchain-vite" data-target-x="-570" data-target-y="40">
+        <div data-hf-id="hf-ig9c" class="f05-toolchain-card-index">03 / toolchain</div>
+        <div data-hf-id="hf-ymn6" class="f05-toolchain-card-row">
+          <div data-hf-id="hf-olt7" class="f05-toolchain-card-name">Vite+</div>
+          <div data-hf-id="hf-l9im" class="f05-toolchain-card-role">Develop</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-9qz0" class="f05-toolchain-card f05-toolchain-tool-card" id="f05-toolchain-oxlint" data-target-x="0" data-target-y="40">
+        <div data-hf-id="hf-n9u9" class="f05-toolchain-card-index">04 / toolchain</div>
+        <div data-hf-id="hf-y8c5" class="f05-toolchain-card-row">
+          <div data-hf-id="hf-gn1i" class="f05-toolchain-card-name">Oxlint</div>
+          <div data-hf-id="hf-ixdv" class="f05-toolchain-card-role">Check</div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-ae3s" class="f05-toolchain-card f05-toolchain-tool-card" id="f05-toolchain-oxfmt" data-target-x="570" data-target-y="40">
+        <div data-hf-id="hf-gsqy" class="f05-toolchain-card-index">05 / toolchain</div>
+        <div data-hf-id="hf-10hc" class="f05-toolchain-card-row">
+          <div data-hf-id="hf-ppba" class="f05-toolchain-card-name">Oxfmt</div>
+          <div data-hf-id="hf-jvdq" class="f05-toolchain-card-role">Format</div>
+        </div>
+      </div>
+
+      <svg data-hf-id="hf-zymj" class="f05-toolchain-route" viewBox="0 0 1920 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path data-hf-id="hf-ptid" id="f05-toolchain-route-left" pathLength="100" d="M 540 319 C 540 382 720 382 720 424" />
+        <path data-hf-id="hf-s8pg" id="f05-toolchain-route-right" pathLength="100" d="M 1380 319 C 1380 382 1200 382 1200 424" />
+        <path data-hf-id="hf-zbdr" id="f05-toolchain-route-bridge" pathLength="100" d="M 720 424 H 1200" />
+        <path data-hf-id="hf-nzcc" id="f05-toolchain-route-vite" pathLength="100" d="M 960 424 C 960 468 390 468 390 494" />
+        <path data-hf-id="hf-wz9i" id="f05-toolchain-route-oxlint" pathLength="100" d="M 960 424 V 494" />
+        <path data-hf-id="hf-qpc4" id="f05-toolchain-route-oxfmt" pathLength="100" d="M 960 424 C 960 468 1530 468 1530 494" />
+        <circle data-hf-id="hf-ox8s" id="f05-toolchain-node-vite" cx="390" cy="494" r="8" />
+        <circle data-hf-id="hf-3yjv" id="f05-toolchain-node-oxlint" cx="960" cy="494" r="8" />
+        <circle data-hf-id="hf-pbwn" id="f05-toolchain-node-oxfmt" cx="1530" cy="494" r="8" />
+      </svg>
+
+      <div data-hf-id="hf-zrxm" class="f05-toolchain-responsibility" id="f05-toolchain-responsibility">
+        <span data-hf-id="hf-4bhz" class="f05-toolchain-responsibility-dot"></span>
+        <span data-hf-id="hf-ly23" id="f05-toolchain-responsibility-text">Develop</span>
+      </div>
+
+      <div data-hf-id="hf-8mgr" class="f05-toolchain-evidence" id="f05-toolchain-evidence" data-layout-allow-overflow="">
+        <img data-hf-id="hf-bsv8" src="assets/scroll-100.png" alt="Official dependency version badges">
+        <div data-hf-id="hf-sigy" class="f05-toolchain-evidence-label">
+          Official versions
+          <span data-hf-id="hf-962m">repository evidence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (() => {
+      const compositionId = "05-toolchain";
+      const byId = (id) => document.getElementById(id);
+      const tl = gsap.timeline({ paused: true });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[compositionId] = tl;
+
+      tl.fromTo(
+        byId("f05-toolchain-heading"),
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.36, ease: "power2.out" },
+        0,
+      );
+
+      [byId("f05-toolchain-shadcn"), byId("f05-toolchain-base-ui")].forEach((element, index) => {
+        const targetX = Number(element.dataset.targetX);
+        const targetY = Number(element.dataset.targetY);
+
+        tl.fromTo(
+          element,
+          {
+            xPercent: -50,
+            yPercent: -50,
+            x: targetX * 0.9,
+            y: targetY + 24,
+            scale: 0.94,
+            opacity: 0,
+          },
+          {
+            x: targetX,
+            y: targetY,
+            scale: 1,
+            opacity: 1,
+            duration: 0.88,
+            ease: "power3.out",
+          },
+          0.18 + index * 0.08,
+        );
+      });
+
+      [byId("f05-toolchain-vite"), byId("f05-toolchain-oxlint"), byId("f05-toolchain-oxfmt")].forEach(
+        (element, index) => {
+          const targetX = Number(element.dataset.targetX);
+          const targetY = Number(element.dataset.targetY);
+
+          tl.fromTo(
+            element,
+            {
+              xPercent: -50,
+              yPercent: -50,
+              x: targetX,
+              y: targetY + 18,
+              scale: 0.97,
+              opacity: 0,
+            },
+            {
+              x: targetX,
+              y: targetY,
+              scale: 1,
+              opacity: 1,
+              duration: 0.58,
+              ease: "power2.out",
+            },
+            1.42 + index * 0.72,
+          );
+        },
+      );
+
+      const routePaths = [
+        byId("f05-toolchain-route-left"),
+        byId("f05-toolchain-route-right"),
+        byId("f05-toolchain-route-bridge"),
+        byId("f05-toolchain-route-vite"),
+        byId("f05-toolchain-route-oxlint"),
+        byId("f05-toolchain-route-oxfmt"),
+      ];
+
+      routePaths.forEach((path) => {
+        path.style.strokeDasharray = "100";
+        path.style.strokeDashoffset = "100";
+      });
+
+      [
+        byId("f05-toolchain-node-vite"),
+        byId("f05-toolchain-node-oxlint"),
+        byId("f05-toolchain-node-oxfmt"),
+      ].forEach((element) => gsap.set(element, { opacity: 0, scale: 0.75, transformOrigin: "center" }));
+
+      tl.to(
+        [byId("f05-toolchain-route-left"), byId("f05-toolchain-route-right")],
+        { strokeDashoffset: 0, duration: 0.62, ease: "power2.out", stagger: 0.08 },
+        3.82,
+      );
+      tl.to(
+        byId("f05-toolchain-route-bridge"),
+        { strokeDashoffset: 0, duration: 0.42, ease: "power2.out" },
+        4.32,
+      );
+
+      [
+        [byId("f05-toolchain-route-vite"), byId("f05-toolchain-node-vite")],
+        [byId("f05-toolchain-route-oxlint"), byId("f05-toolchain-node-oxlint")],
+        [byId("f05-toolchain-route-oxfmt"), byId("f05-toolchain-node-oxfmt")],
+      ].forEach(([pathElement, nodeElement], index) => {
+        const start = 4.62 + index * 0.58;
+        tl.to(
+          pathElement,
+          { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" },
+          start,
+        );
+        tl.to(
+          nodeElement,
+          { opacity: 1, scale: 1, duration: 0.22, ease: "power2.out" },
+          start + 0.38,
+        );
+      });
+
+      tl.fromTo(
+        byId("f05-toolchain-responsibility"),
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+        4.08,
+      );
+
+      const responsibilityContent = [
+        { key: "vite", title: "Develop", body: "fast development", id: "f05-toolchain-vite" },
+        { key: "oxlint", title: "Check", body: "static analysis", id: "f05-toolchain-oxlint" },
+        { key: "oxfmt", title: "Format", body: "consistent output", id: "f05-toolchain-oxfmt" },
+      ];
+      const baseDuration = 0.38;
+      const secondsPerCharacter = 0.018;
+      const hold = 0.16;
+      let cumulative = 0;
+      const responsibilityTimeline = responsibilityContent.map((entry) => {
+        const duration = baseDuration + entry.body.length * secondsPerCharacter + hold;
+        const start = cumulative;
+        cumulative += duration;
+        return { ...entry, start, end: cumulative };
+      });
+      const responsibilityDriver = { t: 0 };
+      const responsibilityText = byId("f05-toolchain-responsibility-text");
+      let lastResponsibilityKey = "";
+
+      function responsibilityAt(time) {
+        for (let index = responsibilityTimeline.length - 1; index >= 0; index -= 1) {
+          if (time >= responsibilityTimeline[index].start) return responsibilityTimeline[index];
+        }
+        return responsibilityTimeline[0];
+      }
+
+      tl.to(
+        responsibilityDriver,
+        {
+          t: cumulative,
+          duration: 2.25,
+          ease: "none",
+          onUpdate: () => {
+            const entry = responsibilityAt(responsibilityDriver.t);
+            if (entry.key !== lastResponsibilityKey) {
+              responsibilityText.textContent = entry.title;
+              responsibilityContent.forEach((item) => {
+                byId(item.id).classList.toggle("f05-toolchain-is-active", item.key === entry.key);
+              });
+              lastResponsibilityKey = entry.key;
+            }
+          },
+        },
+        4.22,
+      );
+
+      tl.fromTo(
+        byId("f05-toolchain-evidence"),
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.62, ease: "power3.out" },
+        6.72,
+      );
+    })();
+  </script>
+</template>

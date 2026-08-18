@@ -1,0 +1,114 @@
+{
+  "fps": 30,
+  "current": "LEFT",
+  "seams": [
+    {
+      "id": "hook→promise",
+      "cut": 4.2,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-01-hook",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34
+      },
+      "entry": {
+        "selector": "#el-02-promise",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34,
+        "travel": 12
+      }
+    },
+    {
+      "id": "promise→command",
+      "cut": 10.6,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-02-promise",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34
+      },
+      "entry": {
+        "selector": "#el-03-command",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34,
+        "travel": 12
+      }
+    },
+    {
+      "id": "command→foundation",
+      "cut": 15.7,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-03-command",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34
+      },
+      "entry": {
+        "selector": "#el-04-foundation",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34,
+        "travel": 12
+      }
+    },
+    {
+      "id": "foundation→toolchain",
+      "cut": 22.5,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-04-foundation",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34
+      },
+      "entry": {
+        "selector": "#el-05-toolchain",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34,
+        "travel": 12
+      }
+    },
+    {
+      "id": "toolchain→cleanup",
+      "cut": 30.6,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-05-toolchain",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34
+      },
+      "entry": {
+        "selector": "#el-06-cleanup",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34,
+        "travel": 12
+      }
+    },
+    {
+      "id": "cleanup→cta",
+      "cut": 37.6,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#el-06-cleanup",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34
+      },
+      "entry": {
+        "selector": "#el-07-cta",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.34,
+        "travel": 12
+      }
+    }
+  ]
+}

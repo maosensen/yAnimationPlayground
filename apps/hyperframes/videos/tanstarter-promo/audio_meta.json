@@ -1,0 +1,136 @@
+{
+  "bgm": {
+    "path": "assets/bgm/tanstarter-bed.wav",
+    "volume": 0.12,
+    "query": "confident minimal technical pulse, restrained and precise",
+    "duration_s": 36
+  },
+  "bgm_pending": false,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "assets/voice/01.wav",
+      "duration_s": 3.924,
+      "words": [
+        { "id": "w0", "text": "你的下一个产品，", "start": 0.05, "end": 1.45 },
+        {
+          "id": "w1",
+          "text": "不该从重复搭脚手架开始。",
+          "start": 1.45,
+          "end": 3.8
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "path": "assets/voice/02.wav",
+      "duration_s": 6.126,
+      "words": [
+        { "id": "w0", "text": "TanStarter，", "start": 0.05, "end": 0.9 },
+        {
+          "id": "w1",
+          "text": "把现代全栈基础压缩成一个",
+          "start": 0.9,
+          "end": 3.3
+        },
+        {
+          "id": "w2",
+          "text": "最小、清晰、能直接继续写的起点。",
+          "start": 3.3,
+          "end": 6.0
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "path": "assets/voice/03.wav",
+      "duration_s": 4.843,
+      "words": [
+        { "id": "w0", "text": "一条命令，", "start": 0.05, "end": 1.2 },
+        {
+          "id": "w1",
+          "text": "得到 React 19、TanStack Start、",
+          "start": 1.2,
+          "end": 3.5
+        },
+        { "id": "w2", "text": "Router 和 Query。", "start": 3.5, "end": 4.7 }
+      ]
+    },
+    {
+      "frame": 4,
+      "path": "assets/voice/04.wav",
+      "duration_s": 6.475,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Better Auth 管身份，",
+          "start": 0.05,
+          "end": 1.8
+        },
+        {
+          "id": "w1",
+          "text": "Drizzle 连接 PostgreSQL；",
+          "start": 1.8,
+          "end": 3.7
+        },
+        {
+          "id": "w2",
+          "text": "类型安全，从路由延伸到服务端。",
+          "start": 3.7,
+          "end": 6.3
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "path": "assets/voice/05.wav",
+      "duration_s": 7.841,
+      "words": [
+        {
+          "id": "w0",
+          "text": "shadcn UI 与 Base UI 负责界面；",
+          "start": 0.05,
+          "end": 2.6
+        },
+        {
+          "id": "w1",
+          "text": "Vite Plus、Oxlint、Oxfmt，",
+          "start": 2.6,
+          "end": 5.2
+        },
+        {
+          "id": "w2",
+          "text": "把开发和检查收进同一条工具链。",
+          "start": 5.2,
+          "end": 7.7
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "path": "assets/voice/06.wav",
+      "duration_s": 6.716,
+      "words": [
+        { "id": "w0", "text": "默认界面保持极简。", "start": 0.05, "end": 1.7 },
+        {
+          "id": "w1",
+          "text": "认证路由、主题切换和开发工具已经就位；",
+          "start": 1.7,
+          "end": 5.2
+        },
+        { "id": "w2", "text": "其余，留给产品本身。", "start": 5.2, "end": 6.6 }
+      ]
+    },
+    {
+      "frame": 7,
+      "path": "assets/voice/07.wav",
+      "duration_s": 3.487,
+      "words": [
+        { "id": "w0", "text": "少写脚手架，", "start": 0.05, "end": 1.1 },
+        { "id": "w1", "text": "直接写产品。", "start": 1.1, "end": 2.4 },
+        { "id": "w2", "text": "TanStarter。", "start": 2.4, "end": 3.35 }
+      ]
+    }
+  ],
+  "sfx": []
+}
