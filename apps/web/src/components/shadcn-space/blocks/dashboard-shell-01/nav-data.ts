@@ -35,6 +35,7 @@ export const navData: NavItem[] = [
     children: [
       { title: "生产与选型", href: "/labs/code-video" },
       { title: "HyperFrames 原理", href: "/labs/hyperframes" },
+      { title: "HyperFrames 示例", href: "/labs/hyperframes/examples" },
     ],
   },
   {

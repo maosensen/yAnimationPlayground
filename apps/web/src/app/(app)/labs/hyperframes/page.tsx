@@ -226,9 +226,14 @@ export default function HyperframesGuidePage() {
         titleSuffix={<Badge>当前研究结论</Badge>}
         description="理解它在视频生产链中的真实位置、时间如何变成帧，以及为什么可渲染不等于专业成片。"
         actions={
-          <Button asChild variant="outline">
-            <Link href="/labs/code-video">查看 Remotion 对比</Link>
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild>
+              <Link href="/labs/hyperframes/examples">查看实际示例</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/labs/code-video">查看 Remotion 对比</Link>
+            </Button>
+          </div>
         }
       />
 
