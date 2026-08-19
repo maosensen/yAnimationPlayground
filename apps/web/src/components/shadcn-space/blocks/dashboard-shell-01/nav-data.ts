@@ -32,7 +32,10 @@ export const navData: NavItem[] = [
   {
     title: "代码视频",
     icon: "icon-[solar--video-frame-play-horizontal-bold-duotone]",
-    children: [{ title: "生产与选型", href: "/labs/code-video" }],
+    children: [
+      { title: "生产与选型", href: "/labs/code-video" },
+      { title: "HyperFrames 原理", href: "/labs/hyperframes" },
+    ],
   },
   {
     title: "AI 制作",

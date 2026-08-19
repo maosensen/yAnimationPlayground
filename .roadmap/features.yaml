@@ -231,6 +231,13 @@ features:
     shippedIn: v0.5.0
     priority: normal
     note: v0.5;基于同一作品比较时间模型、创作载体、类型能力、预览、复用、确定性、成熟度与运维边界。
+  - id: hyperframes-principles-guide
+    title: HyperFrames 功能与视频制作原理指南
+    area: 代码视频
+    status: done
+    completedAt: 2026-08-19
+    priority: normal
+    note: 基于三次产品视频实验,以可 seek 的 time-to-frame 演示、逐片缺陷证据、生产责任分层和 30/60/90 分评价尺说明 HyperFrames 的功能边界、渲染原理与专业制作门禁。
 
   # —— 方向级里程碑 ——
   - id: motion-design-system
