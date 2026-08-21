@@ -9,6 +9,18 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.8.3] - 2026-08-21
+
+### Added
+
+- **Interruptible motion-curve studio** — compare a critically damped spring
+  with a static cubic-bezier on the same zoom-and-pan stage, then retarget both
+  repeatedly to expose the difference between velocity inheritance and a new
+  timing curve.
+- **Position and velocity diagnostics** — tune omega, zoom, pan, and initial
+  velocity while inspecting analytical response curves, live telemetry,
+  reduced-motion behavior, and a velocity-based blur approximation.
+
 ## [0.8.2] - 2026-08-21
 
 ### Added
@@ -327,7 +339,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.2...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.3...HEAD
+[0.8.3]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.3
 [0.8.2]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.2
 [0.8.1]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.1
 [0.8.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.0
