@@ -35,6 +35,30 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.8.3",
+    date: "2026-08-21",
+    title: "把“丝滑”拆成可以打断的速度状态",
+    summary:
+      "临界阻尼弹簧和静态 Bezier 现在运行在同一套 zoom / pan 舞台中；连续改目标时，可以直接看见位置相似背后的速度差异。",
+    changes: [
+      {
+        kind: "new",
+        title: "可中断曲线对照",
+        text: "在全景、局部细节和光标跟随目标之间连续重定向，对比 Spring 继承 position + velocity 与 Bezier 重新开始时间映射的实际手感。",
+      },
+      {
+        kind: "new",
+        title: "位置与解析速度诊断",
+        text: "实时调节 ω、缩放、平移和初速度，并同时查看位置响应、瞬时速度、舞台遥测与速度模糊近似。",
+      },
+      {
+        kind: "improved",
+        title: "诚实的比较口径",
+        text: "界面明确说明 Bezier 不消费 ω，只使用 9 / ω 匹配比较时长；减少动态效果和移动端布局也拥有完整后备。",
+      },
+    ],
+  },
+  {
     version: "0.8.2",
     date: "2026-08-21",
     title: "先把 HyperFrames 看懂，再继续做片",
