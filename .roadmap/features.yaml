@@ -247,6 +247,13 @@ features:
     shippedIn: v0.8.2
     priority: normal
     note: 新增多示例 Tab 页面和首个 HyperFrames vs Remotion 无素材对比动画,支持播放、暂停、seek 与章节跳转;声音设计和视频导出暂不纳入此阶段。
+  - id: motion-curve-studio
+    title: 可中断动画曲线 Studio
+    area: 动画实验
+    status: done
+    completedAt: 2026-08-21
+    priority: normal
+    note: 已建立临界阻尼弹簧与 cubic-bezier 的可操作对比,覆盖 omega、初速度、scale/pan 同参驱动、连续重定向速度继承、位置/速度曲线、减少动效与移动端布局;实验结论记录于 notes/v0.9-motion-curve-studio.md。
 
   # —— 方向级里程碑 ——
   - id: motion-design-system
