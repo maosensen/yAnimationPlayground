@@ -236,6 +236,7 @@ features:
     area: 代码视频
     status: done
     completedAt: 2026-08-19
+    shippedIn: v0.8.2
     priority: normal
     note: 基于三次产品视频实验,以可 seek 的 time-to-frame 演示、逐片缺陷证据、生产责任分层和 30/60/90 分评价尺说明 HyperFrames 的功能边界、渲染原理与专业制作门禁。
   - id: hyperframes-runnable-examples
@@ -243,6 +244,7 @@ features:
     area: 代码视频
     status: done
     completedAt: 2026-08-19
+    shippedIn: v0.8.2
     priority: normal
     note: 新增多示例 Tab 页面和首个 HyperFrames vs Remotion 无素材对比动画,支持播放、暂停、seek 与章节跳转;声音设计和视频导出暂不纳入此阶段。
 

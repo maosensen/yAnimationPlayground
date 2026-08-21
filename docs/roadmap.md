@@ -4,9 +4,9 @@ yAnimationPlayground is an R&D platform for proving animation techniques before
 they become production tools. Versions are organized around capabilities and
 evidence, not around installing libraries.
 
-The current release is **v0.8.1**, which keeps the playground focused on
-animation research and adds reproducible Remotion and HyperFrames agent
-workflows. The next direction is **v0.9.0**.
+The current release is **v0.8.2**, which makes HyperFrames experiments
+inspectable through an operator guide and a runnable renderer comparison. The
+next direction is **v0.9.0**.
 
 ## Planning model
 
@@ -40,6 +40,7 @@ moves into `packages/` only after a second real consumer proves the contract.
 | v0.7.0 | Shipped | An AI-assisted brief-to-animation production workflow |
 | v0.8.0 | Shipped | Three.js spatial and WebGL animation foundations |
 | v0.8.1 | Shipped | Official video-agent workflows and an animation-first application shell |
+| v0.8.2 | Shipped | Inspectable HyperFrames principles, evidence, and runnable comparisons |
 | v0.9.0 | Direction | Applied animation and video productions from real scenarios |
 | v1.0.0 | Direction | A validated animation R&D platform ready to feed dedicated studios |
 

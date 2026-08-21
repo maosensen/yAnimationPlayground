@@ -35,6 +35,30 @@ export type ChangelogRelease = {
 /** Newest first. */
 export const changelog: ChangelogRelease[] = [
   {
+    version: "0.8.2",
+    date: "2026-08-21",
+    title: "先把 HyperFrames 看懂，再继续做片",
+    summary:
+      "三次产品视频实验的得失现在变成了可检查的方法说明；你也可以直接运行同一条 HTML 时间线，对照 HyperFrames 与 Remotion 的核心模型。",
+    changes: [
+      {
+        kind: "new",
+        title: "HyperFrames 原理指南",
+        text: "用可拖动的 time-to-frame 演示、生产责任分层和 30/60/90 分评价尺，说明工具能力与专业成片之间仍缺哪些人工判断。",
+      },
+      {
+        kind: "new",
+        title: "可运行的渲染器对比",
+        text: "一条 20 秒纯 HTML 动画并排解释 frame 与 time + seek 模型，支持播放、暂停、逐帧拖动、章节跳转和全屏观看。",
+      },
+      {
+        kind: "improved",
+        title: "失败也进入研究证据",
+        text: "首支 TanStarter 草案不再被误记为 v0.9 已完成作品；目标识别问题和粗糙成片继续作为下一轮重制的明确输入。",
+      },
+    ],
+  },
+  {
     version: "0.8.1",
     date: "2026-08-18",
     title: "把仓库真正收拢成动画实验场",
