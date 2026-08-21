@@ -253,7 +253,7 @@ features:
     status: done
     completedAt: 2026-08-21
     priority: normal
-    note: 已建立临界阻尼弹簧与 cubic-bezier 的可操作对比,覆盖 omega、初速度、scale/pan 同参驱动、连续重定向速度继承、位置/速度曲线、减少动效与移动端布局;实验结论记录于 notes/v0.9-motion-curve-studio.md。
+    note: 已建立临界阻尼弹簧与 cubic-bezier 的可操作对比,覆盖 omega、初速度、scale/pan 同参驱动、连续重定向速度继承、位置/速度曲线、减少动效与移动端布局;实验结论记录于 notes/v0.8.3-motion-curve-studio.md。
 
   # —— 方向级里程碑 ——
   - id: motion-design-system
