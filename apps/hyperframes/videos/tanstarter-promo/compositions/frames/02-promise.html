@@ -1,0 +1,185 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 800;
+      font-display: swap;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+    }
+
+    [id="f02-promise-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    [id="f02-promise-stage"] {
+      position: absolute;
+      inset: 0 0 auto;
+      width: 100%;
+      height: 900px;
+      overflow: hidden;
+    }
+
+    [id="f02-promise-camera-scale"],
+    [id="f02-promise-camera-pan"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    [id="f02-promise-page"] {
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+      opacity: 0.76;
+    }
+
+    [id="f02-promise-command"] {
+      position: absolute;
+      left: 592px;
+      top: 400px;
+      width: 736px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 23px;
+      box-sizing: border-box;
+      color: #0a0a0a;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(10, 10, 10, 0.08), 0 4px 16px rgba(10, 10, 10, 0.04);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    [id="f02-promise-prompt"] {
+      color: rgba(10, 10, 10, 0.42);
+      white-space: pre;
+    }
+
+    [id="f02-promise-command-copy"] {
+      white-space: nowrap;
+    }
+
+    [id="f02-promise-copy-icon"] {
+      position: absolute;
+      right: 27px;
+      top: 29px;
+      width: 13px;
+      height: 15px;
+      border: 1.5px solid rgba(10, 10, 10, 0.52);
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    [id="f02-promise-copy-icon"]::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: -5px;
+      width: 10px;
+      height: 12px;
+      border: 1.5px solid rgba(10, 10, 10, 0.38);
+      border-radius: 3px;
+      box-sizing: border-box;
+      background: #ffffff;
+    }
+
+    [id="f02-promise-marker"] {
+      position: absolute;
+      left: 636px;
+      top: 226px;
+      width: 179px;
+      height: 9px;
+      border-radius: 6px;
+      background: #f0b100;
+      transform-origin: left center;
+      will-change: transform, opacity;
+    }
+  </style>
+
+  <div data-hf-id="hf-0tyx" id="root" data-composition-id="02-promise" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ltgo" id="f02-promise-ground" class="clip" data-start="0" data-duration="6.4" data-track-index="0"></div>
+
+    <div data-hf-id="hf-edrm" id="f02-promise-stage" class="clip" data-start="0" data-duration="6.4" data-track-index="1">
+      <div data-hf-id="hf-ml71" id="f02-promise-camera-scale" data-layout-allow-overflow="">
+        <div data-hf-id="hf-r8pj" id="f02-promise-camera-pan">
+          <img data-hf-id="hf-9ait" id="f02-promise-page" src="assets/scroll-000.png" alt="">
+
+          <div data-hf-id="hf-u91m" id="f02-promise-command" aria-hidden="true">
+            <span data-hf-id="hf-do2i" id="f02-promise-prompt">&gt;_ $</span>
+            <span data-hf-id="hf-a5om" id="f02-promise-command-copy">pnpm create mugnavo</span>
+            <span data-hf-id="hf-q9fa" id="f02-promise-copy-icon"></span>
+          </div>
+
+          <span data-hf-id="hf-jla0" id="f02-promise-marker" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script>
+    (() => {
+      const compositionId = "02-promise";
+      const cameraScale = document.getElementById("f02-promise-camera-scale");
+      const cameraPan = document.getElementById("f02-promise-camera-pan");
+      const command = document.getElementById("f02-promise-command");
+      const marker = document.getElementById("f02-promise-marker");
+      const stageWidth = 1920;
+      const stageHeight = 900;
+      const commandRect = command.getBoundingClientRect();
+      const offsetX = commandRect.left + commandRect.width / 2 - stageWidth / 2;
+      const offsetY = commandRect.top + commandRect.height / 2 - stageHeight / 2;
+      const openingScale = 1.58;
+
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines[compositionId] = tl;
+
+      tl.fromTo(
+        cameraScale,
+        { scale: openingScale },
+        { scale: openingScale, duration: 0.01, ease: "none" },
+        0,
+      );
+      tl.fromTo(
+        cameraPan,
+        { x: -offsetX, y: -offsetY },
+        { x: -offsetX, y: -offsetY, duration: 0.01, ease: "none" },
+        0,
+      );
+      tl.fromTo(marker, { scaleX: 0, opacity: 0 }, { scaleX: 0, opacity: 0, duration: 0.01 }, 0);
+
+      tl.to(cameraScale, { scale: 1, duration: 2.4, ease: "power3.out" }, 1.5);
+      tl.to(cameraPan, { x: 0, y: 0, duration: 2.4, ease: "power3.out" }, 1.5);
+
+      tl.fromTo(
+        marker,
+        { scaleX: 0, opacity: 0.78 },
+        { scaleX: 1, opacity: 0.78, duration: 0.62, ease: "power2.out" },
+        3.9,
+      );
+    })();
+  </script>
+</template>

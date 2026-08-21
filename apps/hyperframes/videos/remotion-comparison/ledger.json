@@ -1,0 +1,50 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "hook-to-models",
+      "cut": 4.5,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#comparison-hook-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#comparison-models-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "models-to-decision",
+      "cut": 10,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#comparison-models-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#comparison-decision-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "decision-to-close",
+      "cut": 15,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#comparison-decision-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#comparison-close-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    }
+  ]
+}

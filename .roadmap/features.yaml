@@ -231,6 +231,22 @@ features:
     shippedIn: v0.5.0
     priority: normal
     note: v0.5;基于同一作品比较时间模型、创作载体、类型能力、预览、复用、确定性、成熟度与运维边界。
+  - id: hyperframes-principles-guide
+    title: HyperFrames 功能与视频制作原理指南
+    area: 代码视频
+    status: done
+    completedAt: 2026-08-19
+    shippedIn: v0.8.2
+    priority: normal
+    note: 基于三次产品视频实验,以可 seek 的 time-to-frame 演示、逐片缺陷证据、生产责任分层和 30/60/90 分评价尺说明 HyperFrames 的功能边界、渲染原理与专业制作门禁。
+  - id: hyperframes-runnable-examples
+    title: HyperFrames 可运行 HTML 动画示例
+    area: 代码视频
+    status: done
+    completedAt: 2026-08-19
+    shippedIn: v0.8.2
+    priority: normal
+    note: 新增多示例 Tab 页面和首个 HyperFrames vs Remotion 无素材对比动画,支持播放、暂停、seek 与章节跳转;声音设计和视频导出暂不纳入此阶段。
 
   # —— 方向级里程碑 ——
   - id: motion-design-system
@@ -269,7 +285,13 @@ features:
     area: 共享基础设施
     status: todo
     priority: low
-    note: v0.9 方向;为 tokens、primitives 与 assets 建立版本和兼容策略、package 测试及至少一个外部 Studio/SaaS 消费者。
+    note: 已暂缓且不绑定版本;仅在独立 Studio/SaaS 出现真实共享需求后启动,届时再为 tokens、primitives 与 assets 建立版本、兼容策略和外部消费者测试。
+  - id: applied-animation-productions
+    title: 真实场景动画与视频作品
+    area: 动画实验
+    status: doing
+    priority: low
+    note: v0.9 纠错重制中;旧版误用了同名的 mugnavo/tanstarter,新版已锁定 tanstarter.dev 与 MkFastHQ/tanstarter-cli 官方事实源,按参考片级别重建 45 秒黑橙系统宣传片,待 Studio 审阅、最终渲染与实验数据回填后完成。
   - id: animation-rd-platform-v1
     title: 动画研发平台 v1 稳定基线
     area: 动画实验
@@ -332,7 +354,7 @@ features:
     status: done
     completedAt: 2026-07-27
     shippedIn: v0.1.3
-    note: y 系列统一规范:语言 / 设置 / 主题 / GitHub·X 社交链接 / 通知 / 用户下拉,一族一权重。
+    note: y 系列统一规范:设置 / 主题 / GitHub·X 社交链接 / 通知 / 用户下拉,一族一权重。
   - id: page-header
     title: PageHeader 统一页头组件
     area: 应用外壳
@@ -343,9 +365,8 @@ features:
   - id: i18n
     title: 多语言支持
     area: 应用外壳
-    status: doing
-    priority: low
-    note: 头部已有 presentation-only 的语言切换占位组件(language-switcher.tsx),实际 i18n 未实装。
+    status: skipped
+    note: 本项目是简体中文个人研究工具,不引入运行时 i18n;2026-08-18 已移除无实际翻译能力的语言切换占位组件。中英文 README 仅作为仓库文档保留。
 
   # —— 主题与设置 ——
   - id: settings-drawer

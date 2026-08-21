@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>HyperFrames vs Remotion</title>
+    <style>
+      :root {
+        --ink: #f7f8fc;
+        --muted: #8f96aa;
+        --line: #292e3d;
+        --panel: #121621;
+        --panel-strong: #191e2b;
+        --canvas: #080a10;
+        --hyper: #4d8dff;
+        --hyper-soft: #a9c7ff;
+        --remotion: #58d6b2;
+        --remotion-soft: #b2f4df;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      body {
+        position: relative;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--canvas);
+      }
+
+      .stage-ground {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 22%, rgb(77 141 255 / 10%), transparent 28%),
+          radial-gradient(circle at 82% 76%, rgb(88 214 178 / 8%), transparent 30%),
+          var(--canvas);
+      }
+
+      .stage-ground::before {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgb(255 255 255 / 3%) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(255 255 255 / 3%) 1px, transparent 1px);
+        background-size: 72px 72px;
+        content: "";
+        mask-image: linear-gradient(to bottom, black, transparent 92%);
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hud-layer {
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .hud {
+        position: absolute;
+        top: 48px;
+        right: 72px;
+        left: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 650;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hud-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .hud-mark {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border: 3px solid var(--hyper);
+        border-radius: 5px;
+        box-shadow: inset 6px 0 0 var(--remotion);
+      }
+
+      .hud-time {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .hud-status {
+        color: var(--ink);
+      }
+
+      .progress {
+        position: absolute;
+        right: 72px;
+        bottom: 48px;
+        left: 72px;
+        height: 2px;
+        overflow: hidden;
+        background: var(--line);
+      }
+
+      .progress-value {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--remotion), var(--hyper));
+        transform-origin: left center;
+      }
+
+      .scene {
+        z-index: 5;
+        padding: 132px 112px 104px;
+      }
+
+      .scene-stage {
+        display: grid;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(520px, 0.92fr);
+        align-items: center;
+        gap: 112px;
+      }
+
+      .hero-title {
+        margin: 28px 0 0;
+        max-width: 1020px;
+        font-size: 122px;
+        font-weight: 740;
+        letter-spacing: -0.045em;
+        line-height: 0.92;
+      }
+
+      .hero-title span {
+        display: block;
+      }
+
+      .hero-title .accent {
+        color: var(--hyper-soft);
+      }
+
+      .question-panel {
+        position: relative;
+        display: grid;
+        gap: 22px;
+        padding: 42px;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgb(18 22 33 / 92%);
+      }
+
+      .question-panel::after {
+        position: absolute;
+        top: 50%;
+        left: -112px;
+        display: block;
+        width: 112px;
+        height: 1px;
+        background: var(--line);
+        content: "";
+      }
+
+      .question {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 27px;
+        line-height: 1.4;
+      }
+
+      .runtime-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 98px;
+        padding: 0 30px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--panel-strong);
+      }
+
+      .runtime-pill strong {
+        font-size: 30px;
+        letter-spacing: -0.025em;
+      }
+
+      .runtime-pill span {
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .runtime-pill.remotion strong {
+        color: var(--remotion-soft);
+      }
+
+      .runtime-pill.hyperframes strong {
+        color: var(--hyper-soft);
+      }
+
+      .model-grid {
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 32px;
+      }
+
+      .model-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+      }
+
+      .model-heading h1 {
+        margin: 18px 0 0;
+        font-size: 72px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+
+      .model-heading p {
+        max-width: 560px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 23px;
+        line-height: 1.5;
+      }
+
+      .model-columns {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .model-card {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 610px;
+        padding: 34px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: var(--panel);
+      }
+
+      .model-card::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 3px;
+        content: "";
+      }
+
+      .model-card.remotion::before {
+        background: var(--remotion);
+      }
+
+      .model-card.hyperframes::before {
+        background: var(--hyper);
+      }
+
+      .model-card header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .model-card h2 {
+        margin: 0;
+        font-size: 36px;
+        letter-spacing: -0.03em;
+      }
+
+      .model-card header span {
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .pipeline {
+        position: relative;
+        display: grid;
+        align-content: center;
+        gap: 18px;
+        padding: 62px 0 20px;
+      }
+
+      .pipeline-row {
+        display: grid;
+        grid-template-columns: 218px 28px minmax(0, 1fr);
+        align-items: center;
+        gap: 14px;
+      }
+
+      .pipeline-token,
+      .pipeline-output {
+        display: flex;
+        min-height: 72px;
+        align-items: center;
+        padding: 0 20px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel-strong);
+        font-family: ui-monospace, monospace;
+        font-size: 18px;
+      }
+
+      .pipeline-arrow {
+        color: var(--muted);
+        font-size: 24px;
+      }
+
+      .pipeline-dot {
+        position: absolute;
+        top: 28px;
+        left: 18px;
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 24px currentColor;
+      }
+
+      .remotion .pipeline-dot {
+        color: var(--remotion);
+      }
+
+      .hyperframes .pipeline-dot {
+        color: var(--hyper);
+      }
+
+      .model-result {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .model-result strong {
+        color: var(--ink);
+        font-size: 20px;
+      }
+
+      .shared-core {
+        position: absolute;
+        right: 50%;
+        top: -26px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--canvas);
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 750;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transform: translateX(50%);
+      }
+
+      .matrix-grid {
+        grid-template-columns: 470px minmax(0, 1fr);
+        align-items: center;
+        gap: 80px;
+      }
+
+      .matrix-copy h1 {
+        margin: 24px 0 26px;
+        font-size: 76px;
+        letter-spacing: -0.045em;
+        line-height: 1.02;
+      }
+
+      .matrix-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 24px;
+        line-height: 1.5;
+      }
+
+      .matrix {
+        position: relative;
+        display: grid;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: var(--panel);
+      }
+
+      .matrix-header,
+      .matrix-row {
+        display: grid;
+        grid-template-columns: 220px 1fr 1fr;
+        align-items: center;
+        min-height: 108px;
+        padding: 0 32px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .matrix-header {
+        min-height: 82px;
+        background: var(--panel-strong);
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 760;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .matrix-row:last-child {
+        border-bottom: 0;
+      }
+
+      .matrix-row strong {
+        font-size: 20px;
+      }
+
+      .matrix-row span {
+        color: var(--muted);
+        font-size: 20px;
+      }
+
+      .matrix-row .best {
+        color: var(--ink);
+      }
+
+      .matrix-selector {
+        position: absolute;
+        top: 84px;
+        right: 16px;
+        left: 16px;
+        display: block;
+        height: 100px;
+        border: 1px solid rgb(77 141 255 / 40%);
+        border-radius: 18px;
+        background: rgb(77 141 255 / 7%);
+        pointer-events: none;
+      }
+
+      .final-grid {
+        place-items: center;
+        text-align: center;
+      }
+
+      .final-lockup {
+        display: grid;
+        width: min(1420px, 100%);
+        place-items: center;
+      }
+
+      .runtime-pair {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .runtime-word {
+        font-size: 72px;
+        font-weight: 760;
+        letter-spacing: -0.045em;
+      }
+
+      .runtime-word.remotion {
+        justify-self: end;
+        color: var(--remotion-soft);
+      }
+
+      .runtime-word.hyperframes {
+        justify-self: start;
+        color: var(--hyper-soft);
+      }
+
+      .runtime-join {
+        display: flex;
+        width: 92px;
+        height: 92px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--panel-strong);
+        color: var(--ink);
+        font-size: 25px;
+        font-weight: 800;
+      }
+
+      .final-rule {
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin: 64px 0 58px;
+        background: linear-gradient(90deg, var(--remotion), var(--line) 48%, var(--hyper));
+        transform-origin: center;
+      }
+
+      .final-title {
+        margin: 0;
+        max-width: 1280px;
+        font-size: 88px;
+        font-weight: 740;
+        letter-spacing: -0.045em;
+        line-height: 1.02;
+      }
+
+      .final-copy {
+        margin: 28px 0 0;
+        color: var(--muted);
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main data-hf-id="hf-8ihk" id="root" data-composition-id="remotion-comparison" data-start="0" data-duration="20" data-fps="30" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-3ma3" class="stage-ground" aria-hidden="true"></div>
+
+      <div data-hf-id="hf-9lbi" id="comparison-hud" class="clip hud-layer" data-start="0" data-duration="20" data-track-index="2">
+        <header data-hf-id="hf-kve3" class="hud">
+          <div data-hf-id="hf-vaab" class="hud-brand">
+            <span data-hf-id="hf-c8fd" class="hud-mark" aria-hidden="true"></span>
+            <span data-hf-id="hf-37b4">Runtime comparison / 01</span>
+          </div>
+          <div data-hf-id="hf-qkwv" class="hud-time">
+            <span data-hf-id="hf-1wri">20 sec</span>
+            <span data-hf-id="hf-azpo" class="hud-status">Deterministic HTML</span>
+          </div>
+        </header>
+        <div data-hf-id="hf-po2k" class="progress" aria-hidden="true">
+          <span data-hf-id="hf-dxos" class="progress-value"></span>
+        </div>
+      </div>
+
+      <section data-hf-id="hf-n9tj" id="comparison-hook" class="clip scene" data-start="0" data-duration="4.5" data-track-index="1">
+        <div data-hf-id="hf-2gi2" id="comparison-hook-stage" class="scene-stage hero-grid">
+          <div data-hf-id="hf-yeow">
+            <h1 data-hf-id="hf-e5h7" class="hero-title">
+              <span data-hf-id="hf-v4rk">VIDEO</span>
+              <span data-hf-id="hf-ifbu" class="accent">AS CODE.</span>
+            </h1>
+          </div>
+          <div data-hf-id="hf-6xnd" class="question-panel">
+            <p data-hf-id="hf-buvq" class="question">Where should the timeline live?</p>
+            <div data-hf-id="hf-6tld" class="runtime-pill remotion">
+              <strong data-hf-id="hf-nmdp">Remotion</strong>
+              <span data-hf-id="hf-13ub">React → frame</span>
+            </div>
+            <div data-hf-id="hf-639c" class="runtime-pill hyperframes">
+              <strong data-hf-id="hf-0ubi">HyperFrames</strong>
+              <span data-hf-id="hf-fzqf">HTML → time</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-hf-id="hf-goyw" id="comparison-models" class="clip scene" data-start="4.5" data-duration="5.5" data-track-index="1">
+        <div data-hf-id="hf-n4gk" id="comparison-models-stage" class="scene-stage model-grid">
+          <div data-hf-id="hf-u7t6" class="model-heading">
+            <div data-hf-id="hf-y7yw">
+              <h1 data-hf-id="hf-2nvq">Same output. Different mental model.</h1>
+            </div>
+            <p data-hf-id="hf-6bkd">
+              How a frame is produced is deterministic in both systems. The difference
+              is the authoring surface you choose to control.
+            </p>
+          </div>
+          <div data-hf-id="hf-b3xd" class="model-columns">
+            <article data-hf-id="hf-rh18" class="model-card remotion">
+              <header data-hf-id="hf-0drs">
+                <h2 data-hf-id="hf-uzzo">Remotion</h2>
+                <span data-hf-id="hf-s9iq">React composition</span>
+              </header>
+              <div data-hf-id="hf-vcte" class="pipeline">
+                <span data-hf-id="hf-38i6" class="pipeline-dot" aria-hidden="true"></span>
+                <div data-hf-id="hf-4wzp" class="pipeline-row">
+                  <div data-hf-id="hf-qxmi" class="pipeline-token">frame 142</div>
+                  <div data-hf-id="hf-5r10" class="pipeline-arrow">→</div>
+                  <div data-hf-id="hf-bzu3" class="pipeline-output">&lt;Composition /&gt;</div>
+                </div>
+                <div data-hf-id="hf-8cbd" class="pipeline-row">
+                  <div data-hf-id="hf-tbiw" class="pipeline-token">useCurrentFrame()</div>
+                  <div data-hf-id="hf-2xik" class="pipeline-arrow">→</div>
+                  <div data-hf-id="hf-ljnx" class="pipeline-output">React render</div>
+                </div>
+                <div data-hf-id="hf-9j8g" class="pipeline-row">
+                  <div data-hf-id="hf-biry" class="pipeline-token">interpolate()</div>
+                  <div data-hf-id="hf-1qlh" class="pipeline-arrow">→</div>
+                  <div data-hf-id="hf-j80p" class="pipeline-output">pixels</div>
+                </div>
+              </div>
+              <footer data-hf-id="hf-wcx1" class="model-result">
+                <span data-hf-id="hf-s1td">Primary coordinate</span>
+                <strong data-hf-id="hf-gzrv">FRAME</strong>
+              </footer>
+            </article>
+
+            <article data-hf-id="hf-t0y3" class="model-card hyperframes">
+              <header data-hf-id="hf-igeo">
+                <h2 data-hf-id="hf-357d">HyperFrames</h2>
+                <span data-hf-id="hf-p1d2">HTML composition</span>
+              </header>
+              <div data-hf-id="hf-asue" class="pipeline">
+                <span data-hf-id="hf-hfpu" class="pipeline-dot" aria-hidden="true"></span>
+                <div data-hf-id="hf-94xf" class="pipeline-row">
+                  <div data-hf-id="hf-3gj5" class="pipeline-token">t = 4.733s</div>
+                  <div data-hf-id="hf-24wi" class="pipeline-arrow">→</div>
+                  <div data-hf-id="hf-jai2" class="pipeline-output">timeline.seek(t)</div>
+                </div>
+                <div data-hf-id="hf-75ea" class="pipeline-row">
+                  <div data-hf-id="hf-g7u7" class="pipeline-token">data-start</div>
+                  <div data-hf-id="hf-44fn" class="pipeline-arrow">→</div>
+                  <div data-hf-id="hf-4exo" class="pipeline-output">browser paint</div>
+                </div>
+                <div data-hf-id="hf-6r39" class="pipeline-row">
+                  <div data-hf-id="hf-i0e9" class="pipeline-token">HTML + GSAP</div>
+                  <div data-hf-id="hf-4iqo" class="pipeline-arrow">→</div>
+                  <div data-hf-id="hf-wjl9" class="pipeline-output">pixels</div>
+                </div>
+              </div>
+              <footer data-hf-id="hf-9w3d" class="model-result">
+                <span data-hf-id="hf-m145">Primary coordinate</span>
+                <strong data-hf-id="hf-5t4b">TIME</strong>
+              </footer>
+            </article>
+            <div data-hf-id="hf-a1m5" class="shared-core">Same time → same pixels</div>
+          </div>
+        </div>
+      </section>
+
+      <section data-hf-id="hf-z457" id="comparison-decision" class="clip scene" data-start="10" data-duration="5" data-track-index="1">
+        <div data-hf-id="hf-xzma" id="comparison-decision-stage" class="scene-stage matrix-grid">
+          <div data-hf-id="hf-3drv" class="matrix-copy">
+            <h1 data-hf-id="hf-62ab">Choose the authoring model, not a winner.</h1>
+            <p data-hf-id="hf-h5ou">
+              The real trade-off is where you think. Remotion speaks React;
+              HyperFrames speaks the browser. Both still need direction, iteration,
+              and review.
+            </p>
+          </div>
+          <div data-hf-id="hf-mht7" class="matrix">
+            <div data-hf-id="hf-vssg" class="matrix-selector" aria-hidden="true"></div>
+            <div data-hf-id="hf-qckj" class="matrix-header">
+              <span data-hf-id="hf-8ee7">Decision</span>
+              <span data-hf-id="hf-bgi6">Remotion</span>
+              <span data-hf-id="hf-j4xb">HyperFrames</span>
+            </div>
+            <div data-hf-id="hf-r6xc" class="matrix-row">
+              <strong data-hf-id="hf-3wbn">Authoring</strong>
+              <span data-hf-id="hf-hgtq" class="best">React components</span>
+              <span data-hf-id="hf-59sh">HTML / DOM</span>
+            </div>
+            <div data-hf-id="hf-c148" class="matrix-row">
+              <strong data-hf-id="hf-neh2">Time model</strong>
+              <span data-hf-id="hf-zd6b">Frames</span>
+              <span data-hf-id="hf-prpz" class="best">Seconds + seek</span>
+            </div>
+            <div data-hf-id="hf-au75" class="matrix-row">
+              <strong data-hf-id="hf-c0tz">Best fit</strong>
+              <span data-hf-id="hf-dpf2" class="best">React products</span>
+              <span data-hf-id="hf-s7n7">Web-native motion</span>
+            </div>
+            <div data-hf-id="hf-b8i6" class="matrix-row">
+              <strong data-hf-id="hf-rfdj">Agent editing</strong>
+              <span data-hf-id="hf-yaew">Typed component tree</span>
+              <span data-hf-id="hf-neu0" class="best">Direct document surface</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-hf-id="hf-y6wc" id="comparison-close" class="clip scene" data-start="15" data-duration="5" data-track-index="1">
+        <div data-hf-id="hf-hrsl" id="comparison-close-stage" class="scene-stage final-grid">
+          <div data-hf-id="hf-gcvj" class="final-lockup">
+            <div data-hf-id="hf-r3dd" class="runtime-pair">
+              <span data-hf-id="hf-qfhm" class="runtime-word remotion">Remotion</span>
+              <span data-hf-id="hf-vpwd" class="runtime-join">+</span>
+              <span data-hf-id="hf-w4t8" class="runtime-word hyperframes">HyperFrames</span>
+            </div>
+            <span data-hf-id="hf-1yz5" class="final-rule" aria-hidden="true"></span>
+            <h1 data-hf-id="hf-44tu" class="final-title">The runtime is a medium. The workflow makes the film.</h1>
+            <p data-hf-id="hf-t33u" class="final-copy">Choose the system you can inspect, refine, and repeat.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./vendor/gsap.min.js"></script>
+    <script>
+      (() => {
+        const root = document.querySelector("[data-composition-id]");
+        if (!root || !window.gsap) {
+          throw new Error("The comparison composition requires its root and GSAP runtime.");
+        }
+
+        const duration = 20;
+        const timeline = window.gsap.timeline({ paused: true });
+        const current = "power4";
+
+        timeline.fromTo(
+          ".progress-value",
+          { scaleX: 0 },
+          { scaleX: 1, duration, ease: "none" },
+          0,
+        );
+
+        timeline.fromTo(
+          "#comparison-hook-stage",
+          { y: 48, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.65, ease: "power4.out" },
+          0.12,
+        );
+        timeline.fromTo(
+          ".hero-title span",
+          { y: 74, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: "power4.out",
+          },
+          0.28,
+        );
+        timeline.fromTo(
+          ".runtime-pill",
+          { y: 44, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.48,
+            stagger: 0.1,
+            ease: "power4.out",
+          },
+          0.82,
+        );
+        timeline.to(
+          ".question-panel",
+          { y: -12, duration: 1.7, ease: "power1.inOut" },
+          2.05,
+        );
+
+        timeline.to(
+          "#comparison-hook-stage",
+          { x: -230, duration: 0.36, ease: `${current}.in` },
+          4.14,
+        );
+        timeline.to(
+          "#comparison-hook-stage",
+          { opacity: 0, duration: 0.18, ease: "none" },
+          4.30,
+        );
+        timeline.fromTo(
+          "#comparison-models-stage",
+          { x: 230, opacity: 0.35 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.36,
+            ease: `${current}.out`,
+            immediateRender: false,
+          },
+          4.5,
+        );
+        timeline.fromTo(
+          ".model-card",
+          { y: 36, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.52,
+            stagger: 0.08,
+            ease: "power3.out",
+            immediateRender: false,
+          },
+          5.0,
+        );
+        timeline.fromTo(
+          ".model-card.remotion .pipeline-dot",
+          { x: 0 },
+          { x: 540, duration: 1.05, repeat: 2, repeatDelay: 0.28, ease: "none" },
+          5.55,
+        );
+        timeline.fromTo(
+          ".model-card.hyperframes .pipeline-dot",
+          { x: 0 },
+          { x: 540, duration: 1.05, repeat: 2, repeatDelay: 0.28, ease: "none" },
+          5.72,
+        );
+        timeline.fromTo(
+          ".shared-core",
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.46,
+            ease: "power3.out",
+            immediateRender: false,
+          },
+          7.25,
+        );
+        timeline.to(
+          "#comparison-models-stage",
+          { x: -230, duration: 0.36, ease: `${current}.in` },
+          9.64,
+        );
+        timeline.to(
+          "#comparison-models-stage",
+          { opacity: 0, duration: 0.18, ease: "none" },
+          9.80,
+        );
+
+        timeline.fromTo(
+          "#comparison-decision-stage",
+          { x: 230, opacity: 0.35 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.36,
+            ease: `${current}.out`,
+            immediateRender: false,
+          },
+          10,
+        );
+        timeline.fromTo(
+          ".matrix-row",
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.42,
+            stagger: 0.09,
+            ease: "power3.out",
+            immediateRender: false,
+          },
+          10.48,
+        );
+        timeline.to(
+          ".matrix-selector",
+          { y: 108, duration: 0.65, ease: "power3.inOut" },
+          11.5,
+        );
+        timeline.to(
+          ".matrix-selector",
+          { y: 216, duration: 0.65, ease: "power3.inOut" },
+          12.35,
+        );
+        timeline.to(
+          ".matrix-selector",
+          { y: 324, duration: 0.65, ease: "power3.inOut" },
+          13.2,
+        );
+        timeline.to(
+          "#comparison-decision-stage",
+          { x: -230, duration: 0.36, ease: `${current}.in` },
+          14.64,
+        );
+        timeline.to(
+          "#comparison-decision-stage",
+          { opacity: 0, duration: 0.18, ease: "none" },
+          14.80,
+        );
+
+        timeline.fromTo(
+          "#comparison-close-stage",
+          { x: 230, opacity: 0.35 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.36,
+            ease: `${current}.out`,
+            immediateRender: false,
+          },
+          15,
+        );
+        timeline.fromTo(
+          ".runtime-word.remotion",
+          { x: -120, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.64,
+            ease: "power4.out",
+            immediateRender: false,
+          },
+          15.42,
+        );
+        timeline.fromTo(
+          ".runtime-word.hyperframes",
+          { x: 120, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.64,
+            ease: "power4.out",
+            immediateRender: false,
+          },
+          15.42,
+        );
+        timeline.fromTo(
+          ".runtime-join",
+          { scale: 0.74, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.48,
+            ease: "back.out(1.45)",
+            immediateRender: false,
+          },
+          15.82,
+        );
+        timeline.fromTo(
+          ".final-rule",
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            duration: 0.72,
+            ease: "power3.out",
+            immediateRender: false,
+          },
+          16.16,
+        );
+        timeline.fromTo(
+          ".final-title",
+          { y: 42, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.62,
+            ease: "power4.out",
+            immediateRender: false,
+          },
+          16.62,
+        );
+        timeline.fromTo(
+          ".final-copy",
+          { y: 24, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            immediateRender: false,
+          },
+          17.02,
+        );
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["remotion-comparison"] = timeline;
+      })();
+    </script>
+  </body>
+</html>

@@ -15,6 +15,7 @@
       "!**/build",
       "!**/output",
       "!**/.agents",
+      "!apps/hyperframes/videos/**/vendor",
       "!packages/animation-pipeline/examples/**/generated",
       "!packages/animation-pipeline/examples/**/fixtures/*-qa-report.json",
       "!packages/animation-pipeline/schema",

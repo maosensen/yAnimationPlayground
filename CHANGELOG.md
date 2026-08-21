@@ -9,6 +9,23 @@ playground keeps as its UI and engineering foundation.
 
 ## [Unreleased]
 
+## [0.8.2] - 2026-08-21
+
+### Added
+
+- **HyperFrames principles guide** — inspect the time-to-frame model, renderer
+  responsibilities, production-chain boundaries, and a 30/60/90 quality rubric
+  backed by three product-video experiments.
+- **Runnable renderer comparison** — play, pause, seek, restart, and jump
+  between chapters in a deterministic 20-second HTML animation that compares
+  Remotion's frame model with HyperFrames' time-and-seek model.
+
+### Changed
+
+- **Applied-video evidence stays honest** — the first TanStarter draft and its
+  production artifacts remain available as research evidence, while the v0.9
+  flagship stays in progress after correcting the source-product identity.
+
 ## [0.8.1] - 2026-08-18
 
 ### Added
@@ -310,7 +327,8 @@ First release — a themeable Next.js dashboard template.
 - **Changelog page** — curated release notes on a timeline at `/changelog`,
   rendered from a typed changelog module.
 
-[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/maosensen/yAnimationPlayground/compare/v0.8.2...HEAD
+[0.8.2]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.2
 [0.8.1]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.1
 [0.8.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.8.0
 [0.7.0]: https://github.com/maosensen/yAnimationPlayground/releases/tag/v0.7.0

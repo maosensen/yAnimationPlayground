@@ -1,0 +1,349 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Inter Variable Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+
+    @font-face {
+      font-family: "Inter Variable";
+      src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+
+    @font-face {
+      font-family: "Noto Sans SC";
+      src: url("assets/fonts/noto-sans-sc-chinese-simplified-400-normal.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      container-type: size;
+      color: #0a0a0a;
+    }
+
+    .frame-f07-cta-ground {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    .frame-f07-cta-statement {
+      position: absolute;
+      top: 9.8cqh;
+      left: 4.2cqw;
+      right: 4.2cqw;
+      height: 24cqh;
+      display: flex;
+      align-items: center;
+      gap: 1.25cqw;
+      white-space: nowrap;
+    }
+
+    .frame-f07-cta-phrase {
+      display: block;
+      font-family: "Noto Sans SC";
+      font-size: 4.6cqw;
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+    }
+
+    .frame-f07-cta-phrase-separator {
+      display: block;
+      width: 3.6cqw;
+      height: 1px;
+      margin-inline: 0.2cqw;
+      background: rgba(10, 10, 10, 0.2);
+      transform-origin: left center;
+    }
+
+    .frame-f07-cta-lockup {
+      position: absolute;
+      top: 37.5cqh;
+      left: 4.2cqw;
+      right: 5.8cqw;
+      height: 22cqh;
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid rgba(10, 10, 10, 0.12);
+      padding-top: 3.2cqh;
+    }
+
+    .frame-f07-cta-brand {
+      display: block;
+      font-family: "Inter Variable Variable";
+      font-size: 7.3cqw;
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.022em;
+    }
+
+    .frame-f07-cta-index {
+      display: block;
+      margin-bottom: 1.25cqh;
+      font-family: "JetBrains Mono";
+      font-size: 1.35cqw;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: rgba(10, 10, 10, 0.58);
+    }
+
+    .frame-f07-cta-terminal-stage {
+      position: absolute;
+      top: 64.2cqh;
+      left: 4.2cqw;
+      right: 4.2cqw;
+      height: 12.2cqh;
+      display: grid;
+      place-items: center;
+    }
+
+    .frame-f07-cta-morph-card {
+      position: relative;
+      width: 91.6cqw;
+      height: 12.2cqh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 66px;
+      background: #181715;
+      box-shadow: 0 1px 3px rgba(10, 10, 10, 0.08), 0 4px 16px rgba(10, 10, 10, 0.04);
+      will-change: transform;
+    }
+
+    .frame-f07-cta-content-old,
+    .frame-f07-cta-content-new {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .frame-f07-cta-content-old {
+      font-family: "JetBrains Mono";
+      font-size: 2.4cqw;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .frame-f07-cta-terminal {
+      width: calc(100% - 5cqw);
+      display: flex;
+      align-items: baseline;
+      gap: 1.15cqw;
+      font-family: "JetBrains Mono";
+      font-size: 2.35cqw;
+      font-weight: 400;
+      line-height: 1;
+      color: #ffffff;
+      white-space: pre;
+    }
+
+    .frame-f07-cta-prompt {
+      flex: 0 0 auto;
+      color: rgba(255, 255, 255, 0.52);
+    }
+
+    .frame-f07-cta-text-wrap {
+      display: inline-flex;
+      align-items: baseline;
+      min-width: 63cqw;
+      white-space: pre;
+    }
+
+    .frame-f07-cta-command {
+      white-space: pre;
+    }
+
+    .frame-f07-cta-cursor {
+      display: inline-block;
+      width: 0.86cqw;
+      height: 2.25cqw;
+      margin-left: 0.34cqw;
+      background: #ffffff;
+      vertical-align: -0.32cqw;
+    }
+  </style>
+
+  <div data-hf-id="hf-i49z" id="root" data-composition-id="07-cta" data-start="0" data-duration="4.2" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-9no4" id="frame-f07-cta-ground" class="clip frame-f07-cta-ground" data-start="0" data-duration="4.2" data-track-index="0"></div>
+
+    <div data-hf-id="hf-o887" id="frame-f07-cta-statement" class="clip frame-f07-cta-statement" data-start="0" data-duration="4.2" data-track-index="1">
+      <span data-hf-id="hf-d9n2" class="frame-f07-cta-phrase" data-f07-cta-phrase="">少写脚手架</span>
+      <span data-hf-id="hf-e4xc" class="frame-f07-cta-phrase-separator" data-f07-cta-rule=""></span>
+      <span data-hf-id="hf-y4ip" class="frame-f07-cta-phrase" data-f07-cta-phrase="">直接写</span>
+      <span data-hf-id="hf-2h54" class="frame-f07-cta-phrase-separator" data-f07-cta-rule=""></span>
+      <span data-hf-id="hf-bt1x" class="frame-f07-cta-phrase" data-f07-cta-phrase="">产品</span>
+    </div>
+
+    <div data-hf-id="hf-zztz" id="frame-f07-cta-lockup" class="clip frame-f07-cta-lockup" data-start="0" data-duration="4.2" data-track-index="2" data-layout-allow-overflow="">
+      <span data-hf-id="hf-2wr7" class="frame-f07-cta-brand" data-f07-cta-brand="">TanStarter</span>
+      <span data-hf-id="hf-xt3x" class="frame-f07-cta-index" data-f07-cta-index="">START WITH PRODUCT CODE</span>
+    </div>
+
+    <div data-hf-id="hf-qck7" id="frame-f07-cta-terminal-stage" class="clip frame-f07-cta-terminal-stage" data-start="0" data-duration="4.2" data-track-index="3">
+      <div data-hf-id="hf-zibj" class="frame-f07-cta-morph-card" data-f07-cta-card="">
+        <div data-hf-id="hf-o5h0" class="frame-f07-cta-content-old" data-f07-cta-old="">›</div>
+        <div data-hf-id="hf-byyc" class="frame-f07-cta-content-new" data-f07-cta-new="">
+          <div data-hf-id="hf-snyl" class="frame-f07-cta-terminal">
+            <span data-hf-id="hf-wfeq" class="frame-f07-cta-prompt">$</span>
+            <span data-hf-id="hf-3p7i" class="frame-f07-cta-text-wrap">
+              <span data-hf-id="hf-scfn" class="frame-f07-cta-command" id="frame-f07-cta-command"></span><span data-hf-id="hf-w59j" class="frame-f07-cta-cursor" id="frame-f07-cta-cursor"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.querySelector('[data-composition-id="07-cta"]');
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["07-cta"] = tl;
+
+      const phraseNodes = Array.from(root.querySelectorAll("[data-f07-cta-phrase]"));
+      const ruleNodes = Array.from(root.querySelectorAll("[data-f07-cta-rule]"));
+      const phraseContent = ["少写脚手架", "直接写", "产品"];
+      const phraseRawDurations = phraseContent.map((text) => 0.18 + text.length * 0.035);
+      const phraseTotal = phraseRawDurations.reduce((sum, duration) => sum + duration, 0);
+      let phraseCursor = 0.04;
+      const phraseTimeline = phraseRawDurations.map((duration) => {
+        const scaledDuration = (duration / phraseTotal) * 0.86;
+        const entry = { start: phraseCursor, duration: scaledDuration };
+        phraseCursor += scaledDuration;
+        return entry;
+      });
+
+      phraseTimeline.forEach((entry, index) => {
+        tl.fromTo(
+          phraseNodes[index],
+          { x: -145, opacity: 0 },
+          { x: 0, opacity: 1, duration: entry.duration, ease: "power2.out" },
+          entry.start,
+        );
+        if (ruleNodes[index]) {
+          tl.fromTo(
+            ruleNodes[index],
+            { scaleX: 0, opacity: 0 },
+            { scaleX: 1, opacity: 1, duration: 0.18, ease: "power1.out" },
+            entry.start + entry.duration * 0.68,
+          );
+        }
+      });
+
+      tl.fromTo(
+        root.querySelector("[data-f07-cta-card]"),
+        {
+          scale: 0.16,
+          borderRadius: 320,
+          backgroundColor: "#252320",
+          boxShadow: "0 0 0 rgba(10, 10, 10, 0)",
+        },
+        {
+          scale: 1,
+          borderRadius: 66,
+          backgroundColor: "#181715",
+          boxShadow: "0 1px 3px rgba(10, 10, 10, 0.08), 0 4px 16px rgba(10, 10, 10, 0.04)",
+          duration: 0.75,
+          ease: "power2.inOut",
+        },
+        1.6,
+      );
+      tl.fromTo(
+        root.querySelector("[data-f07-cta-old]"),
+        { opacity: 1 },
+        { opacity: 0, duration: 0.3, ease: "power1.in" },
+        1.6,
+      );
+      tl.fromTo(
+        root.querySelector("[data-f07-cta-new]"),
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power1.out" },
+        2.05,
+      );
+
+      tl.fromTo(
+        root.querySelector("[data-f07-cta-brand]"),
+        { y: 34, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.52, ease: "power2.out" },
+        2.72,
+      );
+      tl.fromTo(
+        root.querySelector("[data-f07-cta-index]"),
+        { x: 28, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.38, ease: "power1.out" },
+        2.96,
+      );
+
+      const commandEl = root.querySelector("#frame-f07-cta-command");
+      const cursorEl = root.querySelector("#frame-f07-cta-cursor");
+      const sequence = [
+        { t: 0, text: "", segment: "main", color: "#FFFFFF" },
+        { t: 0.56, text: "p", segment: "main", color: "#FFFFFF" },
+        { t: 0.67, text: "pnpm", segment: "main", color: "#FFFFFF" },
+        { t: 0.81, text: "pnpm cr", segment: "main", color: "#FFFFFF" },
+        { t: 0.94, text: "pnpm create", segment: "main", color: "#FFFFFF" },
+        { t: 1.08, text: "pnpm create ", segment: "package", color: "#F0B100" },
+        { t: 1.2, text: "pnpm create mug", segment: "package", color: "#F0B100" },
+        { t: 1.34, text: "pnpm create mugnav", segment: "package", color: "#F0B100" },
+        { t: 1.5, text: "pnpm create mugnavo", segment: "package", color: "#F0B100" },
+      ];
+      const changeTimes = sequence
+        .filter((entry, index) => index > 0 && entry.text !== sequence[index - 1].text)
+        .map((entry) => entry.t);
+      const entryAt = (time) => {
+        for (let index = sequence.length - 1; index >= 0; index -= 1) {
+          if (time >= sequence[index].t) return sequence[index];
+        }
+        return sequence[0];
+      };
+      const commandDriver = { t: 0 };
+      const commandDuration = 2.6;
+      let lastCommandText = null;
+      tl.to(
+        commandDriver,
+        {
+          t: commandDuration,
+          duration: commandDuration,
+          ease: "none",
+          onUpdate: () => {
+            const entry = entryAt(commandDriver.t);
+            if (entry.text !== lastCommandText) {
+              commandEl.textContent = entry.text;
+              lastCommandText = entry.text;
+            }
+            cursorEl.style.background = entry.color;
+            const isTyping = changeTimes.some(
+              (changeTime) => changeTime <= commandDriver.t && commandDriver.t - changeTime < 0.09,
+            );
+            const blinkPhase = (commandDriver.t / commandDuration) * Math.PI * 2 * 4;
+            cursorEl.style.opacity = isTyping || Math.sin(blinkPhase) > 0 ? "1" : "0";
+          },
+        },
+        1.6,
+      );
+    })();
+  </script>
+</template>

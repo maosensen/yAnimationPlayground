@@ -1,0 +1,228 @@
+<template id="captions-template" data-composition-id="captions" data-width="1920" data-height="1080">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+
+<style data-brand-tokens="">
+      :root {
+      --ink: #0A0A0A;
+      --cream: #FFFFFF;
+      --tile: #FFCED0;
+      --tile-strong: #E7000B;
+      --coral: #F0B100;
+      --navy: #181715;
+      --navy-soft: #1F1E1B;
+      --navy-elev: #252320;
+      --cap-ink: #0A0A0A;
+      --cap-canvas: #FFFFFF;
+      --cap-accent: #F0B100;
+      --cap-accent-2: #E7000B;
+      --font-display: "Inter Variable Variable", system-ui, serif;
+      --font-body: "Inter Variable", system-ui, sans-serif;
+      --cap-band-top: 900px;
+      --cap-band-height: 180px;
+      }
+    </style>
+
+<style>
+  @font-face {
+    font-family: "Inter Variable";
+    src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: "TanStarter CJK";
+    src: url("assets/fonts/noto-sans-sc-chinese-simplified-400-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+  }
+
+  #captions-root {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .caption-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+  }
+  /* the keep-out band, from captionBand(H) — frame content stays above it */
+  .caption-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--cap-band-top, 900px) - 36px);
+    height: calc(var(--cap-band-height, 180px) + 36px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caption-group {
+    /* every group is absolutely stacked over the SAME band — exactly one shown at a
+       time via opacity. Must be absolute: in-flow groups would lay out side-by-side. */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  /* THE lifted cream card — warm cream fill, 1px hairline ink border, one soft warm
+     shadow (code-editorial's only elevation language), 12px radius, no tilt */
+  .caption-pill {
+    max-width: 84%;
+    padding: 14px 32px 18px;
+    background: var(--cap-canvas, #faf9f5);
+    border: 1px solid color-mix(in srgb, var(--cap-ink, #141413) 12%, transparent);
+    border-radius: 12px;
+    box-shadow:
+      0 1px 3px color-mix(in srgb, var(--cap-ink, #141413) 8%, transparent),
+      0 4px 16px color-mix(in srgb, var(--cap-ink, #141413) 4%, transparent);
+  }
+  .caption-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.12em 0.3em;
+    font-family: "TanStarter CJK", "Inter Variable", sans-serif;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* upcoming — faint warm ink, no underline */
+  .caption-word {
+    display: inline-block;
+    padding: 0 0.02em 0.06em;
+    color: color-mix(in srgb, var(--cap-ink, #141413) 40%, var(--cap-canvas, #faf9f5));
+    border-bottom: 3px solid transparent;
+  }
+  /* current word — full ink under the coral voltage underline (the brand's signature
+     inline-link gesture; border-bottom = underline without layout shift) */
+  .caption-word.is-active {
+    color: var(--cap-ink, #141413);
+    border-bottom: 3px solid var(--cap-accent, #cc785c);
+  }
+  /* already spoken — solid warm ink, underline cleared */
+  .caption-word.is-spoken {
+    color: var(--cap-ink, #141413);
+    border-bottom: 3px solid transparent;
+  }
+
+  /* optional per-word accents (dormant until a word-classer tags them) */
+  /* brand / key term — the expressive EB Garamond italic */
+  .caption-word.cap-brand {
+    font-style: italic;
+    color: var(--cap-ink, #141413);
+  }
+  .caption-word.cap-brand.is-active {
+    border-bottom: 3px solid var(--cap-accent, #cc785c);
+  }
+  /* numerals / data — slightly recessed warm ink */
+  .caption-word.cap-num {
+    color: color-mix(in srgb, var(--cap-ink, #141413) 72%, var(--cap-canvas, #faf9f5));
+  }
+  /* emphasis — a persistent coral voltage underline */
+  .caption-word.cap-cta {
+    border-bottom: 3px solid var(--cap-accent-2, #b5654a);
+    color: var(--cap-ink, #141413);
+  }
+
+  @media (max-aspect-ratio: 9/16) {
+    .caption-pill {
+      max-width: 92%;
+    }
+    .caption-line {
+      font-size: clamp(34px, 5.4vw, 46px);
+    }
+  }
+</style>
+
+<div data-hf-id="hf-3fpp" id="captions-root" data-composition-id="captions" data-timeline-locked="" data-start="0" data-duration="41.8" data-fps="30" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-9flp" class="caption-layer" aria-hidden="true">
+    <div data-hf-id="hf-ajrg" id="caption-stage" class="caption-stage"></div>
+  </div>
+</div>
+
+<script>
+  // captions.mjs injects the engine's scene-aware groups + real duration here.
+  var GROUPS = [{"id":"caption-group-0","frame":1,"start":0.05,"end":3.92,"text":"你的下一个产品， 不该从重复搭脚手架开始。","words":[{"id":"caption-word-0-0","text":"你的下一个产品，","start":0.05,"end":1.45},{"id":"caption-word-0-1","text":"不该从重复搭脚手架开始。","start":1.45,"end":3.8}]},{"id":"caption-group-1","frame":2,"start":4.25,"end":10.32,"text":"TanStarter， 把现代全栈基础压缩成一个 最小、清晰、能直接继续写的起点。","words":[{"id":"caption-word-1-0","text":"TanStarter，","start":4.25,"end":5.1},{"id":"caption-word-1-1","text":"把现代全栈基础压缩成一个","start":5.1,"end":7.5},{"id":"caption-word-1-2","text":"最小、清晰、能直接继续写的起点。","start":7.5,"end":10.2}]},{"id":"caption-group-2","frame":3,"start":10.65,"end":15.42,"text":"一条命令， 得到 React 19、TanStack Start、 Router 和 Query。","words":[{"id":"caption-word-2-0","text":"一条命令，","start":10.65,"end":11.8},{"id":"caption-word-2-1","text":"得到 React 19、TanStack Start、","start":11.8,"end":14.1},{"id":"caption-word-2-2","text":"Router 和 Query。","start":14.1,"end":15.3}]},{"id":"caption-group-3","frame":4,"start":15.75,"end":22.12,"text":"Better Auth 管身份， Drizzle 连接 PostgreSQL； 类型安全，从路由延伸到服务端。","words":[{"id":"caption-word-3-0","text":"Better Auth 管身份，","start":15.75,"end":17.5},{"id":"caption-word-3-1","text":"Drizzle 连接 PostgreSQL；","start":17.5,"end":19.4},{"id":"caption-word-3-2","text":"类型安全，从路由延伸到服务端。","start":19.4,"end":22}]},{"id":"caption-group-4","frame":5,"start":22.55,"end":30.32,"text":"shadcn UI 与 Base UI 负责界面； Vite Plus、Oxlint、Oxfmt， 把开发和检查收进同一条工具链。","words":[{"id":"caption-word-4-0","text":"shadcn UI 与 Base UI 负责界面；","start":22.55,"end":25.1},{"id":"caption-word-4-1","text":"Vite Plus、Oxlint、Oxfmt，","start":25.1,"end":27.7},{"id":"caption-word-4-2","text":"把开发和检查收进同一条工具链。","start":27.7,"end":30.2}]},{"id":"caption-group-5","frame":6,"start":30.65,"end":37.32,"text":"默认界面保持极简。 认证路由、主题切换和开发工具已经就位； 其余，留给产品本身。","words":[{"id":"caption-word-5-0","text":"默认界面保持极简。","start":30.65,"end":32.3},{"id":"caption-word-5-1","text":"认证路由、主题切换和开发工具已经就位；","start":32.3,"end":35.8},{"id":"caption-word-5-2","text":"其余，留给产品本身。","start":35.8,"end":37.2}]},{"id":"caption-group-6","frame":7,"start":37.65,"end":41.07,"text":"少写脚手架， 直接写产品。 TanStarter。","words":[{"id":"caption-word-6-0","text":"少写脚手架，","start":37.65,"end":38.7},{"id":"caption-word-6-1","text":"直接写产品。","start":38.7,"end":40},{"id":"caption-word-6-2","text":"TanStarter。","start":40,"end":40.95}]}];
+  var DURATION = 41.8;
+
+  (function () {
+    var stage = document.getElementById("caption-stage");
+
+    // build DOM: one .caption-group per group, .caption-word per word
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "caption-group";
+      groupEl.id = "caption-group-" + g;
+      var pill = document.createElement("div");
+      pill.className = "caption-pill";
+      var line = document.createElement("div");
+      line.className = "caption-line";
+      (group.words || []).forEach(function (w, i) {
+        var span = document.createElement("span");
+        span.className = "caption-word";
+        span.id = "caption-word-" + g + "-" + i;
+        span.textContent = String(w.text);
+        line.appendChild(span);
+      });
+      pill.appendChild(line);
+      groupEl.appendChild(pill);
+      stage.appendChild(groupEl);
+    });
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    GROUPS.forEach(function (group, g) {
+      var groupEl = document.getElementById("caption-group-" + g);
+      var words = group.words || [];
+      var next = GROUPS[g + 1];
+      var isLast = g === GROUPS.length - 1;
+      var start = Math.max(0, Number(group.start));
+      var end = isLast ? DURATION : Math.min(Number(next.start), Number(group.end) + 0.3);
+      if (end <= start) end = start + 0.01;
+
+      // group on/off — exactly one group visible at a time
+      tl.set(groupEl, { opacity: 1 }, start);
+      tl.set(groupEl, { opacity: 0 }, end);
+
+      // 3-state karaoke via className SETS — seek-safe (gsap.set applies on the
+      // engine's frame-by-frame seek; .call callbacks would NOT fire).
+      words.forEach(function (w, i) {
+        var el = document.getElementById("caption-word-" + g + "-" + i);
+        var at = Math.max(start, Number(w.start));
+        tl.set(el, { className: "caption-word" }, start); // upcoming (also resets on reverse-seek)
+        tl.set(el, { className: "caption-word is-active" }, at); // current
+        tl.fromTo(el, { scale: 0.98 }, { scale: 1, duration: 0.16, ease: "power1.out" }, at);
+        if (i + 1 < words.length) {
+          var nextAt = Math.max(start, Number(words[i + 1].start));
+          tl.set(el, { className: "caption-word is-spoken" }, nextAt); // demote when next activates
+        }
+      });
+      if (words.length) {
+        var lastEl = document.getElementById("caption-word-" + g + "-" + (words.length - 1));
+        var lastSpoken = Math.min(end, Number(words[words.length - 1].end) + 0.1);
+        tl.set(lastEl, { className: "caption-word is-spoken" }, lastSpoken);
+      }
+    });
+
+    // full-span anchor so the sub-comp timeline spans the whole video
+    tl.to({}, { duration: DURATION }, 0);
+    window.__timelines["captions"] = tl;
+  })();
+</script>
+
+<style>
+  .caption-line { line-height: 1.1 !important; }
+</style>
+</template>

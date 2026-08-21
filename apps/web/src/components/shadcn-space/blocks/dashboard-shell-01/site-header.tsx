@@ -1,4 +1,3 @@
-import { LanguageSwitcher } from "@/components/language-switcher";
 import { SettingsTrigger } from "@/components/settings/settings-drawer";
 import NotificationDropdown from "@/components/shadcn-space/blocks/dashboard-shell-01/notification-dropdown";
 import UserDropdown from "@/components/shadcn-space/blocks/dashboard-shell-01/user-dropdown";
@@ -12,8 +11,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
  * the shell itself.
  *
  * The icon row is one family (Solar, bold-duotone, `size-4.5`) so it reads as
- * a set: language, theming, light/dark, profiles — then this shell's own
- * dashboard affordances (notifications, account) after a divider.
+ * a set: theming, light/dark, profiles — then this shell's own dashboard
+ * affordances (notifications, account) after a divider.
  *
  * Glyphs ride `text-muted-foreground`, not the inherited foreground — at full
  * strength they read as harsh pure black in light mode. On the dark "apparent"
@@ -23,7 +22,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export function SiteHeader() {
   return (
     <div className="flex items-center gap-1.5">
-      <LanguageSwitcher />
       <SettingsTrigger />
       <ThemeToggle className="text-muted-foreground hover:text-foreground" />
       <SocialLinks />

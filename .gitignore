@@ -32,6 +32,15 @@ apps/hyperframes/projects/*/vendor/
 apps/hyperframes/projects/*/src/
 apps/hyperframes/projects/*/.thumbnails/
 apps/hyperframes/projects/*/.waveform-cache/
+apps/hyperframes/videos/*/.hyperframes/
+apps/hyperframes/videos/*/.media/
+apps/hyperframes/videos/*/.thumbnails/
+apps/hyperframes/videos/*/.waveform-cache/
+apps/hyperframes/videos/*/audio_engine_meta.json
+apps/hyperframes/videos/*/caption-overrides.json
+apps/hyperframes/videos/*/caption_groups.json
+apps/hyperframes/videos/*/capture/
+apps/hyperframes/videos/*/snapshots/
 work/
 
 # misc

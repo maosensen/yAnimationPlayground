@@ -1,0 +1,30 @@
+{
+  "duration": 20,
+  "maxStaticSec": 2,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": ".hero-title",
+      "bySec": 1
+    },
+    {
+      "kind": "before",
+      "a": ".hero-title",
+      "b": ".model-card.remotion"
+    },
+    {
+      "kind": "before",
+      "a": ".model-card.remotion",
+      "b": ".matrix"
+    },
+    {
+      "kind": "appearsBy",
+      "selector": ".final-title",
+      "bySec": 17.5
+    },
+    {
+      "kind": "keepsMoving",
+      "withinSelector": "#root"
+    }
+  ]
+}
